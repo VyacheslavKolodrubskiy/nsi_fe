@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import AuthForm from '../components/AuthForm.vue'
-import authDecor from 'assets/img/auth-decor.png'
-import logo from 'assets/img/icons/mechta-logo.svg'
 </script>
 
 <template>
@@ -9,17 +7,7 @@ import logo from 'assets/img/icons/mechta-logo.svg'
     class="bg-color relative-position"
     padding
   >
-    <img
-      alt="logo"
-      class="q-mx-auto q-mt-md block"
-      :src="logo"
-    />
-
-    <img
-      alt="decor"
-      class="absolute-bottom-left"
-      :src="authDecor"
-    />
+    <LogoIcon class="q-mx-auto block q-mt-md" />
 
     <AuthForm />
   </QPage>

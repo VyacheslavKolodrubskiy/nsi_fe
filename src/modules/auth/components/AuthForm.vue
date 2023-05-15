@@ -68,6 +68,7 @@ function onSubmit() {
           <template v-slot:append>
             <QIcon
               class="cursor-pointer"
+              color="#39444E"
               :name="passwordIcon"
               @click="showPassword = !showPassword"
             />
@@ -82,7 +83,7 @@ function onSubmit() {
           />
 
           <QBtn
-            class="q-ml-sm"
+            class="q-pa-md rounded-borders"
             color="primary"
             label="Войти"
             type="submit"
