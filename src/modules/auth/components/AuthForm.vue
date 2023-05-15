@@ -38,7 +38,10 @@ function onSubmit() {
       <div>
         <h2 class="q-mb-sm">Вход в личный кабинет</h2>
 
-        <div style="font-size: 14px; color: #7f8a94">
+        <div
+          class="text-subtitle1"
+          style="color: #7f8a94"
+        >
           Войдите для работы с Мастер-каталогом
         </div>
       </div>
@@ -46,7 +49,7 @@ function onSubmit() {
 
     <QCardSection>
       <QForm
-        class=""
+        class="auth-form"
         @reset="onReset"
         @submit="onSubmit"
       >

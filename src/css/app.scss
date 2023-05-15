@@ -15,3 +15,8 @@ body,
 
 .auth-bg {
 }
+
+// override quasar styles
+.q-field--outlined:hover .q-field__control:before {
+  border-color: $primary;
+}
