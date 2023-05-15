@@ -95,7 +95,7 @@ module.exports = configure((/* ctx */) => {
           'unplugin-vue-components/vite',
           {
             dts: './src/components.d.ts',
-            globs: ['./src/modules/*/components/*.vue'],
+            globs: ['./src/shared/components/*.vue'],
           },
         ],
       ],
