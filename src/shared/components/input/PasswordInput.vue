@@ -10,6 +10,6 @@ const emit = defineEmits(['update:modelValue'])
   <QInput
     :model-value="modelValue"
     type="password"
-    @update:model-value="$emit('update:modelValue', $event)"
+    @update:model-value="emit('update:modelValue', $event)"
   />
 </template>
