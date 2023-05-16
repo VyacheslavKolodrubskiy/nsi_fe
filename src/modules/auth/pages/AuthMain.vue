@@ -8,6 +8,7 @@ import authProfile from 'assets/img/auth-profile.png'
   <QPage
     class="bg-color relative-position"
     padding
+    style="z-index: 1"
   >
     <LogoIcon class="q-mx-auto block q-mt-md" />
 
@@ -16,6 +17,7 @@ import authProfile from 'assets/img/auth-profile.png'
       class="absolute-bottom-left"
       height="180"
       :src="authDecor"
+      style="z-index: -1"
       width="320"
     />
 
@@ -32,6 +34,13 @@ import authProfile from 'assets/img/auth-profile.png'
           width="450"
         />
       </div>
+    </div>
+
+    <div
+      class="text-center"
+      style="font-size: 13px; line-height: 130%; color: #7f8a94"
+    >
+      © 2023 Mechta. Все права защищены.
     </div>
   </QPage>
 </template>

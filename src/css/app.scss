@@ -1,4 +1,5 @@
 @import "mixins";
+@import "quasar.override.scss";
 
 @include font-face("OpenSans", "OpenSans-Regular");
 @include font-face("OpenSans", "OpenSans-Semibold", 600);
