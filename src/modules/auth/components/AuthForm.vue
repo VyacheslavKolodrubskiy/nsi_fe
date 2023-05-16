@@ -30,9 +30,9 @@ function onSubmit() {
 
 <template>
   <QCard
-    class="text-center q-pa-md"
+    class="text-center q-pa-md full-width"
     flat
-    style="border-radius: 10px; width: 400px; min-height: 370px"
+    style="border-radius: 10px; max-width: 400px; min-height: 370px"
   >
     <QCardSection>
       <div>
