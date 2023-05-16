@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import AuthForm from '../components/AuthForm.vue'
+import authDecor from 'assets/img/auth-decor.png'
+import authProfile from 'assets/img/auth-profile.png'
 </script>
 
 <template>
@@ -9,7 +11,28 @@ import AuthForm from '../components/AuthForm.vue'
   >
     <LogoIcon class="q-mx-auto block q-mt-md" />
 
-    <AuthForm />
+    <img
+      alt="auth-decor"
+      class="absolute-bottom-left"
+      height="180"
+      :src="authDecor"
+      width="320"
+    />
+
+    <div class="row no-wrap window-height">
+      <div class="col flex flex-center q-px-md">
+        <AuthForm />
+      </div>
+
+      <div class="col flex flex-center q-px-md">
+        <img
+          alt="auth-profile"
+          height="256"
+          :src="authProfile"
+          width="450"
+        />
+      </div>
+    </div>
   </QPage>
 </template>
 

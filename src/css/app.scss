@@ -1,3 +1,11 @@
+@import "mixins";
+
+@include font-face("OpenSans", "OpenSans-Regular");
+@include font-face("OpenSans", "OpenSans-Semibold", 600);
+@include font-face("OpenSans", "OpenSans-Bold", 700);
+@include font-face("Tahoma", "Tahoma-Regular");
+@include font-face("Tahoma", "Tahoma-Bold", 700);
+
 *,
 *::before,
 *::after {
@@ -13,10 +21,20 @@ body,
   height: 100%;
 }
 
+img {
+  max-width: 100%;
+  display: block;
+  object-fit: contain;
+}
+
 .auth-bg {
 }
 
 // override quasar styles
 .q-field--outlined:hover .q-field__control:before {
   border-color: $primary;
+}
+
+.q-btn .q-focus-helper {
+  display: none;
 }

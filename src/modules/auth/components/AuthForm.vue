@@ -30,12 +30,12 @@ function onSubmit() {
 
 <template>
   <QCard
-    class="text-center q-pa-md full-width"
+    class="text-center q-pa-lg full-width"
     flat
-    style="border-radius: 10px; max-width: 400px; min-height: 370px"
+    style="border-radius: 10px; max-width: 400px"
   >
     <QCardSection>
-      <div>
+      <div class="q-mb-lg">
         <h2 class="q-mb-sm">Вход в личный кабинет</h2>
 
         <div
@@ -45,17 +45,14 @@ function onSubmit() {
           Войдите для работы с Мастер-каталогом
         </div>
       </div>
-    </QCardSection>
 
-    <QCardSection>
       <QForm
-        class="auth-form"
         @reset="onReset"
         @submit="onSubmit"
       >
         <QInput
           v-model="form.email"
-          class="q-mb-md"
+          class="q-mb-md text-subtitle2"
           label="Электронная почта"
           outlined
           type="email"
@@ -63,15 +60,13 @@ function onSubmit() {
 
         <QInput
           v-model="form.password"
-          class="q-mb-md"
           label="Пароль"
           outlined
           :type="passwordType"
         >
           <template v-slot:append>
             <QIcon
-              class="cursor-pointer"
-              color="#39444E"
+              class="cursor-pointer eye-icon-color"
               :name="passwordIcon"
               @click="showPassword = !showPassword"
             />
@@ -82,6 +77,7 @@ function onSubmit() {
           <QBtn
             flat
             label="Забыли пароль?"
+            style="font-size: 14px; line-height: 130%; color: #7f8a94"
             text-color="#7F8A94"
           />
 
@@ -96,3 +92,9 @@ function onSubmit() {
     </QCardSection>
   </QCard>
 </template>
+
+<style scoped lang="scss">
+.eye-icon-color {
+  color: #39444e;
+}
+</style>

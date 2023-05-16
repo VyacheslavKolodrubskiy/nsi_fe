@@ -1,5 +1,13 @@
 <script setup lang="ts"></script>
 
 <template>
-  <RouterView />
+  <div class="wrapper">
+    <RouterView />
+  </div>
 </template>
+
+<style scoped lang="scss">
+.wrapper {
+  overflow: hidden;
+}
+</style>
