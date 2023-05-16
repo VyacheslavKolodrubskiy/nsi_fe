@@ -1,0 +1,13 @@
+{
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  // https://www.youtube.com/watch?v=sKrp2d1HUAM&t=119s
+  "html-css-class-completion.remoteStyleSheets": [
+    "https://cdn.jsdelivr.net/npm/quasar@2.11.6/dist/quasar.prod.css"
+    // or  "node_modules/quasar/dist/quasar.css"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+}

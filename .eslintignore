@@ -1,0 +1,9 @@
+/dist
+/src-bex/www
+/src-capacitor
+/src-cordova
+/src-pwa
+/.quasar
+/node_modules
+components.d.ts
+auto-imports.d.ts
