@@ -26,15 +26,3 @@ img {
   display: block;
   object-fit: contain;
 }
-
-.auth-bg {
-}
-
-// override quasar styles
-.q-field--outlined:hover .q-field__control:before {
-  border-color: $primary;
-}
-
-.q-btn .q-focus-helper {
-  display: none;
-}
