@@ -52,8 +52,9 @@ function onSubmit() {
       >
         <QInput
           v-model="form.email"
-          class="q-mb-md text-subtitle2"
+          class="q-mb-sm text-subtitle2"
           label="Электронная почта"
+          label-color="label"
           outlined
           type="email"
         />
@@ -61,6 +62,7 @@ function onSubmit() {
         <QInput
           v-model="form.password"
           label="Пароль"
+          label-color="label"
           outlined
           :type="passwordType"
         >
@@ -75,10 +77,10 @@ function onSubmit() {
 
         <div class="column">
           <QBtn
+            color="label"
             flat
             label="Забыли пароль?"
-            style="font-size: 14px; line-height: 130%; color: #7f8a94"
-            text-color="#7F8A94"
+            style="font-size: 14px"
           />
 
           <QBtn
