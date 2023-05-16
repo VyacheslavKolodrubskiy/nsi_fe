@@ -67,7 +67,7 @@ module.exports = {
     'vue/no-useless-template-attributes': 'off',
     'vue/require-prop-types': 'error',
     'vue/attributes-order': ['error', { alphabetical: true }],
-    'vue/no-undef-properties': ['error', { ignores: ['/^\\$/', 'rid'] }],
+    // 'vue/no-undef-properties': ['error', { ignores: ['/^\\$/', 'rid'] }],
     'vue/padding-line-between-blocks': 'error',
     'vue/padding-line-between-tags': 'error',
     'vue/custom-event-name-casing': ['error', 'kebab-case'],
