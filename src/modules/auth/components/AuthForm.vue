@@ -1,30 +1,21 @@
 <script setup lang="ts">
+import { useAuthStore } from '../auth.store'
+
 interface Form {
   phone: string
   smsCode: string
 }
 
-const form = ref<Form>({
+const form = reactive<Form>({
   phone: '',
   smsCode: '',
 })
 
-const showPassword = ref(false)
-
-const passwordType = computed(() => {
-  return showPassword.value ? 'password' : 'text'
-})
-
-const passwordIcon = computed(() => {
-  return showPassword.value ? 'visibility_off' : 'visibility'
-})
-
-function onReset() {
-  console.log('onReset')
-}
+const authStore = useAuthStore()
+const showSmsCodeInput = ref(false)
 
 function onSubmit() {
-  console.log('onSubmit')
+  authStore.sendValidatingCode(form.phone)
 }
 </script>
 
@@ -46,52 +37,34 @@ function onSubmit() {
         </div>
       </div>
 
-      <QForm
-        @reset="onReset"
-        @submit="onSubmit"
-      >
-        <div class="q-mb-sm">
+      <QForm @submit="onSubmit">
+        <div class="q-mb-lg">
           <QInput
+            v-if="!showSmsCodeInput"
             v-model="form.phone"
             class="q-mb-sm text-subtitle2"
-            label="Номер телефона"
+            label="Мобильный телефон"
             label-color="label"
+            mask="(###)-###-####"
             outlined
-            type="email"
+            prefix="+7"
           />
 
           <QInput
+            v-else
             v-model="form.smsCode"
-            label="Пароль"
+            label="Смс код"
             label-color="label"
             outlined
-            :type="passwordType"
-          >
-            <template v-slot:append>
-              <QIcon
-                class="cursor-pointer eye-icon-color"
-                :name="passwordIcon"
-                @click="showPassword = !showPassword"
-              />
-            </template>
-          </QInput>
-        </div>
-
-        <div class="column">
-          <button
-            class="q-mb-md btn-2"
-            type="button"
-          >
-            Забыли пароль?
-          </button>
-
-          <QBtn
-            class="q-pa-md rounded-borders"
-            color="primary"
-            label="Войти"
-            type="submit"
           />
         </div>
+
+        <QBtn
+          class="q-pa-md full-width rounded-borders"
+          color="primary"
+          label="Получить код"
+          type="submit"
+        />
       </QForm>
     </QCardSection>
   </QCard>

@@ -14,9 +14,12 @@ export const useAuthStore = defineStore('auth', {
     getToken: (state) => state.token,
   },
   actions: {
-    async fetchProfile() {
+    async sendValidatingCode(phone: string) {
       try {
-        const { data } = await api.get('/profile')
+        const { data } = await api.post('/profile/send_validating_code', {
+          err_ne: true,
+          phone,
+        })
 
         console.log('data:', data)
       } catch (error) {
