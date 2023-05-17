@@ -32,5 +32,7 @@ export default store((/* { ssrContext } */) => {
   // pinia.use(SomePiniaPlugin)
   pinia.use(piniaPluginPersistedstate)
 
+  console.log(kke)
+
   return pinia
 })
