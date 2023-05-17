@@ -15,6 +15,7 @@ const form = reactive<Form>({
 
 const $q = useQuasar()
 const authStore = useAuthStore()
+const phoneInputRef = ref<HTMLInputElement | null>(null)
 
 const fullPhone = computed(() => {
   return `+7${form.phone}`
@@ -28,6 +29,8 @@ function onSubmit() {
     componentProps: {
       phone: fullPhone.value,
     },
+  }).onCancel(() => {
+    phoneInputRef.value?.focus()
   })
 }
 </script>
@@ -52,6 +55,7 @@ function onSubmit() {
 
       <QForm @submit="onSubmit">
         <QInput
+          ref="phoneInputRef"
           v-model="form.phone"
           class="q-mb-sm text-subtitle2 q-mb-lg"
           label="Мобильный телефон"

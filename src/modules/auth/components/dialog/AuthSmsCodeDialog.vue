@@ -12,17 +12,17 @@ const { dialogRef, onDialogHide } = useDialogPluginComponent()
 const timer = ref(0)
 const smsCode = ref('')
 
-watch(
-  timer,
-  (value) => {
-    if (value > 0) {
-      setTimeout(() => {
-        timer.value--
-      }, 1000)
-    }
-  },
-  { immediate: true }
-)
+watchEffect(() => {
+  if (timer.value > 0) {
+    setTimeout(() => {
+      timer.value--
+    }, 1000)
+  }
+
+  if (smsCode.value.length === 4) {
+    console.log(1)
+  }
+})
 </script>
 
 <template>
@@ -44,16 +44,19 @@ watch(
         />
 
         <div class="q-mb-lg">
-          <div class="q-mb-sm">
-            Мы отправили код <br />
+          <div class="text-grey q-mb-md">
+            <div class="q-mb-sm">
+              Мы отправили код <br />
 
-            подтверждения на номер <br />
+              подтверждения на номер <br />
+            </div>
+
+            <div>{{ formatPhoneNumber(phone) }}</div>
           </div>
-
-          <div class="q-mb-md">{{ formatPhoneNumber(phone) }}</div>
 
           <button
             v-close-popup
+            class="text-blue"
             type="button"
           >
             Изменить номер
@@ -68,10 +71,16 @@ watch(
           outlined
         />
 
-        <div v-if="timer">Повторная отправка через {{ timer }}</div>
+        <div
+          v-if="timer"
+          class="text-grey"
+        >
+          Повторная отправка через {{ timer }}
+        </div>
 
         <button
           v-else
+          class="text-primary"
           type="button"
           @click="timer = 60"
         >
