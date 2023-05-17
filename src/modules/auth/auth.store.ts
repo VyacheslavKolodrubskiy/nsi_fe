@@ -1,4 +1,3 @@
-import { api } from 'boot/axios'
 import { defineStore } from 'pinia'
 
 interface Auth {
@@ -11,17 +10,14 @@ export const useAuthStore = defineStore('auth', {
   }),
   getters: {
     isAuthenticated: (state) => !!state.token,
-    getToken: (state) => state.token,
   },
   actions: {
     async sendValidatingCode(phone: string) {
       try {
-        const { data } = await api.post('/profile/send_validating_code', {
+        await this.$api.post('/profile/send_validating_code', {
           err_ne: false,
           phone,
         })
-
-        console.log('data:', data)
       } catch (error) {
         console.error(error)
       }

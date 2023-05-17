@@ -22,13 +22,11 @@ const api = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
+  responseType: 'json',
   timeout: RTO,
 })
 
 export default boot(({ app, store }) => {
-  app.config.globalProperties.$axios = axios
-  app.config.globalProperties.$api = api
-
   // api.interceptors.request.use((config) => {
   //   const token = store.state.auth.token
 
@@ -44,6 +42,9 @@ export default boot(({ app, store }) => {
   //     return Promise.reject(error)
   //   }
   // )
-})
 
-export { api }
+  app.config.globalProperties.$axios = axios
+  app.config.globalProperties.$api = api
+
+  store.use(() => ({ $api: api }))
+})

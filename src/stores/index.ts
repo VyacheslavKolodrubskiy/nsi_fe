@@ -1,3 +1,4 @@
+import { AxiosInstance } from 'axios'
 import { createPinia } from 'pinia'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 import { store } from 'quasar/wrappers'
@@ -11,6 +12,7 @@ import type { Router } from 'vue-router'
 declare module 'pinia' {
   export interface PiniaCustomProperties {
     readonly router: Router
+    readonly $api: AxiosInstance
   }
 }
 
