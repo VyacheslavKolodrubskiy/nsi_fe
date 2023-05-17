@@ -14,8 +14,12 @@ const form = reactive<Form>({
 const authStore = useAuthStore()
 const showSmsCodeInput = ref(false)
 
+const fullPhone = computed(() => {
+  return `+7${form.phone}`
+})
+
 function onSubmit() {
-  authStore.sendValidatingCode(form.phone)
+  authStore.sendValidatingCode(fullPhone.value)
 }
 </script>
 
@@ -48,6 +52,7 @@ function onSubmit() {
             mask="(###)-###-####"
             outlined
             prefix="+7"
+            unmasked-value
           />
 
           <QInput
