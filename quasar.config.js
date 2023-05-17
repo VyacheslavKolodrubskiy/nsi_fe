@@ -65,6 +65,7 @@ module.exports = configure((/* ctx */) => {
         Object.assign(viteConf.resolve.alias, {
           shared: path.join(__dirname, './src/shared'),
           modules: path.join(__dirname, './src/modules'),
+          utils: path.join(__dirname, './src/utils'),
         })
       },
       // viteVuePluginOptions: {},
