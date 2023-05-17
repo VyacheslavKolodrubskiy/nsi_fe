@@ -12,7 +12,7 @@ const { dialogRef, onDialogHide } = useDialogPluginComponent()
 
 const timer = ref(0)
 const smsCode = ref('')
-const { sendValidatingCode } = useAuthStore()
+const { sendValidatingCode, auth } = useAuthStore()
 
 function handleClick() {
   timer.value = 60
@@ -27,7 +27,9 @@ watchEffect(() => {
   }
 
   if (smsCode.value.length === 4) {
-    console.log(1)
+    auth(props.phone, smsCode.value)
+
+    onDialogHide()
   }
 })
 </script>
@@ -64,6 +66,7 @@ watchEffect(() => {
           <button
             v-close-popup
             class="text-blue"
+            style="border-bottom: 1px dashed currentColor"
             type="button"
           >
             Изменить номер
@@ -88,6 +91,7 @@ watchEffect(() => {
         <button
           v-else
           class="text-primary"
+          style="border-bottom: 1px dashed currentColor"
           type="button"
           @click="handleClick"
         >
