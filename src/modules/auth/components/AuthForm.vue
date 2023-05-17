@@ -79,7 +79,7 @@ function onSubmit() {
 
         <div class="column">
           <button
-            class="q-mb-lg btn-2"
+            class="q-mb-md btn-2"
             type="button"
           >
             Забыли пароль?
