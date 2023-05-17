@@ -1,18 +1,23 @@
 <script setup lang="ts">
-import { useQuasar } from 'quasar'
+import { useRouter } from 'vue-router'
 
-const $q = useQuasar()
+const router = useRouter()
 </script>
 
 <template>
   <QPage padding>
     <QCard>
-      <img src="https://cdn.quasar.dev/img/mountains.jpg" />
-
       <QCardSection>
         <div class="text-h6">Our Changing Planet</div>
 
         <div class="text-subtitle2">by John Doe</div>
+
+        <QBtn
+          color="primary"
+          icon="check"
+          label="OK"
+          @click="router.push({ name: 'AuthMain' })"
+        />
       </QCardSection>
     </QCard>
   </QPage>

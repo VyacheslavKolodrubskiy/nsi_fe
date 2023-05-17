@@ -76,12 +76,7 @@ function onSubmit() {
         </QInput>
 
         <div class="column">
-          <QBtn
-            color="label"
-            flat
-            label="Забыли пароль?"
-            style="font-size: 14px"
-          />
+          <button>Забыли пароль?</button>
 
           <QBtn
             class="q-pa-md rounded-borders"

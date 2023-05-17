@@ -28,6 +28,18 @@ img {
   object-fit: contain;
 }
 
+button {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  outline: none;
+  padding: 0;
+  text-align: inherit;
+  text-decoration: none;
+}
+
 .text-label {
   color: #39444e !important;
 }
