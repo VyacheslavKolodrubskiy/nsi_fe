@@ -17,7 +17,7 @@ export const useAuthStore = defineStore('auth', {
     async sendValidatingCode(phone: string) {
       try {
         const { data } = await api.post('/profile/send_validating_code', {
-          err_ne: true,
+          err_ne: false,
           phone,
         })
 

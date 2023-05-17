@@ -25,9 +25,25 @@ const api = axios.create({
   timeout: RTO,
 })
 
-export default boot(({ app }) => {
+export default boot(({ app, store }) => {
   app.config.globalProperties.$axios = axios
   app.config.globalProperties.$api = api
+
+  // api.interceptors.request.use((config) => {
+  //   const token = store.state.auth.token
+
+  //   if (token) {
+  //     config.headers.Authorization = `Bearer ${token}`
+  //   }
+
+  //   return config
+  // })
+  // api.interceptors.response.use(
+  //   (response) => response,
+  //   (error = {}) => {
+  //     return Promise.reject(error)
+  //   }
+  // )
 })
 
 export { api }
