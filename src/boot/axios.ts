@@ -1,5 +1,6 @@
 import { AxiosInstance } from 'axios'
 import axios from 'axios'
+import { Notify } from 'quasar'
 import { boot } from 'quasar/wrappers'
 
 declare module '@vue/runtime-core' {
@@ -36,12 +37,17 @@ export default boot(({ app, store }) => {
 
   //   return config
   // })
-  // api.interceptors.response.use(
-  //   (response) => response,
-  //   (error = {}) => {
-  //     return Promise.reject(error)
-  //   }
-  // )
+  api.interceptors.response.use(
+    (response) => response,
+    (error = {}) => {
+      Notify.create({
+        type: 'negative',
+        message: `Сообщение ошибки: ${error.response.data.error_code}, Код ошибки: ${error.response.status}`,
+      })
+
+      return Promise.reject(error)
+    }
+  )
 
   app.config.globalProperties.$api = api
   app.config.globalProperties.$axios = axios

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useDialogPluginComponent } from 'quasar'
 import { formatPhoneNumber } from 'utils/common'
+import { useAuthStore } from '../../auth.store'
 
 const props = defineProps<{
   phone: string
@@ -11,6 +12,12 @@ const { dialogRef, onDialogHide } = useDialogPluginComponent()
 
 const timer = ref(0)
 const smsCode = ref('')
+const authStore = useAuthStore()
+
+function handleClick() {
+  timer.value = 60
+  authStore.sendValidatingCode(props.phone)
+}
 
 watchEffect(() => {
   if (timer.value > 0) {
@@ -82,7 +89,7 @@ watchEffect(() => {
           v-else
           class="text-primary"
           type="button"
-          @click="timer = 60"
+          @click="handleClick"
         >
           Повторная отправка
         </button>

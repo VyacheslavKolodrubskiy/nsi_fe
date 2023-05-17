@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useQuasar } from 'quasar'
 import { useAuthStore } from '../../auth.store'
-import SendCodeDialog from '../dialog/AuthSmsCodeDialog.vue'
+import AuthSmsCodeDialog from '../dialog/AuthSmsCodeDialog.vue'
 
 interface Form {
   phone: string
@@ -25,7 +25,7 @@ function onSubmit() {
   // authStore.sendValidatingCode(fullPhone.value)
 
   $q.dialog({
-    component: SendCodeDialog,
+    component: AuthSmsCodeDialog,
     componentProps: {
       phone: fullPhone.value,
     },
