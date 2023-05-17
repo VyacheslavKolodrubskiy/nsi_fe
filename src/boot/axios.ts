@@ -42,7 +42,7 @@ export default boot(({ app, store }) => {
     (error = {}) => {
       Notify.create({
         type: 'negative',
-        message: `Сообщение ошибки: ${error.response.data.error_code}, Код ошибки: ${error.response.status}`,
+        message: `Сообщение ошибки: ${error.response.data?.error_code}, Код ошибки: ${error.response.status}`,
       })
 
       return Promise.reject(error)

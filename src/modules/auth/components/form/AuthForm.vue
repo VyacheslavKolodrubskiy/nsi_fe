@@ -9,12 +9,12 @@ interface Form {
 }
 
 const form = reactive<Form>({
-  phone: '123213212',
+  phone: '7075115253',
   smsCode: '',
 })
 
 const $q = useQuasar()
-const authStore = useAuthStore()
+const { sendValidatingCode } = useAuthStore()
 const phoneInputRef = ref<HTMLInputElement | null>(null)
 
 const fullPhone = computed(() => {
@@ -22,7 +22,8 @@ const fullPhone = computed(() => {
 })
 
 function onSubmit() {
-  // authStore.sendValidatingCode(fullPhone.value)
+  // sendValidatingCode(fullPhone.value)
+  console.log('fullPhone.value:', fullPhone.value)
 
   $q.dialog({
     component: AuthSmsCodeDialog,

@@ -22,6 +22,16 @@ export const useAuthStore = defineStore('auth', {
         console.error(error)
       }
     },
+    async auth(phone: string, code: string) {
+      try {
+        await this.$api.post('/profile/auth', {
+          code,
+          phone,
+        })
+      } catch (error) {
+        console.error(error)
+      }
+    },
     setToken(token: string) {
       this.token = token
     },
