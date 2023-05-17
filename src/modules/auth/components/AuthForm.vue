@@ -1,12 +1,12 @@
 <script setup lang="ts">
 interface Form {
-  email: string
-  password: string
+  phone: string
+  smsCode: string
 }
 
 const form = ref<Form>({
-  email: '',
-  password: '',
+  phone: '',
+  smsCode: '',
 })
 
 const showPassword = ref(false)
@@ -52,16 +52,16 @@ function onSubmit() {
       >
         <div class="q-mb-sm">
           <QInput
-            v-model="form.email"
+            v-model="form.phone"
             class="q-mb-sm text-subtitle2"
-            label="Электронная почта"
+            label="Номер телефона"
             label-color="label"
             outlined
             type="email"
           />
 
           <QInput
-            v-model="form.password"
+            v-model="form.smsCode"
             label="Пароль"
             label-color="label"
             outlined

@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
+import { useAuthStore } from '../auth.store'
 import AuthForm from '../components/AuthForm.vue'
 import authDecor from 'assets/img/auth-decor.png'
 import authProfile from 'assets/img/auth-profile.png'
 
 const router = useRouter()
+const authStore = useAuthStore()
+
+authStore.fetchProfile()
 </script>
 
 <template>

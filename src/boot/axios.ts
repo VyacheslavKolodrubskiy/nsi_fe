@@ -14,8 +14,15 @@ declare module '@vue/runtime-core' {
 // good idea to move this instance creation inside of the
 // "export default () => {}" function below (which runs individually
 // for each client)
+
+const RTO = 30000
+
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  timeout: RTO,
 })
 
 export default boot(({ app }) => {

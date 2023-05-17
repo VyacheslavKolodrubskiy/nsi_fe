@@ -1,3 +1,4 @@
+import { Pages } from 'shared/enums/common'
 import type { RouteRecordRaw } from 'vue-router'
 
 const routes: RouteRecordRaw[] = [
@@ -7,7 +8,7 @@ const routes: RouteRecordRaw[] = [
     children: [
       {
         path: '',
-        name: 'Main',
+        name: Pages.MAIN,
         component: () => import('pages/Main.vue'),
       },
     ],

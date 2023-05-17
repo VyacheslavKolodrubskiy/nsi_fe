@@ -1,3 +1,4 @@
+import { api } from 'boot/axios'
 import { defineStore } from 'pinia'
 
 interface Auth {
@@ -13,6 +14,15 @@ export const useAuthStore = defineStore('auth', {
     getToken: (state) => state.token,
   },
   actions: {
+    async fetchProfile() {
+      try {
+        const { data } = await api.get('/profile')
+
+        console.log('data:', data)
+      } catch (error) {
+        console.error(error)
+      }
+    },
     setToken(token: string) {
       this.token = token
     },
