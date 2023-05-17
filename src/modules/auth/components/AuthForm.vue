@@ -50,33 +50,40 @@ function onSubmit() {
         @reset="onReset"
         @submit="onSubmit"
       >
-        <QInput
-          v-model="form.email"
-          class="q-mb-sm text-subtitle2"
-          label="Электронная почта"
-          label-color="label"
-          outlined
-          type="email"
-        />
+        <div class="q-mb-sm">
+          <QInput
+            v-model="form.email"
+            class="q-mb-sm text-subtitle2"
+            label="Электронная почта"
+            label-color="label"
+            outlined
+            type="email"
+          />
 
-        <QInput
-          v-model="form.password"
-          label="Пароль"
-          label-color="label"
-          outlined
-          :type="passwordType"
-        >
-          <template v-slot:append>
-            <QIcon
-              class="cursor-pointer eye-icon-color"
-              :name="passwordIcon"
-              @click="showPassword = !showPassword"
-            />
-          </template>
-        </QInput>
+          <QInput
+            v-model="form.password"
+            label="Пароль"
+            label-color="label"
+            outlined
+            :type="passwordType"
+          >
+            <template v-slot:append>
+              <QIcon
+                class="cursor-pointer eye-icon-color"
+                :name="passwordIcon"
+                @click="showPassword = !showPassword"
+              />
+            </template>
+          </QInput>
+        </div>
 
         <div class="column">
-          <button>Забыли пароль?</button>
+          <button
+            class="q-mb-lg btn-2"
+            type="button"
+          >
+            Забыли пароль?
+          </button>
 
           <QBtn
             class="q-pa-md rounded-borders"
