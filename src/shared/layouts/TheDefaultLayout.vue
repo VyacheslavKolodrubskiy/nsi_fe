@@ -2,7 +2,7 @@
 
 <template>
   <QLayout view="lHh Lpr lFf">
-    <QHeader elevated></QHeader>
+    <TheHeader />
 
     <QPageContainer>
       <RouterView />
