@@ -43,8 +43,8 @@ export default boot(({ app, store }) => {
   //   }
   // )
 
-  app.config.globalProperties.$axios = axios
   app.config.globalProperties.$api = api
+  app.config.globalProperties.$axios = axios
 
   store.use(() => ({ $api: api }))
 })
