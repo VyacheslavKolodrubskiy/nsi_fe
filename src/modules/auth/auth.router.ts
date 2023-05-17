@@ -3,9 +3,6 @@ import type { Router, RouteRecordRaw } from 'vue-router'
 
 const moduleRoute: RouteRecordRaw = {
   path: '/auth',
-  meta: {
-    restrictAuth: true,
-  },
   component: () => import('shared/layouts/TheAuthLayout.vue'),
   children: [
     {

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AuthForm from '../components/AuthForm.vue'
+import AuthForm from '../components/form/AuthForm.vue'
 import authDecor from 'assets/img/auth-decor.png'
 import authProfile from 'assets/img/auth-profile.png'
 </script>

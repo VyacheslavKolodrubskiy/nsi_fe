@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { useAuthStore } from '../auth.store'
+import { useQuasar } from 'quasar'
+import { useAuthStore } from '../../auth.store'
+import SendCodeDialog from '../dialog/AuthSmsCodeDialog.vue'
 
 interface Form {
   phone: string
@@ -7,19 +9,26 @@ interface Form {
 }
 
 const form = reactive<Form>({
-  phone: '',
+  phone: '123213212',
   smsCode: '',
 })
 
+const $q = useQuasar()
 const authStore = useAuthStore()
-const showSmsCodeInput = ref(false)
 
 const fullPhone = computed(() => {
   return `+7${form.phone}`
 })
 
 function onSubmit() {
-  authStore.sendValidatingCode(fullPhone.value)
+  // authStore.sendValidatingCode(fullPhone.value)
+
+  $q.dialog({
+    component: SendCodeDialog,
+    componentProps: {
+      phone: fullPhone.value,
+    },
+  })
 }
 </script>
 
@@ -42,27 +51,16 @@ function onSubmit() {
       </div>
 
       <QForm @submit="onSubmit">
-        <div class="q-mb-lg">
-          <QInput
-            v-if="!showSmsCodeInput"
-            v-model="form.phone"
-            class="q-mb-sm text-subtitle2"
-            label="Мобильный телефон"
-            label-color="label"
-            mask="(###)-###-####"
-            outlined
-            prefix="+7"
-            unmasked-value
-          />
-
-          <QInput
-            v-else
-            v-model="form.smsCode"
-            label="Смс код"
-            label-color="label"
-            outlined
-          />
-        </div>
+        <QInput
+          v-model="form.phone"
+          class="q-mb-sm text-subtitle2 q-mb-lg"
+          label="Мобильный телефон"
+          label-color="label-color"
+          mask="(###)-###-####"
+          outlined
+          prefix="+7"
+          unmasked-value
+        />
 
         <QBtn
           class="q-pa-md full-width rounded-borders"
