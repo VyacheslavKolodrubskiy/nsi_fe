@@ -30,8 +30,6 @@ function onSubmit() {
     componentProps: {
       phone: fullPhone.value,
     },
-  }).onCancel(() => {
-    phoneInputRef.value?.focus()
   })
 }
 </script>

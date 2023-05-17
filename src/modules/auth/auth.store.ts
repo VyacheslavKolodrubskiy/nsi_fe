@@ -22,10 +22,10 @@ export const useAuthStore = defineStore('auth', {
         console.error(error)
       }
     },
-    async auth(phone: string, code: string) {
+    async auth(phone: string, sms_code: string) {
       try {
         await this.$api.post('/profile/auth', {
-          code,
+          sms_code,
           phone,
         })
       } catch (error) {
