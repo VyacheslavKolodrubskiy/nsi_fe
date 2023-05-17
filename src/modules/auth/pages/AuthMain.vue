@@ -1,7 +1,18 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
+import { useAuthStore } from '../auth.store'
 import AuthForm from '../components/AuthForm.vue'
 import authDecor from 'assets/img/auth-decor.png'
 import authProfile from 'assets/img/auth-profile.png'
+
+const authStore = useAuthStore()
+
+const router = useRouter()
+
+function onClick() {
+  authStore.setToken('dwde')
+  router.push({ name: 'Main' })
+}
 </script>
 
 <template>
@@ -19,6 +30,13 @@ import authProfile from 'assets/img/auth-profile.png'
       :src="authDecor"
       style="z-index: -1"
       width="320"
+    />
+
+    <QBtn
+      color="primary"
+      icon="check"
+      label="OK"
+      @click="onClick"
     />
 
     <div class="row no-wrap window-height">
