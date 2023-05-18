@@ -6,7 +6,7 @@
 ) {
   @font-face {
     font-family: #{$font-family};
-    src: url("assets/fonts/#{$font-path}.woff2") format("woff2");
+    src: url("./fonts/#{$font-path}.woff2") format("woff2");
     font-weight: $font-weight;
     font-style: $font-style;
     display: swap;
