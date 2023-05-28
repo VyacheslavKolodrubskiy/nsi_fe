@@ -1,4 +1,4 @@
-import { Pages } from 'shared/enums/common'
+import { Pages } from 'src/shared/enums/common'
 import type { RouteRecordRaw } from 'vue-router'
 
 const routes: RouteRecordRaw[] = [

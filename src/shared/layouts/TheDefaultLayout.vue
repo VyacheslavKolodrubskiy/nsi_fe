@@ -1,8 +1,10 @@
 <script setup lang="ts"></script>
 
 <template>
-  <QLayout view="lHh Lpr lFf">
+  <QLayout view="hHh Lpr lFf">
     <TheHeader />
+
+    <TheSidebar />
 
     <QPageContainer>
       <RouterView />

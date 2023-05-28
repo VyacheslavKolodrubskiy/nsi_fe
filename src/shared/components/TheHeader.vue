@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { Pages } from 'shared/enums/common'
+</script>
 
 <template>
   <QHeader
@@ -6,7 +8,9 @@
     style="border-radius: 0px 0px 10px 10px"
   >
     <QToolbar>
-      <LogoIcon />
+      <RouterLink :to="{ name: Pages.MAIN }">
+        <LogoIcon />
+      </RouterLink>
 
       <QSpace />
 
