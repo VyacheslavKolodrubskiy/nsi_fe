@@ -1,33 +1,32 @@
 <script setup lang="ts">
 interface Props {
   name: string
-  fill?: string
+  prefix?: string
+  color?: string
   width?: string | number
   height?: string | number
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  fill: 'currentColor',
-  width: 30,
-  height: 30,
+  prefix: 'icon',
+  color: 'currentColor',
+  width: '30px',
+  height: '30px',
 })
 
 const symbolId = computed(() => {
-  return new URL(
-    `../../assets/img/icons/sprite.svg#${props.name}`,
-    import.meta.url
-  ).href
+  return `#${props.prefix}-${props.name}`
 })
 </script>
 
 <template>
   <svg
     aria-hidden="true"
-    :style="{ width: props.width, height: props.height }"
+    :style="{ width: width, height: height }"
   >
     <use
-      :fill="fill"
-      :xlink:href="symbolId"
-    ></use>
+      :fill="color"
+      :href="symbolId"
+    />
   </svg>
 </template>

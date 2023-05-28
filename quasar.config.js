@@ -10,6 +10,7 @@
 
 const path = require('node:path')
 const { configure } = require('quasar/wrappers')
+const { createSvgIconsPlugin } = require('vite-plugin-svg-icons')
 
 module.exports = configure((/* ctx */) => {
   return {
@@ -19,7 +20,7 @@ module.exports = configure((/* ctx */) => {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
     // https://v2.quasar.dev/quasar-cli-vite/boot-files
-    boot: ['i18n', 'axios'],
+    boot: ['i18n', 'axios', 'svg-icons-register'],
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#css
     css: ['app.scss'],
@@ -98,6 +99,11 @@ module.exports = configure((/* ctx */) => {
             dts: './src/components.d.ts',
             globs: ['./src/shared/components/**/*.vue'],
           },
+        ],
+        [
+          createSvgIconsPlugin({
+            iconDirs: [path.resolve(process.cwd(), 'src/assets/img/icons')],
+          }),
         ],
       ],
     },

@@ -33,7 +33,7 @@ const menuLinks: {
 </script>
 
 <template>
-  <BaseIcon name="icon-name1" />
+  <SvgIcon name="catalog" />
 
   <QList padding>
     <QItem
