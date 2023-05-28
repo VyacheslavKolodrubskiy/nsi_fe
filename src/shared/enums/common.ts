@@ -1,4 +1,6 @@
 export const enum Pages {
-  MAIN = 'Main',
-  AUTH = 'Auth',
+  MAIN = 'MAIN',
+  AUTH = 'AUTH',
+  CATALOG = 'CATALOG',
+  PRODUCT_GROUPS = 'PRODUCT_GROUPS',
 }

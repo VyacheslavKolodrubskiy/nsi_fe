@@ -9,22 +9,22 @@ const menuLinks: {
   }
 }[] = [
   {
-    title: 'Dashboard',
-    icon: 'mdi-view-dashboard',
+    title: 'Дашборд',
+    icon: 'dashboard',
     route: {
       name: Pages.MAIN,
     },
   },
   {
-    title: 'Dashboard',
-    icon: 'mdi-view-dashboard',
+    title: 'Каталог',
+    icon: 'catalog',
     route: {
       name: Pages.MAIN,
     },
   },
   {
-    title: 'Dashboard',
-    icon: 'mdi-view-dashboard',
+    title: 'Группы товаров',
+    icon: 'product-groups',
     route: {
       name: Pages.MAIN,
     },
@@ -33,8 +33,6 @@ const menuLinks: {
 </script>
 
 <template>
-  <SvgIcon name="catalog" />
-
   <QList padding>
     <QItem
       v-for="(link, index) in menuLinks"
@@ -43,7 +41,7 @@ const menuLinks: {
       clickable
     >
       <QItemSection avatar>
-        <QIcon :name="link.icon" />
+        <SvgIcon :name="link.icon" />
       </QItemSection>
 
       <QItemSection> {{ link.title }} </QItemSection>
