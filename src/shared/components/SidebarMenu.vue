@@ -19,14 +19,14 @@ const menuLinks: {
     title: 'Каталог',
     icon: 'catalog',
     route: {
-      name: Pages.MAIN,
+      name: Pages.CATALOG,
     },
   },
   {
     title: 'Группы товаров',
     icon: 'product-groups',
     route: {
-      name: Pages.MAIN,
+      name: Pages.PRODUCT_GROUPS,
     },
   },
 ]
@@ -40,11 +40,15 @@ const menuLinks: {
       v-ripple
       clickable
     >
-      <QItemSection avatar>
+      <QItemSection
+        avatar
+        class="bg-white flex flex-center"
+        style="border-radius: 10px; padding: 10px"
+      >
         <SvgIcon :name="link.icon" />
       </QItemSection>
 
-      <QItemSection> {{ link.title }} </QItemSection>
+      <QItemSection class="q-ml-sm"> {{ link.title }} </QItemSection>
     </QItem>
   </QList>
 </template>
