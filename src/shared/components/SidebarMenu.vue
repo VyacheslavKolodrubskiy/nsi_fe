@@ -29,6 +29,13 @@ const menuLinks: {
       name: Pages.PRODUCT_GROUPS,
     },
   },
+  {
+    title: 'Категории',
+    icon: 'categories',
+    route: {
+      name: Pages.CATEGORIES,
+    },
+  },
 ]
 </script>
 
@@ -37,8 +44,7 @@ const menuLinks: {
     <QItem
       v-for="(link, index) in menuLinks"
       :key="index"
-      v-ripple
-      clickable
+      :to="link.route"
     >
       <QItemSection
         avatar

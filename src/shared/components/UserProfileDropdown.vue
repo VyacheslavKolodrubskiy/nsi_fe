@@ -1,4 +1,26 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { Pages } from 'shared/enums/common'
+
+const menuLinks: {
+  title: string
+  route: {
+    name: Pages
+  }
+}[] = [
+  {
+    title: 'Профиль',
+    route: {
+      name: Pages.PROFILE,
+    },
+  },
+  {
+    title: 'Выход',
+    route: {
+      name: Pages.AUTH,
+    },
+  },
+]
+</script>
 
 <template>
   <QBtnDropdown
@@ -20,20 +42,13 @@
 
     <QList class="text-center">
       <QItem
+        v-for="(link, index) in menuLinks"
+        :key="index"
         v-close-popup
         clickable
       >
         <QItemSection>
-          <QItemLabel>Профиль</QItemLabel>
-        </QItemSection>
-      </QItem>
-
-      <QItem
-        v-close-popup
-        clickable
-      >
-        <QItemSection>
-          <QItemLabel>Выход</QItemLabel>
+          <QItemLabel>{{ link.title }}</QItemLabel>
         </QItemSection>
       </QItem>
     </QList>

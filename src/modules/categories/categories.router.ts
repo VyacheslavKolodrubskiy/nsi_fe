@@ -2,13 +2,13 @@ import { Pages } from 'shared/enums/common'
 import type { Router, RouteRecordRaw } from 'vue-router'
 
 const moduleRoute: RouteRecordRaw = {
-  path: '/auth',
-  component: () => import('shared/layouts/TheAuthLayout.vue'),
+  path: '/categories',
+  component: () => import('shared/layouts/TheDefaultLayout.vue'),
   children: [
     {
       path: '',
-      name: Pages.AUTH,
-      component: () => import('modules/auth/pages/AuthMain.vue'),
+      name: Pages.CATEGORIES,
+      component: () => import('modules/categories/pages/CategoriesMain.vue'),
     },
   ],
 }
