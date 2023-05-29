@@ -3,9 +3,8 @@
 <template>
   <div class="row no-wrap">
     <QCard
-      class="col-4"
+      class="col-4 card"
       flat
-      style="border-radius: 10px"
     >
       <QCardSection>
         <div>Статусы товаров</div>
@@ -15,9 +14,8 @@
     </QCard>
 
     <QCard
-      class="col-8"
+      class="col-8 card"
       flat
-      style="border-radius: 10px"
     >
       <QCardSection>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit

@@ -3,9 +3,8 @@
 <template>
   <div class="row">
     <QCard
-      class="col q-mr-md"
+      class="col card q-mr-md"
       flat
-      style="border-radius: 10px"
     >
       <QCardSection>
         <div class="text-h6">Our Changing Planet</div>
@@ -19,9 +18,8 @@
     </QCard>
 
     <QCard
-      class="col"
+      class="col card"
       flat
-      style="border-radius: 10px"
     >
       <QCardSection>
         <div class="text-h6">Our Changing Planet</div>
