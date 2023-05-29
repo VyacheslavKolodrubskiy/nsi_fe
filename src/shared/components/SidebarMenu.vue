@@ -12,35 +12,35 @@ const menuLinks: {
     title: 'Дашборд',
     icon: 'dashboard',
     route: {
-      name: Pages.MAIN,
+      name: Pages.DASHBOARD_MAIN,
     },
   },
   {
     title: 'Каталог',
     icon: 'catalog',
     route: {
-      name: Pages.CATALOG,
+      name: Pages.CATALOG_MAIN,
     },
   },
   {
     title: 'Группы товаров',
     icon: 'product-groups',
     route: {
-      name: Pages.PRODUCT_GROUPS,
+      name: Pages.PRODUCT_GROUPS_MAIN,
     },
   },
   {
     title: 'Категории',
     icon: 'categories',
     route: {
-      name: Pages.CATEGORIES,
+      name: Pages.CATEGORIES_MAIN,
     },
   },
   {
     title: 'Пользователи',
     icon: 'user',
     route: {
-      name: Pages.USERS,
+      name: Pages.USERS_MAIN,
     },
   },
 ]

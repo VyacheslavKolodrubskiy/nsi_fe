@@ -8,7 +8,7 @@ import { Pages } from 'shared/enums/common'
     style="border-radius: 0px 0px 10px 10px"
   >
     <QToolbar>
-      <RouterLink :to="{ name: Pages.MAIN }">
+      <RouterLink :to="{ name: Pages.DASHBOARD_MAIN }">
         <LogoIcon />
       </RouterLink>
 

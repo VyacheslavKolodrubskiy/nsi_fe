@@ -4,9 +4,10 @@ import type { RouteRecordRaw } from 'vue-router'
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
+    name: Pages.DEFAULT,
     component: () => import('shared/layouts/TheDefaultLayout.vue'),
     redirect: {
-      name: Pages.MAIN,
+      name: Pages.DASHBOARD_MAIN,
     },
     children: [],
   },
