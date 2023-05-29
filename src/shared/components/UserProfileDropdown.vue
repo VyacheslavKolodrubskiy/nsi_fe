@@ -8,7 +8,7 @@ const menuLinks: {
   }
 }[] = [
   {
-    title: 'Профиль',
+    title: 'Личный кабинет',
     route: {
       name: Pages.PROFILE,
     },
