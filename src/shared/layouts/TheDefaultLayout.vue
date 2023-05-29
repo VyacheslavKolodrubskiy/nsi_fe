@@ -1,5 +1,16 @@
 <script setup lang="ts">
 import { PageName } from 'shared/enums/common'
+
+const breadcrumbs = [
+  {
+    label: 'Главная',
+    to: { name: PageName.DEFAULT },
+  },
+  {
+    label: 'Личный кабинет',
+    to: { name: PageName.DEFAULT },
+  },
+]
 </script>
 
 <template>
@@ -17,18 +28,10 @@ import { PageName } from 'shared/enums/common'
           separator-color="grey"
         >
           <QBreadcrumbsEl
-            label="Home"
-            :to="{ name: PageName.DEFAULT }"
-          />
-
-          <QBreadcrumbsEl
-            label="Components"
-            :to="{ name: PageName.DEFAULT }"
-          />
-
-          <QBreadcrumbsEl
-            label="Breadcrumbs"
-            :to="{ name: PageName.DEFAULT }"
+            v-for="breadcrumb in breadcrumbs"
+            :key="breadcrumb.label"
+            :label="breadcrumb.label"
+            :to="breadcrumb.to"
           />
         </QBreadcrumbs>
 

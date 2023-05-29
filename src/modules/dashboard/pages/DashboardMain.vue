@@ -1,10 +1,6 @@
 <script setup lang="ts"></script>
 
 <template>
-  <QBreadcrumbs class="q-mb-md">
-    <QBreadcrumbsEl label="Главная" />
-  </QBreadcrumbs>
-
   <div class="row no-wrap">
     <QCard
       class="col-4"
