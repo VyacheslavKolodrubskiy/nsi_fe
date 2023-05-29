@@ -2,7 +2,7 @@
 
 <template>
   <QPage padding>
-    <QBreadcrumbs>
+    <QBreadcrumbs class="q-mb-md">
       <QBreadcrumbsEl label="Главная" />
     </QBreadcrumbs>
 
@@ -17,8 +17,6 @@
 
           <div>Доли и количество всех товаров в различных статусах</div>
         </QCardSection>
-
-        <QCardSection> </QCardSection>
       </QCard>
 
       <QCard
