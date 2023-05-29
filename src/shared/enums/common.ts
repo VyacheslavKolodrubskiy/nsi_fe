@@ -6,4 +6,5 @@ export const enum Pages {
   PROFILE = 'PROFILE',
   DASHBOARD = 'DASHBOARD',
   CATEGORIES = 'CATEGORIES',
+  USERS = 'USERS',
 }

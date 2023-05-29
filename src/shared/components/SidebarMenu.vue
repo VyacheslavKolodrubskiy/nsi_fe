@@ -36,6 +36,13 @@ const menuLinks: {
       name: Pages.CATEGORIES,
     },
   },
+  {
+    title: 'Пользователи',
+    icon: 'user',
+    route: {
+      name: Pages.CATEGORIES,
+    },
+  },
 ]
 </script>
 
