@@ -40,7 +40,7 @@ const menuLinks: {
     title: 'Пользователи',
     icon: 'user',
     route: {
-      name: Pages.CATEGORIES,
+      name: Pages.USERS,
     },
   },
 ]
@@ -51,6 +51,7 @@ const menuLinks: {
     <QItem
       v-for="(link, index) in menuLinks"
       :key="index"
+      :clickable="false"
       :to="link.route"
     >
       <QItemSection
