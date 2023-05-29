@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <QPage padding>CategoriesMain</QPage>
+  <div>CategoriesMain</div>
 </template>
 
 <style scoped lang="scss"></style>
