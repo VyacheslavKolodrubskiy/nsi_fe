@@ -10,7 +10,7 @@ const menuLinks: {
   {
     title: 'Личный кабинет',
     route: {
-      name: PageName.PROFILE,
+      name: PageName.PROFILE_MAIN,
     },
   },
   {
@@ -46,6 +46,7 @@ const menuLinks: {
         :key="index"
         v-close-popup
         clickable
+        :to="{ name: link.route.name }"
       >
         <QItemSection>
           <QItemLabel>{{ link.title }}</QItemLabel>
