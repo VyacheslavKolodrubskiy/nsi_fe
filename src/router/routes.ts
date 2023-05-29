@@ -5,10 +5,10 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name: Pages.DEFAULT,
-    component: () => import('shared/layouts/TheDefaultLayout.vue'),
     redirect: {
       name: Pages.DASHBOARD_MAIN,
     },
+    component: () => import('shared/layouts/TheDefaultLayout.vue'),
     children: [],
   },
 
