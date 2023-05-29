@@ -1,4 +1,4 @@
-export const enum Pages {
+export const enum PageName {
   DEFAULT = 'Default',
   MAIN = 'Main',
   AUTH = 'Auth',

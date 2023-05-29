@@ -1,12 +1,12 @@
-import { Pages } from 'shared/enums/common'
+import { PageName } from 'shared/enums/common'
 import type { RouteRecordRaw } from 'vue-router'
 
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    name: Pages.DEFAULT,
+    name: PageName.DEFAULT,
     redirect: {
-      name: Pages.DASHBOARD_MAIN,
+      name: PageName.DASHBOARD_MAIN,
     },
     component: () => import('shared/layouts/TheDefaultLayout.vue'),
     children: [],

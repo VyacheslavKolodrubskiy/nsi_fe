@@ -1,4 +1,4 @@
-import { Pages } from 'shared/enums/common'
+import { PageName } from 'shared/enums/common'
 import type { Router, RouteRecordRaw } from 'vue-router'
 
 const moduleRoute: RouteRecordRaw = {
@@ -7,7 +7,7 @@ const moduleRoute: RouteRecordRaw = {
   children: [
     {
       path: '',
-      name: Pages.AUTH,
+      name: PageName.AUTH,
       component: () => import('modules/auth/pages/AuthMain.vue'),
     },
   ],

@@ -1,46 +1,46 @@
 <script setup lang="ts">
-import { Pages } from 'shared/enums/common'
+import { PageName } from 'shared/enums/common'
 
 const menuLinks: {
   title: string
   icon: string
   route: {
-    name: Pages
+    name: PageName
   }
 }[] = [
   {
     title: 'Дашборд',
     icon: 'dashboard',
     route: {
-      name: Pages.DASHBOARD_MAIN,
+      name: PageName.DASHBOARD_MAIN,
     },
   },
   {
     title: 'Каталог',
     icon: 'catalog',
     route: {
-      name: Pages.CATALOG_MAIN,
+      name: PageName.CATALOG_MAIN,
     },
   },
   {
     title: 'Группы товаров',
     icon: 'product-groups',
     route: {
-      name: Pages.PRODUCT_GROUPS_MAIN,
+      name: PageName.PRODUCT_GROUPS_MAIN,
     },
   },
   {
     title: 'Категории',
     icon: 'categories',
     route: {
-      name: Pages.CATEGORIES_MAIN,
+      name: PageName.CATEGORIES_MAIN,
     },
   },
   {
     title: 'Пользователи',
     icon: 'user',
     route: {
-      name: Pages.USERS_MAIN,
+      name: PageName.USERS_MAIN,
     },
   },
 ]

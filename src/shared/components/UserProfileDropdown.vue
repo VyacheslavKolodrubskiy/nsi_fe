@@ -1,22 +1,22 @@
 <script setup lang="ts">
-import { Pages } from 'shared/enums/common'
+import { PageName } from 'shared/enums/common'
 
 const menuLinks: {
   title: string
   route: {
-    name: Pages
+    name: PageName
   }
 }[] = [
   {
     title: 'Личный кабинет',
     route: {
-      name: Pages.PROFILE,
+      name: PageName.PROFILE,
     },
   },
   {
     title: 'Выход',
     route: {
-      name: Pages.AUTH,
+      name: PageName.AUTH,
     },
   },
 ]

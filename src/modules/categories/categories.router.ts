@@ -1,4 +1,4 @@
-import { Pages } from 'shared/enums/common'
+import { PageName } from 'shared/enums/common'
 import type { Router, RouteRecordRaw } from 'vue-router'
 
 const moduleRoute: RouteRecordRaw = {
@@ -7,12 +7,12 @@ const moduleRoute: RouteRecordRaw = {
   children: [
     {
       path: '',
-      name: Pages.CATEGORIES_MAIN,
+      name: PageName.CATEGORIES_MAIN,
       component: () => import('modules/categories/pages/CategoriesMain.vue'),
     },
   ],
 }
 
 export default (router: Router) => {
-  router.addRoute(Pages.DEFAULT, moduleRoute)
+  router.addRoute(PageName.DEFAULT, moduleRoute)
 }
