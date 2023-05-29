@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <QLayout view="hHh Lpr lFf">
+  <QLayout view="hhh lpR fff">
     <TheHeader />
 
     <TheSidebar />
