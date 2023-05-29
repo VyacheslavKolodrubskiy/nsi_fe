@@ -6,7 +6,7 @@
       <QBreadcrumbsEl label="Главная" />
     </QBreadcrumbs>
 
-    <div class="row no-wrap q-col-gutter-x-md">
+    <div class="row no-wrap">
       <QCard
         class="col-4"
         flat
