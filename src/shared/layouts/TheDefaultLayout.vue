@@ -24,9 +24,25 @@ const breadcrumbs = [
         <QBreadcrumbs
           active-color="grey"
           class="q-mb-lg"
-          separator="."
-          separator-color="grey"
         >
+          <template #separator>
+            <svg
+              class="flex"
+              fill="none"
+              height="4"
+              viewBox="0 0 4 4"
+              width="4"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                fill="#7F8A94"
+                height="4"
+                rx="2"
+                width="4"
+              />
+            </svg>
+          </template>
+
           <QBreadcrumbsEl
             v-for="breadcrumb in breadcrumbs"
             :key="breadcrumb.label"
