@@ -12,7 +12,7 @@ const moduleRoute: RouteRecordRaw = {
         {
           path: '',
           name: Pages.USERS,
-          component: () => import('modules/user/pages/UsersMain.vue'),
+          component: () => import('modules/users/pages/UsersMain.vue'),
         },
       ],
     },
