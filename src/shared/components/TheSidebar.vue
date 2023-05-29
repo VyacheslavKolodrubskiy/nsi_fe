@@ -29,7 +29,7 @@ const drawerClick = (e: Event) => {
     >
       <SidebarMenu />
 
-      <div class="q-mini-drawer-hide absolute-bottom-left">
+      <div class="absolute-bottom-left">
         <QBtn
           color="accent"
           dense
