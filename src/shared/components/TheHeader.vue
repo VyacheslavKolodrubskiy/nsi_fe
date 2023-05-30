@@ -10,7 +10,7 @@ import { PageName } from 'shared/enums/common'
     <QToolbar>
       <div class="row items-center">
         <RouterLink
-          class="q-mr-md"
+          class="q-mr-xl"
           :to="{ name: PageName.DASHBOARD_MAIN }"
         >
           <LogoIcon />
@@ -24,7 +24,7 @@ import { PageName } from 'shared/enums/common'
             Қазақ
           </div>
 
-          <div>Русский</div>
+          <div style="color: #39444e">Русский</div>
         </div>
       </div>
 
