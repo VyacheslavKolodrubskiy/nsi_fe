@@ -18,6 +18,7 @@ const drawerClick = (e: Event) => {
   <QDrawer
     v-model="drawer"
     :breakpoint="500"
+    class="q-pt-lg"
     :mini="!drawer || miniState"
     show-if-above
     style="background-color: #f2f3f3"
