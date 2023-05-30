@@ -21,6 +21,7 @@ const drawerClick = (e: Event) => {
     :mini="!drawer || miniState"
     show-if-above
     style="background-color: #f2f3f3"
+    :width="200"
     @click.capture="drawerClick"
   >
     <QScrollArea
