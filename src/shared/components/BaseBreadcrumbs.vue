@@ -40,6 +40,7 @@ const breadcrumbs = [
       v-for="breadcrumb in breadcrumbs"
       :key="breadcrumb.label"
       :label="breadcrumb.label"
+      style="font-size: 13px; color: #7f8a94"
       :to="breadcrumb.to"
     />
   </QBreadcrumbs>
