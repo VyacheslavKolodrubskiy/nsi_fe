@@ -1,16 +1,20 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import ProfileForm from '../components/form/ProfileForm.vue'
+</script>
 
 <template>
   <div class="row">
     <QCard
-      class="col card q-mr-md"
+      class="col card q-mr-md column"
       flat
     >
-      <QCardSection class="q-pa-lg">
+      <QCardSection class="q-pa-lg col">
         <div class="q-mb-md">
-          <div class="text-h6">Профиль</div>
+          <div style="font-size: 20px">Профиль</div>
 
-          <div class="text-subtitle2">Данные вашего профиля</div>
+          <div style="font-size: 13px; color: #7f8a94">
+            Данные вашего профиля
+          </div>
         </div>
 
         <div class="row">
@@ -23,24 +27,33 @@
             />
 
             <div class="self-center">
-              <QIcon
-                color="primary"
-                name="print"
-                size="30px"
-              />
+              <button
+                class="q-mr-sm"
+                type="button"
+              >
+                <SvgIcon name="edit" />
+              </button>
 
-              <QIcon
-                color="primary"
-                name="print"
-                size="30px"
-              />
+              <button type="button">
+                <SvgIcon name="delete" />
+              </button>
             </div>
           </div>
 
           <div class="q-ml-xl q-pt-lg">
-            <div style="font-size: 20px">Марина Кравец</div>
+            <div
+              class="q-mb-sm"
+              style="font-size: 20px"
+            >
+              Марина Кравец
+            </div>
 
-            <div style="color: #e61771">m.kravets@machta.kz</div>
+            <div
+              class="q-mb-sm"
+              style="color: #e61771"
+            >
+              m.kravets@machta.kz
+            </div>
 
             <div style="font-weight: 700">Менеджер</div>
           </div>
@@ -49,20 +62,23 @@
     </QCard>
 
     <QCard
-      class="col card"
+      class="col card column"
       flat
     >
-      <QCardSection class="q-pa-lg">
-        <div class="text-h6">Our Changing Planet</div>
+      <QCardSection class="q-pa-lg col">
+        <div class="q-mb-lg">
+          <div
+            class="q-mb-sm"
+            style="font-size: 20px"
+          >
+            Сменить пароль
+          </div>
 
-        <div class="text-subtitle2">by John Doe</div>
-      </QCardSection>
+          <div style="font-size: 13px; color: #7f8a94">Заполните форму</div>
+        </div>
 
-      <QCardSection>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit
+        <ProfileForm />
       </QCardSection>
     </QCard>
   </div>
 </template>
-
-<style scoped lang="scss"></style>
