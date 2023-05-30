@@ -66,17 +66,6 @@ import ProfileForm from '../components/form/ProfileForm.vue'
       flat
     >
       <QCardSection class="q-pa-lg col">
-        <div class="q-mb-lg">
-          <div
-            class="q-mb-sm"
-            style="font-size: 20px"
-          >
-            Сменить пароль
-          </div>
-
-          <div style="font-size: 13px; color: #7f8a94">Заполните форму</div>
-        </div>
-
         <ProfileForm />
       </QCardSection>
     </QCard>
