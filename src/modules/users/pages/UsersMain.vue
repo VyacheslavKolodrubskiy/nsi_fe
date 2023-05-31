@@ -80,7 +80,7 @@ const rows = [
   <QBtn
     class="q-mb-lg q-pa-md"
     color="primary"
-    icon="plus"
+    icon="add_circle_outline"
     label="Создать нового пользователя"
     @click="createNewUser"
   />
