@@ -8,7 +8,6 @@ export const useAppStore = defineStore('app', {
   state: (): AppState => ({
     sidebarCollapsed: false,
   }),
-  getters: {},
   actions: {
     toggleSidebar() {
       this.sidebarCollapsed = !this.sidebarCollapsed
