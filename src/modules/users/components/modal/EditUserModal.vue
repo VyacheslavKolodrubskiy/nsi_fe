@@ -17,6 +17,7 @@ const { dialogRef, onDialogCancel } = useDialogPluginComponent()
       <QCardSection class="q-pb-xl q-px-lg">
         <div class="text-right q-mb-md">
           <QIcon
+            class="cursor-pointer"
             name="close"
             size="sm"
             @click="onDialogCancel"

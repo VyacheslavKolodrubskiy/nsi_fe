@@ -1,14 +1,17 @@
 <script setup lang="ts">
 import { QTableColumn } from 'quasar'
 import { useQuasar } from 'quasar'
+import AddUserModal from '../components/modal/AddUserModal.vue'
 import EditUserModal from '../components/modal/EditUserModal.vue'
 
 const filter = ref('')
 
 const $q = useQuasar()
 
-function createNewUser() {
-  console.log('createNewUser')
+function addNewUser() {
+  $q.dialog({
+    component: AddUserModal,
+  })
 }
 
 function onEditClick(key: string) {
@@ -82,7 +85,7 @@ const rows = [
     color="primary"
     icon="add_circle_outline"
     label="Создать нового пользователя"
-    @click="createNewUser"
+    @click="addNewUser"
   />
 
   <div
