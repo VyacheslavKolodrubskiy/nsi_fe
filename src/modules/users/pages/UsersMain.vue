@@ -113,6 +113,34 @@ const rows = [
           </QInput>
         </div>
       </template>
+
+      <template v-slot:body-cell-name="props">
+        <QTd :props="props">
+          <div class="flex items-center no-wrap">
+            <QImg
+              no-spinner
+              src="src/assets/user.png"
+              style="width: 40px; height: 40px"
+            />
+
+            <div>{{ props.value }}</div>
+          </div>
+        </QTd>
+      </template>
+
+      <template v-slot:body-cell-status="props">
+        <QTd :props="props">
+          <div class="flex items-center no-wrap">
+            <div>{{ props.value }}</div>
+
+            <SvgIcon
+              class="q-ml-xl"
+              color="#39444E"
+              name="edit"
+            />
+          </div>
+        </QTd>
+      </template>
     </QTable>
   </div>
 </template>
