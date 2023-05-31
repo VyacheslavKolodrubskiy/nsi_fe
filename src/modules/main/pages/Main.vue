@@ -61,6 +61,7 @@ const columns: QTableColumn[] = [
     align: 'left',
     label: '',
     field: 'action',
+    style: 'width: 20px',
   },
 ]
 
