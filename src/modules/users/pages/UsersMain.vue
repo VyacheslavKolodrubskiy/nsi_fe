@@ -147,7 +147,7 @@ const rows = [
             <div>{{ props.value }}</div>
 
             <SvgIcon
-              class="q-ml-xl"
+              class="q-ml-lg cursor-pointer"
               color="#39444E"
               name="edit"
               @click="onEditClick(props.key)"
