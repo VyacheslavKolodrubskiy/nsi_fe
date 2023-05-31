@@ -145,7 +145,7 @@ const rows = [
       </template>
 
       <template v-slot:body-cell-action="props">
-        <QTd :props="props">
+        <QTd>
           <SvgIcon
             class="cursor-pointer"
             color="#39444E"

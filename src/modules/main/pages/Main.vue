@@ -16,12 +16,8 @@ const options = ref([
   },
 ])
 
-function addNewUser() {
-  console.log('addNewUser')
-}
-
-function onEditClick() {
-  console.log('onEditClick')
+function onEditClick(key: string) {
+  console.log('onEditClick', key)
 }
 
 const columns: QTableColumn[] = [
@@ -60,6 +56,12 @@ const columns: QTableColumn[] = [
     field: 'finished',
     headerStyle: 'color: #7F8A94',
   },
+  {
+    name: 'action',
+    align: 'left',
+    label: '',
+    field: 'action',
+  },
 ]
 
 const rows = [
@@ -69,6 +71,7 @@ const rows = [
     published: '7',
     onCompletion: '67',
     finished: '5',
+    action: '',
   },
 ]
 </script>
@@ -166,18 +169,13 @@ const rows = [
         </QTd>
       </template>
 
-      <template v-slot:body-cell-finished="props">
-        <QTd :props="props">
-          <div class="flex items-center justify-between no-wrap">
-            <div>{{ props.value }}</div>
-
-            <SvgIcon
-              class="cursor-pointer"
-              name="arrow-right"
-              @click="onEditClick"
-            />
-          </div>
-        </QTd>
+      <template v-slot:body-cell-action="props">
+        <QTd>
+          <SvgIcon
+            class="cursor-pointer"
+            name="arrow-right"
+            @click="onEditClick(props.key)"
+        /></QTd>
       </template>
     </QTable>
   </div>
