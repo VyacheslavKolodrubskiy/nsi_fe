@@ -1,10 +1,23 @@
 <script setup lang="ts">
 import { QTableColumn } from 'quasar'
+import { useQuasar } from 'quasar'
+import EditUserModal from '../components/modal/EditUserModal.vue'
 
 const filter = ref('')
 
+const $q = useQuasar()
+
 function createNewUser() {
   console.log('createNewUser')
+}
+
+function onEditClick(key: string) {
+  $q.dialog({
+    component: EditUserModal,
+    componentProps: {
+      id: key,
+    },
+  })
 }
 
 const columns: QTableColumn[] = [
@@ -137,6 +150,7 @@ const rows = [
               class="q-ml-xl"
               color="#39444E"
               name="edit"
+              @click="onEditClick(props.key)"
             />
           </div>
         </QTd>
