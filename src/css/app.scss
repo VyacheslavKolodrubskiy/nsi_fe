@@ -61,3 +61,8 @@ a {
 .bg-primary-1 {
   background-color: $primary !important;
 }
+
+.card {
+  box-shadow: none;
+  border-radius: 10px;
+}
