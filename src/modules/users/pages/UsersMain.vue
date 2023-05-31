@@ -100,34 +100,35 @@ const rows = [
       :rows="rows"
     >
       <template #top-left>
-        <div>
-          <div class="q-mb-md">
-            <div style="font-size: 20px; color: #39444e">
-              Список пользователей
-            </div>
-
-            <div style="font-size: 13px; color: #7f8a94">
-              Все пользователи Мастер-каталога
-            </div>
+        <div class="q-mb-md">
+          <div
+            class="q-mb-xs"
+            style="font-size: 20px; color: #39444e"
+          >
+            Список пользователей
           </div>
 
-          <QInput
-            v-model="filter"
-            dense
-            outlined
-            placeholder="Найти в таблице"
-            style="background-color: #f7f7f7"
-            type="text"
-          >
-            <template #append>
-              <SvgIcon
-                height="24"
-                name="search"
-                width="24"
-              />
-            </template>
-          </QInput>
+          <div style="font-size: 13px; color: #7f8a94">
+            Все пользователи Мастер-каталога
+          </div>
         </div>
+
+        <QInput
+          v-model="filter"
+          dense
+          outlined
+          placeholder="Найти в таблице"
+          style="background-color: #f7f7f7"
+          type="text"
+        >
+          <template #append>
+            <SvgIcon
+              height="24"
+              name="search"
+              width="24"
+            />
+          </template>
+        </QInput>
       </template>
 
       <template v-slot:body-cell-name="props">

@@ -134,13 +134,14 @@ const rows = [
     >
       <template #top-left>
         <div>
-          <div class="q-mb-md">
-            <div style="font-size: 20px; color: #39444e">
-              Статистика менеджеров
-            </div>
-
-            <div style="font-size: 13px; color: #7f8a94">Данные за сегодня</div>
+          <div
+            class="q-mb-xs"
+            style="font-size: 20px; color: #39444e"
+          >
+            Статистика менеджеров
           </div>
+
+          <div style="font-size: 13px; color: #7f8a94">Данные за сегодня</div>
         </div>
       </template>
 
