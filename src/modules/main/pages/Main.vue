@@ -170,7 +170,7 @@ const rows = [
       </template>
 
       <template v-slot:body-cell-action="props">
-        <QTd>
+        <QTd :props="props">
           <SvgIcon
             class="cursor-pointer"
             name="arrow-right"
