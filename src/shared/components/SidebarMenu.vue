@@ -52,17 +52,32 @@ const menuLinks: {
       v-for="(link, index) in menuLinks"
       :key="index"
       :clickable="false"
-      :to="link.route"
     >
-      <QItemSection
-        avatar
-        class="bg-white flex flex-center"
-        style="border-radius: 10px; padding: 10px"
-      >
-        <SvgIcon :name="link.icon" />
-      </QItemSection>
+      <QItemSection>
+        <RouterLink
+          v-slot="{ isActive }"
+          class="flex items-center"
+          :to="link.route"
+        >
+          <div
+            class="bg-white flex flex-center"
+            :class="{ 'bg-primary': isActive }"
+            style="
+              background: #ffffff;
+              border-radius: 10px;
+              width: 50px;
+              height: 50px;
+            "
+          >
+            <SvgIcon
+              :color="isActive ? 'red' : 'red'"
+              :name="link.icon"
+            />
+          </div>
 
-      <QItemSection class="q-ml-sm"> {{ link.title }} </QItemSection>
+          <div class="q-ml-sm">{{ link.title }}</div>
+        </RouterLink>
+      </QItemSection>
     </QItem>
   </QList>
 </template>
