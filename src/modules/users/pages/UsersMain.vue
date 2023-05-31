@@ -59,6 +59,12 @@ const columns: QTableColumn[] = [
     field: 'status',
     headerStyle: 'color: #7F8A94',
   },
+  {
+    name: 'action',
+    align: 'left',
+    label: '',
+    field: 'action',
+  },
 ]
 
 const rows = [
@@ -68,13 +74,7 @@ const rows = [
     role: 'Контент-менеджер',
     lastLoginTime: '12:34  |  04.04.2023',
     status: 'Активен',
-  },
-  {
-    name: 'Камар',
-    email: 'm.kravets@machta2.kz',
-    role: 'Контент-менеджер2',
-    lastLoginTime: '12:34  |  04.04.2023',
-    status: 'Активен',
+    action: '',
   },
 ]
 </script>
@@ -144,19 +144,14 @@ const rows = [
         </QTd>
       </template>
 
-      <template v-slot:body-cell-status="props">
+      <template v-slot:body-cell-action="props">
         <QTd :props="props">
-          <div class="flex items-center no-wrap">
-            <div>{{ props.value }}</div>
-
-            <SvgIcon
-              class="q-ml-lg cursor-pointer"
-              color="#39444E"
-              name="edit"
-              @click="onEditClick(props.key)"
-            />
-          </div>
-        </QTd>
+          <SvgIcon
+            class="cursor-pointer"
+            color="#39444E"
+            name="edit"
+            @click="onEditClick(props.key)"
+        /></QTd>
       </template>
     </QTable>
   </div>

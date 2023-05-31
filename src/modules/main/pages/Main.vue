@@ -166,15 +166,14 @@ const rows = [
         </QTd>
       </template>
 
-      <template v-slot:body-cell-status="props">
+      <template v-slot:body-cell-finished="props">
         <QTd :props="props">
-          <div class="flex items-center no-wrap">
+          <div class="flex items-center justify-between no-wrap">
             <div>{{ props.value }}</div>
 
             <SvgIcon
-              class="q-ml-lg cursor-pointer"
-              color="#39444E"
-              name="edit"
+              class="cursor-pointer"
+              name="arrow-right"
               @click="onEditClick"
             />
           </div>
