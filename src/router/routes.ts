@@ -5,9 +5,7 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name: PageName.DEFAULT,
-    redirect: {
-      name: PageName.DASHBOARD_MAIN,
-    },
+    redirect: { name: PageName.MAIN },
     component: () => import('shared/layouts/TheDefaultLayout.vue'),
     children: [],
   },

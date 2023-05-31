@@ -11,7 +11,7 @@ import { PageName } from 'shared/enums/common'
       <div class="row items-center">
         <RouterLink
           class="q-mr-xl"
-          :to="{ name: PageName.DASHBOARD_MAIN }"
+          :to="{ name: PageName.MAIN }"
         >
           <LogoIcon />
         </RouterLink>
