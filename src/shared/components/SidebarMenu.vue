@@ -61,7 +61,7 @@ const menuLinks: {
         >
           <div
             class="bg-white flex flex-center"
-            :class="{ 'bg-primary': isActive }"
+            :class="{ 'bg-primary-1': isActive }"
             style="
               background: #ffffff;
               border-radius: 10px;
@@ -70,7 +70,7 @@ const menuLinks: {
             "
           >
             <SvgIcon
-              :color="isActive ? 'red' : 'red'"
+              :color="isActive ? 'white' : '#E61771'"
               :name="link.icon"
             />
           </div>
