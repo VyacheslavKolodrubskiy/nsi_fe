@@ -60,7 +60,7 @@ const isExactActive = computed(() => (routeName: string) => {
     <QItem
       v-for="(link, index) in menuLinks"
       :key="index"
-      class="q-pl-none"
+      class="q-px-none"
       :clickable="false"
       :to="link.route"
     >
