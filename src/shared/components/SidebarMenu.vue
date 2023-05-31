@@ -1,13 +1,16 @@
 <script setup lang="ts">
+import { useRoute } from 'vue-router'
 import { PageName } from 'shared/enums/common'
 
-const menuLinks: {
+interface Link {
   title: string
   icon: string
   route: {
     name: PageName
   }
-}[] = [
+}
+
+const menuLinks: Link[] = [
   {
     title: 'Дашборд',
     icon: 'dashboard',
@@ -44,6 +47,12 @@ const menuLinks: {
     },
   },
 ]
+
+const route = useRoute()
+
+const isExactActive = computed(() => (routeName: string) => {
+  return route.name === routeName
+})
 </script>
 
 <template>
@@ -58,12 +67,21 @@ const menuLinks: {
       <QItemSection
         avatar
         class="bg-white flex flex-center"
+        :class="{ 'bg-primary-1': isExactActive(link.route.name) }"
         style="border-radius: 10px; padding: 10px"
       >
-        <SvgIcon :name="link.icon" />
+        <SvgIcon
+          :color="isExactActive(link.route.name) ? 'white' : '#E61771'"
+          :name="link.icon"
+        />
       </QItemSection>
 
-      <QItemSection class="q-ml-sm"> {{ link.title }} </QItemSection>
+      <QItemSection
+        class="q-ml-sm"
+        style="color: #39444e"
+      >
+        {{ link.title }}
+      </QItemSection>
     </QItem>
   </QList>
 </template>
