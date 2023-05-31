@@ -30,17 +30,6 @@ const drawerClick = (e: Event) => {
       :horizontal-thumb-style="{ opacity: '0' }"
     >
       <SidebarMenu />
-
-      <div class="absolute-bottom-left">
-        <QBtn
-          color="accent"
-          dense
-          icon="chevron_left"
-          label="Свернуть"
-          unelevated
-          @click="miniState = true"
-        />
-      </div>
     </QScrollArea>
   </QDrawer>
 </template>

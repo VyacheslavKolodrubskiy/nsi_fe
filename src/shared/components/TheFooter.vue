@@ -1,5 +1,30 @@
 <script setup lang="ts"></script>
 
 <template>
-  <QFooter elevated>© 2023 Mechta. Все права защищены.</QFooter>
+  <QFooter class="bg-transparent q-py-lg flex items-center justify-between">
+    <div class="flex items-center cursor-pointer">
+      <div
+        class="flex flex-center"
+        style="
+          border: 1px solid #dce0e3;
+          border-radius: 10px;
+          width: 50px;
+          height: 50px;
+        "
+      >
+        <SvgIcon name="arrow-left" />
+      </div>
+
+      <div
+        class="q-ml-sm"
+        style="color: #39444e"
+      >
+        Свернуть
+      </div>
+    </div>
+
+    <div style="font-size: 13px; color: #7f8a94">
+      © 2023 Mechta. Все права защищены.
+    </div>
+  </QFooter>
 </template>

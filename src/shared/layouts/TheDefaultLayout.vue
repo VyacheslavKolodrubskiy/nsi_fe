@@ -14,6 +14,8 @@
           <RouterView />
         </QPage>
       </QPageContainer>
+
+      <TheFooter />
     </QLayout>
   </div>
 </template>
