@@ -1,9 +1,9 @@
 import { defineStore } from 'pinia'
 
-interface Users {}
+interface UsersState {}
 
 export const useUsersStore = defineStore('users', {
-  state: (): Users => ({}),
+  state: (): UsersState => ({}),
   getters: {},
   actions: {},
   persist: true,

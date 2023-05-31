@@ -1,11 +1,11 @@
 import { defineStore } from 'pinia'
 
-interface Auth {
+interface AuthState {
   token: string | null
 }
 
 export const useAuthStore = defineStore('auth', {
-  state: (): Auth => ({
+  state: (): AuthState => ({
     token: null,
   }),
   getters: {

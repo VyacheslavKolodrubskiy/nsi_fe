@@ -1,9 +1,9 @@
 import { defineStore } from 'pinia'
 
-interface ProductGroups {}
+interface ProductGroupsState {}
 
 export const useProductGroupsStore = defineStore('product-groups', {
-  state: (): ProductGroups => ({}),
+  state: (): ProductGroupsState => ({}),
   getters: {},
   actions: {},
   persist: true,

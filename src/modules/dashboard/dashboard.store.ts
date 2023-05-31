@@ -1,9 +1,9 @@
 import { defineStore } from 'pinia'
 
-interface Dashboard {}
+interface DashboardState {}
 
 export const useDashboardStore = defineStore('dashboard', {
-  state: (): Dashboard => ({}),
+  state: (): DashboardState => ({}),
   getters: {},
   actions: {},
   persist: true,

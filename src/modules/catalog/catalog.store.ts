@@ -1,9 +1,9 @@
 import { defineStore } from 'pinia'
 
-interface Catalog {}
+interface CatalogState {}
 
 export const useCatalogStore = defineStore('catalog', {
-  state: (): Catalog => ({}),
+  state: (): CatalogState => ({}),
   getters: {},
   actions: {},
   persist: true,

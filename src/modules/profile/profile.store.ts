@@ -1,9 +1,9 @@
 import { defineStore } from 'pinia'
 
-interface Profile {}
+interface ProfileState {}
 
 export const useProfileStore = defineStore('profile', {
-  state: (): Profile => ({}),
+  state: (): ProfileState => ({}),
   getters: {},
   actions: {},
   persist: true,

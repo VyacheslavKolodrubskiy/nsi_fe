@@ -1,8 +1,15 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useAppStore } from '../../stores/app.store'
+
+const { toggleSidebar } = useAppStore()
+</script>
 
 <template>
   <QFooter class="bg-transparent q-py-lg flex items-center justify-between">
-    <div class="flex items-center cursor-pointer">
+    <div
+      class="flex items-center cursor-pointer"
+      @click="toggleSidebar"
+    >
       <div
         class="flex flex-center"
         style="

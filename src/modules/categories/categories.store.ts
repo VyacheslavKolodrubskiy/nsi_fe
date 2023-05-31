@@ -1,9 +1,9 @@
 import { defineStore } from 'pinia'
 
-interface Categories {}
+interface CategoriesState {}
 
 export const useCategoriesStore = defineStore('categories', {
-  state: (): Categories => ({}),
+  state: (): CategoriesState => ({}),
   getters: {},
   actions: {},
   persist: true,
