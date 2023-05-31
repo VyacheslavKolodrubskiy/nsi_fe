@@ -51,6 +51,7 @@ const menuLinks: {
     <QItem
       v-for="(link, index) in menuLinks"
       :key="index"
+      class="q-pl-none"
       :clickable="false"
       :to="link.route"
     >
