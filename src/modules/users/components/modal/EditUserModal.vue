@@ -10,7 +10,6 @@ const { dialogRef, onDialogCancel } = useDialogPluginComponent()
 <template>
   <QDialog ref="dialogRef">
     <QCard
-      class=""
       flat
       style="width: 380px; border-radius: 10px"
     >
