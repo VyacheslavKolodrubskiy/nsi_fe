@@ -47,7 +47,7 @@ const menuLinks: {
 </script>
 
 <template>
-  <QList padding>
+  <QList class="sidebar-menu">
     <QItem
       v-for="(link, index) in menuLinks"
       :key="index"

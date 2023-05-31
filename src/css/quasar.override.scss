@@ -9,3 +9,13 @@
 .q-field__control::before {
   border-color: #dce0e3 !important;
 }
+.sidebar-menu .q-item {
+  .q-focus-helper {
+    display: none;
+  }
+
+  .q-item__section--avatar {
+    min-width: 50px;
+    min-height: 50px;
+  }
+}
