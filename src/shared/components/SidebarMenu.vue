@@ -50,7 +50,7 @@ const menuLinks: Link[] = [
 
 const route = useRoute()
 
-const isExactActive = computed(() => (routeName: string) => {
+const isActive = computed(() => (routeName: string) => {
   return route.name === routeName
 })
 </script>
@@ -67,11 +67,11 @@ const isExactActive = computed(() => (routeName: string) => {
       <QItemSection
         avatar
         class="bg-white flex flex-center"
-        :class="{ 'bg-primary-1': isExactActive(link.route.name) }"
+        :class="{ 'bg-primary-1': isActive(link.route.name) }"
         style="border-radius: 10px; padding: 10px"
       >
         <SvgIcon
-          :color="isExactActive(link.route.name) ? 'white' : '#E61771'"
+          :color="isActive(link.route.name) ? 'white' : '#E61771'"
           :name="link.icon"
         />
       </QItemSection>
