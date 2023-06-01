@@ -23,3 +23,14 @@
 .catalog-table .q-table__top {
   align-items: flex-end;
 }
+
+.q-checkbox__bg {
+  border: 1px solid #dce0e3;
+  border-radius: 5px;
+}
+
+.q-checkbox__inner--truthy .q-checkbox__bg,
+.q-checkbox__inner--indet .q-checkbox__bg {
+  background: $primary;
+  border: none;
+}

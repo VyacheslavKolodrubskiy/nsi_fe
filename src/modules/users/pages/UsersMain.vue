@@ -110,7 +110,7 @@ const rows = [
         </div>
       </template>
 
-      <template v-slot:body-cell-name="props">
+      <template #body-cell-name="props">
         <QTd :props="props">
           <div class="flex items-center no-wrap">
             <QImg
@@ -124,7 +124,7 @@ const rows = [
         </QTd>
       </template>
 
-      <template v-slot:body-cell-action="props">
+      <template #body-cell-action="props">
         <QTd :props="props">
           <SvgIcon
             class="cursor-pointer"

@@ -42,7 +42,7 @@ function onReset() {
         outlined
         :type="isPwdOld ? 'password' : 'text'"
       >
-        <template v-slot:append>
+        <template #append>
           <QIcon
             class="cursor-pointer"
             :name="isPwdOld ? 'visibility_off' : 'visibility'"
@@ -60,7 +60,7 @@ function onReset() {
         outlined
         :type="isPwdNew ? 'password' : 'text'"
       >
-        <template v-slot:append>
+        <template #append>
           <QIcon
             class="cursor-pointer"
             :name="isPwdNew ? 'visibility_off' : 'visibility'"
@@ -77,7 +77,7 @@ function onReset() {
         outlined
         :type="isPwdRepeat ? 'password' : 'text'"
       >
-        <template v-slot:append>
+        <template #append>
           <QIcon
             class="cursor-pointer"
             :name="isPwdRepeat ? 'visibility_off' : 'visibility'"

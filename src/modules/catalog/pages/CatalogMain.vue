@@ -125,7 +125,7 @@ const filled = ref(20)
         <SearchTableInput v-model="filter" />
       </template>
 
-      <template v-slot:body-cell-filled="props">
+      <template #body-cell-filled="props">
         <QTd :props="props">
           <div
             class="relative-position"
@@ -150,7 +150,7 @@ const filled = ref(20)
         </QTd>
       </template>
 
-      <template v-slot:body-cell-action="props">
+      <template #body-cell-action="props">
         <QTd :props="props">
           <QBtn
             flat
