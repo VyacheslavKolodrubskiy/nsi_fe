@@ -28,7 +28,7 @@ $bg-color: #ffffff;
 
 $border-radius: 10px;
 
-$brand-01: #e61771;
+$brand-01: $primary;
 $brand-02: #394f62;
 $add-01: #b20087;
 $add-02: #0075cd;
@@ -37,7 +37,7 @@ $text-01: #39444e;
 $text-02: #7f8a94;
 $text-03: #dce0e3;
 $text-04: #f7f7f7;
-$text-05: #ffffff;
+$text-05: $bg-color;
 
 $typography-font-family: "Tahoma";
 
