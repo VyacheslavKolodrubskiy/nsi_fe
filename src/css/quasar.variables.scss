@@ -26,23 +26,24 @@ $warning: #ffd400;
 
 $bg-color: #ffffff;
 
-$border-radius: 5px;
+$border-radius: 10px;
 
 $brand-01: #e61771;
-$ui-01: #f7f7f7;
-$ui-02: #e3e2e7;
-$text-01: #322f38;
-$text-02: #979797;
-$text-03: #6a707c;
-$error: #de1a29;
-$support-01: #f98e2c;
-$support-02: #25c365;
+$brand-02: #394f62;
+$add-01: #b20087;
+$add-02: #0075cd;
+$add-03: #39c2c9;
+$text-01: #39444e;
+$text-02: #7f8a94;
+$text-03: #dce0e3;
+$text-04: #f7f7f7;
+$text-05: #ffffff;
 
 $typography-font-family: "Tahoma";
 
 $body-font-size: 14px;
+$input-font-size: 14px;
 $body-line-height: 1.3;
-$input-font-size: 16px;
 
 $h1: (
   size: 24px,
