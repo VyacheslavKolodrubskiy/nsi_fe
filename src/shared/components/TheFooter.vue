@@ -19,10 +19,10 @@ const { toggleSidebar } = useAppStore()
         <SvgIcon name="arrow-left" />
       </div>
 
-      <div class="q-ml-sm">Свернуть</div>
+      <div class="q-ml-sm text-c-text-01">Свернуть</div>
     </div>
 
-    <div style="font-size: 13px; color: #7f8a94">
+    <div class="text-c-text-02" style="font-size: 13px">
       © 2023 Mechta. Все права защищены.
     </div>
   </QFooter>
