@@ -3,38 +3,52 @@ import { QSelectOption, QTableColumn } from 'quasar'
 
 const columns: QTableColumn[] = [
   {
-    name: 'name',
+    name: 'status',
     align: 'left',
-    label: 'ФИО менеджера',
-    field: 'name',
+    label: 'Статус',
+    field: 'status',
     headerStyle: 'color: #7F8A94',
   },
   {
-    name: 'inProgress',
+    name: 'article',
     align: 'left',
-    label: 'В работе',
-    field: 'inProgress',
+    label: 'Артикул',
+    field: 'article',
     headerStyle: 'color: #7F8A94',
   },
   {
-    name: 'published',
+    name: 'productName',
     align: 'left',
-    label: 'Опубликовано',
-    field: 'published',
+    label: 'Наименование товара',
+    field: 'productName',
     headerStyle: 'color: #7F8A94',
   },
   {
-    name: 'onCompletion',
+    name: 'category',
     align: 'left',
-    label: 'На доработке',
-    field: 'onCompletion',
+    label: 'Категория',
+    field: 'category',
     headerStyle: 'color: #7F8A94',
   },
   {
-    name: 'finished',
+    name: 'createdAt',
     align: 'left',
-    label: 'Завершено',
-    field: 'finished',
+    label: 'Cоздание',
+    field: 'createdAt',
+    headerStyle: 'color: #7F8A94',
+  },
+  {
+    name: 'updatedAt',
+    align: 'left',
+    label: 'Изменение',
+    field: 'updatedAt',
+    headerStyle: 'color: #7F8A94',
+  },
+  {
+    name: 'filled',
+    align: 'left',
+    label: 'Заполнено',
+    field: 'filled',
     headerStyle: 'color: #7F8A94',
   },
   {
@@ -48,11 +62,13 @@ const columns: QTableColumn[] = [
 
 const rows = [
   {
-    name: 'Марина Кравец',
-    inProgress: '89',
-    published: '7',
-    onCompletion: '67',
-    finished: '5',
+    status: 'Новый',
+    article: '04812',
+    productName: 'Холодильник BOSCH KDD 86AI304',
+    category: 'Холодильники',
+    createdAt: '30.03.2023',
+    updatedAt: '29.04.2023',
+    filled: '',
     action: '',
   },
 ]
@@ -78,17 +94,20 @@ const options = ref<QSelectOption[]>([
 
 const filter = ref('')
 const currentOption = ref<Option>(options.value[0])
+const selected = ref([])
 </script>
 
 <template>
   <div class="q-pa-lg bg-white" style="border-radius: 10px">
     <QTable
+      v-model:selected="selected"
       class="catalog-table"
       :columns="columns"
       :filter="filter"
       flat
       row-key="name"
       :rows="rows"
+      selection="single"
     >
       <template #top-left>
         <div>
@@ -110,17 +129,40 @@ const currentOption = ref<Option>(options.value[0])
         <SearchTableInput v-model="filter" />
       </template>
 
-      <template v-slot:body-cell-name="props">
+      <template v-slot:body-cell-filled="props">
         <QTd :props="props">
-          <div class="flex items-center no-wrap">
-            <QImg
-              no-spinner
-              src="src/assets/img/user.png"
-              style="width: 40px; height: 40px"
+          <div
+            class="relative-position"
+            style="
+              background: #dce0e3;
+              border-radius: 20px;
+              width: 50px;
+              height: 7px;
+            "
+          >
+            <div
+              class="absolute-position"
+              style="
+                width: 7px;
+                height: 7px;
+                left: 0;
+                top: 0;
+                background: #e61771;
+                border-radius: 100%;
+              "
             />
-
-            <div class="q-ml-md">{{ props.value }}</div>
           </div>
+        </QTd>
+      </template>
+
+      <template v-slot:body-cell-action="props">
+        <QTd :props="props">
+          <QBtn
+            flat
+            label="Взять в работу"
+            no-caps
+            style="color: #39444e; background: #cfebd1; border-radius: 5px"
+          />
         </QTd>
       </template>
     </QTable>
