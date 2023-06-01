@@ -17,8 +17,9 @@ const emit = defineEmits(['update:model-value'])
     dense
     :dropdown-icon="dropdownIcon"
     :model-value="modelValue"
+    :options="options"
     outlined
-    @update:model-value="$emit('update:model-value', $event)"
+    @update:model-value="emit('update:model-value', $event)"
   >
     <template
       v-for="(_, name) in ($slots as Readonly<QSelectSlots>)"

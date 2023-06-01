@@ -133,14 +133,7 @@ function onEditClick(key: string) {
       </template>
 
       <template #top-right>
-        <QSelect
-          v-model="currentOption"
-          bg-color="grey-3"
-          dense
-          dropdown-icon="expand_more"
-          :options="options"
-          outlined
-        />
+        <TableSelect v-model="currentOption" :options="options" />
       </template>
 
       <template v-slot:body-cell-name="props">
