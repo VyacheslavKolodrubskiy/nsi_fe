@@ -21,7 +21,7 @@ const { dialogRef, onDialogCancel } = useDialogPluginComponent()
         </div>
 
         <div class="text-center q-mb-md">
-          <div class="q-mb-xs" style="font-size: 20px; color: #39444e">
+          <div class="q-mb-xs" style="font-size: 20px">
             Редактировать пользователя
           </div>
 

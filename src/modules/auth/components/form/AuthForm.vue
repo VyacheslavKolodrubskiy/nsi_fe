@@ -75,6 +75,5 @@ function onSubmit() {
 
 <style scoped lang="scss">
 .eye-icon-color {
-  color: #39444e;
 }
 </style>

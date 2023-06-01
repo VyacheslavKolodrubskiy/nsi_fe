@@ -85,9 +85,7 @@ const rows = [
       style="min-height: 344px"
     >
       <QCardSection>
-        <div class="q-mb-xs" style="font-size: 20px; color: #39444e">
-          Статусы товаров
-        </div>
+        <div class="q-mb-xs" style="font-size: 20px">Статусы товаров</div>
 
         <div class="" style="font-size: 13px; color: #7f8a94">
           Доли и количество всех товаров в различных статусах
@@ -97,9 +95,7 @@ const rows = [
 
     <QCard class="card col q-pa-lg" style="min-height: 344px">
       <QCardSection>
-        <div class="q-mb-xs" style="font-size: 20px; color: #39444e">
-          Статусы товаров
-        </div>
+        <div class="q-mb-xs" style="font-size: 20px">Статусы товаров</div>
 
         <div class="" style="font-size: 13px; color: #7f8a94">
           Доли и количество всех товаров в различных статусах
@@ -118,7 +114,7 @@ const rows = [
     >
       <template #top-left>
         <div>
-          <div class="q-mb-xs" style="font-size: 20px; color: #39444e">
+          <div class="q-mb-xs" style="font-size: 20px">
             Статистика менеджеров
           </div>
 

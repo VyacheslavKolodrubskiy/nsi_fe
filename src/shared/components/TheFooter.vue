@@ -19,7 +19,7 @@ const { toggleSidebar } = useAppStore()
         <SvgIcon name="arrow-left" />
       </div>
 
-      <div class="q-ml-sm" style="color: #39444e">Свернуть</div>
+      <div class="q-ml-sm">Свернуть</div>
     </div>
 
     <div style="font-size: 13px; color: #7f8a94">

@@ -16,7 +16,7 @@ import { PageName } from 'shared/enums/common'
         <div class="row items-center">
           <div class="q-mr-md cursor-pointer" style="color: #7f8a94">Қазақ</div>
 
-          <div class="cursor-pointer" style="color: #39444e">Русский</div>
+          <div class="cursor-pointer">Русский</div>
         </div>
       </div>
 

@@ -99,7 +99,7 @@ const rows = [
       <template #top-left>
         <div>
           <div class="q-mb-md">
-            <div class="q-mb-xs" style="font-size: 20px; color: #39444e">
+            <div class="q-mb-xs" style="font-size: 20px">
               Список пользователей
             </div>
 
