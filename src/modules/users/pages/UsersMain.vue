@@ -108,18 +108,9 @@ const rows = [
             </div>
           </div>
 
-          <QInput
-            v-model="filter"
-            dense
-            outlined
-            placeholder="Найти в таблице"
-            style="background-color: #f7f7f7"
-            type="text"
-          >
-            <template #append>
-              <SvgIcon height="24" name="search" width="24" />
-            </template>
-          </QInput>
+          <SearchTableInput v-model="filter">
+            <template></template>
+          </SearchTableInput>
         </div>
       </template>
 
@@ -128,7 +119,7 @@ const rows = [
           <div class="flex items-center no-wrap">
             <QImg
               no-spinner
-              src="src/assets/user.png"
+              src="src/assets/img/user.png"
               style="width: 40px; height: 40px"
             />
 
