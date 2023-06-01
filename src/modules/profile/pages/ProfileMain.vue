@@ -4,10 +4,7 @@ import ProfileForm from '../components/form/ProfileForm.vue'
 
 <template>
   <div class="row">
-    <QCard
-      class="col card q-mr-md column"
-      flat
-    >
+    <QCard class="col card q-mr-md column" flat>
       <QCardSection class="q-pa-lg col">
         <div class="q-mb-md">
           <div style="font-size: 20px">Профиль</div>
@@ -27,10 +24,7 @@ import ProfileForm from '../components/form/ProfileForm.vue'
             />
 
             <div class="self-center">
-              <button
-                class="q-mr-sm"
-                type="button"
-              >
+              <button class="q-mr-sm" type="button">
                 <SvgIcon name="edit" />
               </button>
 
@@ -41,17 +35,9 @@ import ProfileForm from '../components/form/ProfileForm.vue'
           </div>
 
           <div class="q-ml-xl q-pt-lg">
-            <div
-              class="q-mb-sm"
-              style="font-size: 20px"
-            >
-              Марина Кравец
-            </div>
+            <div class="q-mb-sm" style="font-size: 20px">Марина Кравец</div>
 
-            <div
-              class="q-mb-sm"
-              style="color: #e61771"
-            >
+            <div class="q-mb-sm" style="color: #e61771">
               m.kravets@machta.kz
             </div>
 
@@ -61,10 +47,7 @@ import ProfileForm from '../components/form/ProfileForm.vue'
       </QCardSection>
     </QCard>
 
-    <QCard
-      class="col card column"
-      flat
-    >
+    <QCard class="col card column" flat>
       <QCardSection class="q-pa-lg col">
         <ProfileForm />
       </QCardSection>

@@ -80,52 +80,35 @@ const rows = [
 <template>
   <div class="row q-mb-lg">
     <QCard
+      aria-atomic="a"
       class="card col q-mr-md q-pa-lg"
       style="min-height: 344px"
     >
       <QCardSection>
-        <div
-          class="q-mb-xs"
-          style="font-size: 20px; color: #39444e"
-        >
+        <div class="q-mb-xs" style="font-size: 20px; color: #39444e">
           Статусы товаров
         </div>
 
-        <div
-          class=""
-          style="font-size: 13px; color: #7f8a94"
-        >
+        <div class="" style="font-size: 13px; color: #7f8a94">
           Доли и количество всех товаров в различных статусах
         </div>
       </QCardSection>
     </QCard>
 
-    <QCard
-      class="card col q-pa-lg"
-      style="min-height: 344px"
-    >
+    <QCard class="card col q-pa-lg" style="min-height: 344px">
       <QCardSection>
-        <div
-          class="q-mb-xs"
-          style="font-size: 20px; color: #39444e"
-        >
+        <div class="q-mb-xs" style="font-size: 20px; color: #39444e">
           Статусы товаров
         </div>
 
-        <div
-          class=""
-          style="font-size: 13px; color: #7f8a94"
-        >
+        <div class="" style="font-size: 13px; color: #7f8a94">
           Доли и количество всех товаров в различных статусах
         </div>
       </QCardSection>
     </QCard>
   </div>
 
-  <div
-    class="q-pa-lg bg-white"
-    style="border-radius: 10px"
-  >
+  <div class="q-pa-lg bg-white" style="border-radius: 10px">
     <QTable
       :columns="columns"
       :filter="filter"
@@ -135,10 +118,7 @@ const rows = [
     >
       <template #top-left>
         <div>
-          <div
-            class="q-mb-xs"
-            style="font-size: 20px; color: #39444e"
-          >
+          <div class="q-mb-xs" style="font-size: 20px; color: #39444e">
             Статистика менеджеров
           </div>
 

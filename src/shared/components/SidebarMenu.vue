@@ -76,10 +76,7 @@ const isActive = computed(() => (routeName: string) => {
         />
       </QItemSection>
 
-      <QItemSection
-        class="q-ml-sm"
-        style="color: #39444e"
-      >
+      <QItemSection class="q-ml-sm" style="color: #39444e">
         {{ link.title }}
       </QItemSection>
     </QItem>

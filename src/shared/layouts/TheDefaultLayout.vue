@@ -1,10 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div
-    class="q-mx-auto"
-    style="max-width: 1360px; padding: 0 40px"
-  >
+  <div class="q-mx-auto" style="max-width: 1360px; padding: 0 40px">
     <QLayout view="hhh lpR fff">
       <TheHeader />
 

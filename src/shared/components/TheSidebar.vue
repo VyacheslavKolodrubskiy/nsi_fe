@@ -15,10 +15,7 @@ const appStore = useAppStore()
     style="background-color: #f2f3f3"
     :width="200"
   >
-    <QScrollArea
-      class="fit"
-      :horizontal-thumb-style="{ opacity: '0' }"
-    >
+    <QScrollArea class="fit" :horizontal-thumb-style="{ opacity: '0' }">
       <SidebarMenu />
     </QScrollArea>
   </QDrawer>

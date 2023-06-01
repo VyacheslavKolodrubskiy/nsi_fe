@@ -23,17 +23,9 @@ const menuLinks: {
 </script>
 
 <template>
-  <QBtnDropdown
-    color="black"
-    dropdown-icon="expand_more"
-    flat
-    :ripple="false"
-  >
+  <QBtnDropdown color="black" dropdown-icon="expand_more" flat :ripple="false">
     <template #label>
-      <QAvatar
-        rounded
-        size="50px"
-      >
+      <QAvatar rounded size="50px">
         <img src="src/assets/user.png" />
       </QAvatar>
 

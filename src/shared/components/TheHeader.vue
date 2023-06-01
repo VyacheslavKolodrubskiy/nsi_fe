@@ -9,27 +9,14 @@ import { PageName } from 'shared/enums/common'
   >
     <QToolbar>
       <div class="row items-center">
-        <RouterLink
-          class="q-mr-xl"
-          :to="{ name: PageName.MAIN }"
-        >
+        <RouterLink class="q-mr-xl" :to="{ name: PageName.MAIN }">
           <LogoIcon />
         </RouterLink>
 
         <div class="row items-center">
-          <div
-            class="q-mr-md cursor-pointer"
-            style="color: #7f8a94"
-          >
-            Қазақ
-          </div>
+          <div class="q-mr-md cursor-pointer" style="color: #7f8a94">Қазақ</div>
 
-          <div
-            class="cursor-pointer"
-            style="color: #39444e"
-          >
-            Русский
-          </div>
+          <div class="cursor-pointer" style="color: #39444e">Русский</div>
         </div>
       </div>
 

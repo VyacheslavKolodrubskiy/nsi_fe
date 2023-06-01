@@ -88,10 +88,7 @@ const rows = [
     @click="addNewUser"
   />
 
-  <div
-    class="q-py-lg q-px-xl bg-white"
-    style="border-radius: 10px"
-  >
+  <div class="q-py-lg q-px-xl bg-white" style="border-radius: 10px">
     <QTable
       :columns="columns"
       :filter="filter"
@@ -102,10 +99,7 @@ const rows = [
       <template #top-left>
         <div>
           <div class="q-mb-md">
-            <div
-              class="q-mb-xs"
-              style="font-size: 20px; color: #39444e"
-            >
+            <div class="q-mb-xs" style="font-size: 20px; color: #39444e">
               Список пользователей
             </div>
 
@@ -123,11 +117,7 @@ const rows = [
             type="text"
           >
             <template #append>
-              <SvgIcon
-                height="24"
-                name="search"
-                width="24"
-              />
+              <SvgIcon height="24" name="search" width="24" />
             </template>
           </QInput>
         </div>

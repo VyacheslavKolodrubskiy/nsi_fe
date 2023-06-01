@@ -5,11 +5,7 @@ import authProfile from 'assets/img/auth-profile.png'
 </script>
 
 <template>
-  <QPage
-    class="bg-color relative-position"
-    padding
-    style="z-index: 1"
-  >
+  <QPage class="bg-color relative-position" padding style="z-index: 1">
     <LogoIcon class="q-mx-auto block q-mt-md" />
 
     <img
@@ -27,12 +23,7 @@ import authProfile from 'assets/img/auth-profile.png'
       </div>
 
       <div class="col flex flex-center q-px-md">
-        <img
-          alt="auth-profile"
-          height="256"
-          :src="authProfile"
-          width="450"
-        />
+        <img alt="auth-profile" height="256" :src="authProfile" width="450" />
       </div>
     </div>
 

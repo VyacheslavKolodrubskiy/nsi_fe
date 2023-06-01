@@ -20,13 +20,7 @@ const symbolId = computed(() => {
 </script>
 
 <template>
-  <svg
-    aria-hidden="true"
-    :style="{ width: width, height: height }"
-  >
-    <use
-      :fill="color"
-      :href="symbolId"
-    />
+  <svg aria-hidden="true" :style="{ width: width, height: height }">
+    <use :fill="color" :href="symbolId" />
   </svg>
 </template>

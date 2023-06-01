@@ -6,10 +6,7 @@ const { toggleSidebar } = useAppStore()
 
 <template>
   <QFooter class="bg-transparent q-py-lg flex items-center justify-between">
-    <div
-      class="flex items-center cursor-pointer"
-      @click="toggleSidebar"
-    >
+    <div class="flex items-center cursor-pointer" @click="toggleSidebar">
       <div
         class="flex flex-center"
         style="
@@ -22,12 +19,7 @@ const { toggleSidebar } = useAppStore()
         <SvgIcon name="arrow-left" />
       </div>
 
-      <div
-        class="q-ml-sm"
-        style="color: #39444e"
-      >
-        Свернуть
-      </div>
+      <div class="q-ml-sm" style="color: #39444e">Свернуть</div>
     </div>
 
     <div style="font-size: 13px; color: #7f8a94">

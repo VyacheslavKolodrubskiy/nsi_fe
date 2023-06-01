@@ -70,11 +70,7 @@
 
     <defs>
       <clipPath id="clip0_3001_170">
-        <rect
-          fill="white"
-          height="24"
-          width="160"
-        />
+        <rect fill="white" height="24" width="160" />
       </clipPath>
     </defs>
   </svg>

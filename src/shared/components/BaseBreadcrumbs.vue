@@ -14,10 +14,7 @@ const breadcrumbs = [
 </script>
 
 <template>
-  <QBreadcrumbs
-    active-color="grey"
-    class="q-mb-lg"
-  >
+  <QBreadcrumbs active-color="grey" class="q-mb-lg">
     <template #separator>
       <svg
         class="flex"
@@ -27,12 +24,7 @@ const breadcrumbs = [
         width="4"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <rect
-          fill="#7F8A94"
-          height="4"
-          rx="2"
-          width="4"
-        />
+        <rect fill="#7F8A94" height="4" rx="2" width="4" />
       </svg>
     </template>
 

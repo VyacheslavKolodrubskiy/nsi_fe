@@ -35,15 +35,8 @@ watchEffect(() => {
 </script>
 
 <template>
-  <QDialog
-    ref="dialogRef"
-    @hide="onDialogHide"
-  >
-    <QCard
-      class="text-center full-width"
-      flat
-      style="max-width: 300px"
-    >
+  <QDialog ref="dialogRef" @hide="onDialogHide">
+    <QCard class="text-center full-width" flat style="max-width: 300px">
       <QCardSection class="q-pa-lg">
         <QIcon
           v-close-popup
@@ -81,10 +74,7 @@ watchEffect(() => {
           outlined
         />
 
-        <div
-          v-if="timer"
-          class="text-grey"
-        >
+        <div v-if="timer" class="text-grey">
           Повторная отправка через {{ timer }}
         </div>
 
