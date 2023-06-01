@@ -29,35 +29,30 @@ const columns: QTableColumn[] = [
     align: 'left',
     label: 'ФИО',
     field: 'name',
-    headerStyle: 'color: #7F8A94',
   },
   {
     name: 'email',
     align: 'left',
     label: 'Почта/ Логин',
     field: 'email',
-    headerStyle: 'color: #7F8A94',
   },
   {
     name: 'role',
     align: 'left',
     label: 'Роль',
     field: 'role',
-    headerStyle: 'color: #7F8A94',
   },
   {
     name: 'lastLoginTime',
     align: 'left',
     label: 'Время последнего входа',
     field: 'lastLoginTime',
-    headerStyle: 'color: #7F8A94',
   },
   {
     name: 'status',
     align: 'left',
     label: 'Статус',
     field: 'status',
-    headerStyle: 'color: #7F8A94',
   },
   {
     name: 'action',
@@ -95,6 +90,7 @@ const rows = [
       flat
       row-key="name"
       :rows="rows"
+      table-header-style="color: #7F8A94"
     >
       <template #top-left>
         <div>

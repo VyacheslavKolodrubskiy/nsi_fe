@@ -7,35 +7,30 @@ const columns: QTableColumn[] = [
     align: 'left',
     label: 'ФИО менеджера',
     field: 'name',
-    headerStyle: 'color: #7F8A94',
   },
   {
     name: 'inProgress',
     align: 'left',
     label: 'В работе',
     field: 'inProgress',
-    headerStyle: 'color: #7F8A94',
   },
   {
     name: 'published',
     align: 'left',
     label: 'Опубликовано',
     field: 'published',
-    headerStyle: 'color: #7F8A94',
   },
   {
     name: 'onCompletion',
     align: 'left',
     label: 'На доработке',
     field: 'onCompletion',
-    headerStyle: 'color: #7F8A94',
   },
   {
     name: 'finished',
     align: 'left',
     label: 'Завершено',
     field: 'finished',
-    headerStyle: 'color: #7F8A94',
   },
   {
     name: 'action',
@@ -124,6 +119,7 @@ function onEditClick(key: string) {
       flat
       row-key="name"
       :rows="rows"
+      table-header-style="color: #7F8A94"
     >
       <template #top-left>
         <div>

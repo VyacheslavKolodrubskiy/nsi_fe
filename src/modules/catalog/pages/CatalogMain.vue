@@ -7,49 +7,43 @@ const columns: QTableColumn[] = [
     align: 'left',
     label: 'Статус',
     field: 'status',
-    headerStyle: 'color: #7F8A94',
   },
   {
     name: 'article',
     align: 'left',
     label: 'Артикул',
     field: 'article',
-    headerStyle: 'color: #7F8A94',
   },
   {
     name: 'productName',
     align: 'left',
     label: 'Наименование товара',
     field: 'productName',
-    headerStyle: 'color: #7F8A94',
+    style: 'max-width: 160px; white-space: normal',
   },
   {
     name: 'category',
     align: 'left',
     label: 'Категория',
     field: 'category',
-    headerStyle: 'color: #7F8A94',
   },
   {
     name: 'createdAt',
     align: 'left',
     label: 'Cоздание',
     field: 'createdAt',
-    headerStyle: 'color: #7F8A94',
   },
   {
     name: 'updatedAt',
     align: 'left',
     label: 'Изменение',
     field: 'updatedAt',
-    headerStyle: 'color: #7F8A94',
   },
   {
     name: 'filled',
     align: 'left',
     label: 'Заполнено',
     field: 'filled',
-    headerStyle: 'color: #7F8A94',
   },
   {
     name: 'action',
@@ -95,7 +89,7 @@ const options = ref<QSelectOption[]>([
 const filter = ref('')
 const currentOption = ref<Option>(options.value[0])
 const selected = ref([])
-const width = ref(20)
+const filled = ref(20)
 </script>
 
 <template>
@@ -109,6 +103,7 @@ const width = ref(20)
       row-key="name"
       :rows="rows"
       selection="single"
+      table-header-style="color: #7F8A94"
     >
       <template #top-left>
         <div>
@@ -144,7 +139,7 @@ const width = ref(20)
             <div
               class="absolute-position"
               :style="{
-                width: `${width}%`,
+                width: `${filled}%`,
                 height: 'inherit',
                 left: '0',
                 background: '#e61771',
