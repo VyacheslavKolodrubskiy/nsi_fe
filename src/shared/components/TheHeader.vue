@@ -8,12 +8,12 @@ import { PageName } from 'shared/enums/common'
     style="border-radius: 0px 0px 10px 10px"
   >
     <QToolbar>
-      <div class="row items-center">
+      <div class="flex items-center">
         <RouterLink class="q-mr-xl" :to="{ name: PageName.MAIN }">
           <LogoIcon />
         </RouterLink>
 
-        <div class="row items-center">
+        <div class="flex items-center">
           <div class="q-mr-md cursor-pointer" style="color: #7f8a94">Қазақ</div>
 
           <div class="cursor-pointer text-black">Русский</div>
