@@ -11,7 +11,7 @@
       <TheSidebar />
 
       <QPageContainer>
-        <QPage style="padding: 40px 0 0 40px">
+        <QPage style="padding: 40px 0 0 16px">
           <BaseBreadcrumbs />
 
           <RouterView />
