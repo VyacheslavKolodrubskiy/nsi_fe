@@ -121,23 +121,19 @@ $caption: (
   weight: 400,
 );
 
-$extra_headings: (
-  button: $button,
-);
-
-$color-map: (
+$color-scheme: (
   "text": $colors,
   "bg": $colors,
   "fill": $colors,
 );
 
-$property-map: ("color", "background-color", "fill");
+$color-properties: ("color", "background-color", "fill");
 
-@each $type, $color-map in $color-map {
-  @each $k, $v in $color-map {
-    .#{$type}-c-#{$k} {
-      @each $property in $property-map {
-        #{$property}: #{$v} !important;
+@each $color-type, $color-scheme in $color-scheme {
+  @each $color-name, $color-value in $color-scheme {
+    .#{$color-type}-c-#{$color-name} {
+      @each $color-property in $color-properties {
+        #{$color-property}: #{$color-value} !important;
       }
     }
   }
