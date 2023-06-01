@@ -3,7 +3,7 @@ import type { Router, RouteRecordRaw } from 'vue-router'
 
 const moduleRoute: RouteRecordRaw = {
   path: 'catalog',
-  component: () => import('shared/layouts/TheEmptyLayout.vue'),
+  component: () => import('shared/components/TheEmptyRouterView.vue'),
   children: [
     {
       path: '',
