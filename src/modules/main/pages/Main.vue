@@ -83,17 +83,17 @@ function onEditClick(key: string) {
 
 <template>
   <div class="row q-mb-lg">
-    <QCard
-      aria-atomic="a"
-      class="card col q-mr-md q-pa-lg"
-      style="min-height: 344px"
-    >
+    <QCard class="card col q-mr-md q-pa-lg" style="min-height: 344px">
       <QCardSection>
         <div class="q-mb-xs" style="font-size: 20px">Статусы товаров</div>
 
         <div class="" style="font-size: 13px; color: #7f8a94">
           Доли и количество всех товаров в различных статусах
         </div>
+      </QCardSection>
+
+      <QCardSection class="full-height">
+        <QImg fit="contain" src="src/assets/img/chart.png" />
       </QCardSection>
     </QCard>
 
@@ -104,6 +104,10 @@ function onEditClick(key: string) {
         <div class="" style="font-size: 13px; color: #7f8a94">
           Доли и количество всех товаров в различных статусах
         </div>
+      </QCardSection>
+
+      <QCardSection class="full-height">
+        <QImg fit="contain" src="src/assets/img/chart.png" />
       </QCardSection>
     </QCard>
   </div>
