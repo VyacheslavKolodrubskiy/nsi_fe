@@ -142,7 +142,7 @@ const rows = [
               style="width: 40px; height: 40px"
             />
 
-            <div>{{ props.value }}</div>
+            <div class="q-ml-sm">{{ props.value }}</div>
           </div>
         </QTd>
       </template>
