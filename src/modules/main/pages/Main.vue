@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { QTableColumn } from 'quasar'
+import { QSelectOption, QTableColumn } from 'quasar'
 
 const columns: QTableColumn[] = [
   {
@@ -61,14 +61,17 @@ interface Option {
   label: string
 }
 
-const options = ref<Option[]>([
+const options = ref<QSelectOption[]>([
   {
+    value: 'today',
     label: 'Сегодня',
   },
   {
+    value: 'tomorrow',
     label: 'Завтра',
   },
   {
+    value: 'allTime',
     label: 'Все время',
   },
 ])
@@ -99,10 +102,12 @@ function onEditClick(key: string) {
 
     <QCard class="card col q-pa-lg" style="min-height: 344px">
       <QCardSection>
-        <div class="q-mb-xs" style="font-size: 20px">Статусы товаров</div>
+        <div class="q-mb-xs" style="font-size: 20px">
+          Аналитика завершенных карточек
+        </div>
 
-        <div class="" style="font-size: 13px; color: #7f8a94">
-          Доли и количество всех товаров в различных статусах
+        <div style="font-size: 13px; color: #7f8a94">
+          Количество и процентное соотношение товаров в статусе Завершено
         </div>
       </QCardSection>
 
