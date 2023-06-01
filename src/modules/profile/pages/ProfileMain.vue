@@ -18,8 +18,9 @@ import ProfileForm from '../components/form/ProfileForm.vue'
           <div class="column">
             <QImg
               class="q-mb-md"
+              fit="contain"
               no-spinner
-              src="src/assets/user.png"
+              src="src/assets/img/user.png"
               style="width: 150px; height: 150px"
             />
 

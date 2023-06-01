@@ -70,6 +70,10 @@ ul {
 }
 
 .card {
+  padding: 24px;
   box-shadow: none;
   border-radius: 10px;
+  &__mini {
+    padding: 8px;
+  }
 }

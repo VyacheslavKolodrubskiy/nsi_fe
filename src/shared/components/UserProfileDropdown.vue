@@ -26,7 +26,7 @@ const menuLinks: {
   <QBtnDropdown color="black" dropdown-icon="expand_more" flat :ripple="false">
     <template #label>
       <QAvatar rounded size="50px">
-        <img src="src/assets/user.png" />
+        <img src="src/assets/img/user.png" />
       </QAvatar>
 
       <div class="text-black q-ml-sm">Марина Кравец</div>
