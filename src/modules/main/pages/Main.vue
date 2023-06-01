@@ -1,25 +1,6 @@
 <script setup lang="ts">
 import { QTableColumn } from 'quasar'
 
-const filter = ref('')
-const currentOption = ref('Сегодня')
-
-const options = ref([
-  {
-    label: 'Сегодня',
-  },
-  {
-    label: 'Завтра',
-  },
-  {
-    label: 'Все время',
-  },
-])
-
-function onEditClick(key: string) {
-  console.log('onEditClick', key)
-}
-
 const columns: QTableColumn[] = [
   {
     name: 'name',
@@ -75,6 +56,29 @@ const rows = [
     action: '',
   },
 ]
+
+interface Option {
+  label: string
+}
+
+const options = ref<Option[]>([
+  {
+    label: 'Сегодня',
+  },
+  {
+    label: 'Завтра',
+  },
+  {
+    label: 'Все время',
+  },
+])
+
+const filter = ref('')
+const currentOption = ref<Option>(options.value[0])
+
+function onEditClick(key: string) {
+  console.log('onEditClick', key)
+}
 </script>
 
 <template>
@@ -118,7 +122,9 @@ const rows = [
             Статистика менеджеров
           </div>
 
-          <div style="font-size: 13px; color: #7f8a94">Данные за сегодня</div>
+          <div style="font-size: 13px; color: #7f8a94">
+            Данные за {{ currentOption.label.toLowerCase() }}
+          </div>
         </div>
       </template>
 
@@ -138,11 +144,11 @@ const rows = [
           <div class="flex items-center no-wrap">
             <QImg
               no-spinner
-              src="src/assets/user.png"
+              src="src/assets/img/user.png"
               style="width: 40px; height: 40px"
             />
 
-            <div>{{ props.value }}</div>
+            <div class="q-ml-md">{{ props.value }}</div>
           </div>
         </QTd>
       </template>
