@@ -95,6 +95,7 @@ const options = ref<QSelectOption[]>([
 const filter = ref('')
 const currentOption = ref<Option>(options.value[0])
 const selected = ref([])
+const width = ref(20)
 </script>
 
 <template>
@@ -142,14 +143,13 @@ const selected = ref([])
           >
             <div
               class="absolute-position"
-              style="
-                width: 7px;
-                height: 7px;
-                left: 0;
-                top: 0;
-                background: #e61771;
-                border-radius: 100%;
-              "
+              :style="{
+                width: `${width}%`,
+                height: 'inherit',
+                left: '0',
+                background: '#e61771',
+                borderRadius: 'inherit',
+              }"
             />
           </div>
         </QTd>
