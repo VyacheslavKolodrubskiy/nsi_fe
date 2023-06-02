@@ -4,7 +4,7 @@ import { PageName } from 'shared/enums/common'
 
 <template>
   <QHeader
-    class="bg-white q-py-md q-px-xl"
+    class="bg-white q-py-sm q-px-lg"
     style="border-radius: 0px 0px 10px 10px"
   >
     <QToolbar>
@@ -12,12 +12,6 @@ import { PageName } from 'shared/enums/common'
         <RouterLink class="q-mr-xl" :to="{ name: PageName.MAIN }">
           <LogoIcon />
         </RouterLink>
-
-        <div class="flex items-center">
-          <div class="q-mr-md cursor-pointer" style="color: #7f8a94">Қазақ</div>
-
-          <div class="cursor-pointer text-black">Русский</div>
-        </div>
       </div>
 
       <QSpace />
