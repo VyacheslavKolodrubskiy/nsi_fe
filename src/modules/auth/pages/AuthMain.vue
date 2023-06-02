@@ -1,18 +1,21 @@
 <script setup lang="ts">
 import AuthForm from '../components/form/AuthForm.vue'
-import authDecor from 'assets/img/auth-decor.png'
 import authProfile from 'assets/img/auth-profile.png'
 </script>
 
 <template>
-  <QPage class="bg-color relative-position" padding style="z-index: 1">
-    <LogoIcon class="q-mx-auto block q-mt-md" />
+  <QPage class="bg-color" padding style="z-index: 1">
+    <SvgIcon
+      class="q-mx-auto block q-mt-md"
+      height="24"
+      name="logo"
+      width="160"
+    />
 
-    <img
-      alt="auth-decor"
+    <SvgIcon
       class="absolute-bottom-left"
       height="180"
-      :src="authDecor"
+      name="auth-decor"
       style="z-index: -1"
       width="320"
     />
@@ -23,7 +26,12 @@ import authProfile from 'assets/img/auth-profile.png'
       </div>
 
       <div class="col flex flex-center q-px-md">
-        <img alt="auth-profile" height="256" :src="authProfile" width="450" />
+        <QImg
+          fit="contain"
+          no-spinner
+          :src="authProfile"
+          style="max-width: 450px; max-height: 256px"
+        />
       </div>
     </div>
 
