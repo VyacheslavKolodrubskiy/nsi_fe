@@ -12,13 +12,8 @@
 
     <QHeader class="transparent">
       <QToolbar>
-        <QToolbarTitle>
-          <SvgIcon
-            class="q-mx-auto block q-mt-md"
-            height="24"
-            name="logo"
-            width="160"
-          />
+        <QToolbarTitle class="text-center q-mt-md">
+          <SvgIcon height="24" name="logo" width="160" />
         </QToolbarTitle>
       </QToolbar>
     </QHeader>

@@ -81,7 +81,7 @@ function onEditClick(key: string) {
 
 <template>
   <div class="row q-mb-lg">
-    <QCard class="card col q-mr-md q-pa-lg" style="min-height: 344px">
+    <QCard class="card col q-mr-md q-pa-lg">
       <QCardSection>
         <div class="q-mb-xs" style="font-size: 20px">Статусы товаров</div>
 
@@ -90,12 +90,17 @@ function onEditClick(key: string) {
         </div>
       </QCardSection>
 
-      <QCardSection class="full-height">
-        <QImg fit="contain" src="src/assets/img/chart.png" />
+      <QCardSection>
+        <QImg
+          fit="contain"
+          no-spinner
+          src="src/assets/img/chart.png"
+          style="max-width: 413px; max-height: 160px"
+        />
       </QCardSection>
     </QCard>
 
-    <QCard class="card col q-pa-lg" style="min-height: 344px">
+    <QCard class="card col q-pa-lg">
       <QCardSection>
         <div class="q-mb-xs" style="font-size: 20px">
           Аналитика завершенных карточек
@@ -106,8 +111,13 @@ function onEditClick(key: string) {
         </div>
       </QCardSection>
 
-      <QCardSection class="full-height">
-        <QImg fit="contain" src="src/assets/img/chart.png" />
+      <QCardSection>
+        <QImg
+          fit="contain"
+          no-spinner
+          src="src/assets/img/chart.png"
+          style="max-width: 413px; max-height: 160px"
+        />
       </QCardSection>
     </QCard>
   </div>
