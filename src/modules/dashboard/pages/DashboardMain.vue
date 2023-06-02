@@ -26,7 +26,12 @@
 
     <QCard class="col card">
       <QCardSection class="full-height">
-        <QImg fit="contain" src="src/assets/img/chart.png" />
+        <QImg
+          fit="contain"
+          no-spinner
+          src="src/assets/img/chart.png"
+          style="max-width: 413px; max-height: 160px"
+        />
       </QCardSection>
     </QCard>
   </div>
