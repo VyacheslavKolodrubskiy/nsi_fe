@@ -35,10 +35,7 @@ import authProfile from 'assets/img/auth-profile.png'
       </div>
     </div>
 
-    <div
-      class="text-center"
-      style="font-size: 13px; line-height: 130%; color: #7f8a94"
-    >
+    <div class="text-center" style="font-size: 13px; color: #7f8a94">
       © 2023 Mechta. Все права защищены.
     </div>
   </QPage>
