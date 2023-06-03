@@ -24,22 +24,7 @@
   align-items: flex-end;
 }
 
-.q-checkbox__bg {
-  border: 1px solid #dce0e3;
-  border-radius: 5px;
-}
-
-.q-checkbox__inner--truthy .q-checkbox__bg,
-.q-checkbox__inner--indet .q-checkbox__bg {
-  background: $primary;
-  border: none;
-}
-
-.q-checkbox {
-}
-
-.mechta-checkbox {
-  padding-bottom: 12px;
+.custom-checkbox {
   input[type="checkbox"] {
     cursor: pointer;
     position: relative;
@@ -49,12 +34,12 @@
     content: "";
     display: block;
     position: absolute;
-    width: 18px;
-    height: 18px;
+    width: 24px;
+    height: 24px;
     top: calc(50% - 9px);
     left: -1px;
-    border: 1px solid gray;
-    border-radius: 4px;
+    border: 1px solid $color3;
+    border-radius: 5px;
     background-color: white;
   }
   input[type="checkbox"]:checked:before {
@@ -64,33 +49,14 @@
   input[type="checkbox"]:checked:after {
     content: "";
     display: block;
-    width: 5px;
-    height: 10px;
+    width: 6px;
+    height: 12px;
     border: solid white;
     border-width: 0 2px 2px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
+    border-radius: 1px;
     transform: rotate(45deg);
     position: absolute;
-    top: 0;
-    left: 6px;
-  }
-  label {
-    width: 10vw;
-  }
-}
-
-@media screen and (max-width: 900px) {
-  .mechta-checkbox {
-    label {
-      width: 72vw;
-    }
-  }
-}
-@media screen and (min-width: 1925px) {
-  .mechta-checkbox {
-    label {
-      width: 8vw;
-    }
+    top: 3px;
+    left: 8px;
   }
 }

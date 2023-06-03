@@ -15,7 +15,7 @@
         </QPage>
       </QPageContainer>
 
-      <TheFooter />
+      <TheDefaultFooter />
     </QLayout>
   </div>
 </template>

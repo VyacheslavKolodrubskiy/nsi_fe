@@ -14,7 +14,7 @@ const breadcrumbs = [
 </script>
 
 <template>
-  <QBreadcrumbs active-color="grey" class="q-mb-lg">
+  <QBreadcrumbs class="q-mb-lg">
     <template #separator>
       <svg
         class="flex"
@@ -31,8 +31,9 @@ const breadcrumbs = [
     <QBreadcrumbsEl
       v-for="breadcrumb in breadcrumbs"
       :key="breadcrumb.label"
+      class="text-color2"
       :label="breadcrumb.label"
-      style="font-size: 13px; color: #7f8a94"
+      style="font-size: 13px"
       :to="breadcrumb.to"
     />
   </QBreadcrumbs>

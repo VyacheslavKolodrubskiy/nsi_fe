@@ -14,16 +14,12 @@
           />
         </div>
 
-        <div class="mechta-checkbox">
-          <input type="checkbox" />
-        </div>
-
         <div class="q-ml-xl q-pt-lg">
           <div class="q-mb-sm" style="font-size: 20px">Марина Кравец</div>
 
-          <div class="q-mb-sm" style="color: #e61771">m.kravets@machta.kz</div>
+          <div class="q-mb-sm text-primary">m.kravets@machta.kz</div>
 
-          <div style="font-weight: 700">Менеджер</div>
+          <div class="text-bold">Менеджер</div>
         </div>
       </QCardSection>
     </QCard>
