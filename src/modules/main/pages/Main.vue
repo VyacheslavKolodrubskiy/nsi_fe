@@ -127,6 +127,7 @@ function onEditClick(key: string) {
       :columns="columns"
       :filter="filter"
       flat
+      :pagination="{ rowsPerPage: 8 }"
       row-key="name"
       :rows="Array.from({ length: 100 }, () => rows).flatMap((arr) => arr)"
       table-header-class="text-color2"

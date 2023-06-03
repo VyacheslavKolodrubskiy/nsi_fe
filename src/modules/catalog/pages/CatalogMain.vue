@@ -100,6 +100,7 @@ const filled = ref(20)
       :columns="columns"
       :filter="filter"
       flat
+      :pagination="{ rowsPerPage: 8 }"
       row-key="name"
       :rows="Array.from({ length: 100 }, () => rows).flatMap((arr) => arr)"
       selection="single"
