@@ -14,6 +14,10 @@
           />
         </div>
 
+        <div class="mechta-checkbox">
+          <input type="checkbox" />
+        </div>
+
         <div class="q-ml-xl q-pt-lg">
           <div class="q-mb-sm" style="font-size: 20px">Марина Кравец</div>
 

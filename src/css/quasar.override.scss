@@ -34,3 +34,63 @@
   background: $primary;
   border: none;
 }
+
+.q-checkbox {
+}
+
+.mechta-checkbox {
+  padding-bottom: 12px;
+  input[type="checkbox"] {
+    cursor: pointer;
+    position: relative;
+    margin-right: 13px;
+  }
+  input[type="checkbox"]:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    top: calc(50% - 9px);
+    left: -1px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    background-color: white;
+  }
+  input[type="checkbox"]:checked:before {
+    background-color: $primary;
+    border: 1px solid $primary;
+  }
+  input[type="checkbox"]:checked:after {
+    content: "";
+    display: block;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    position: absolute;
+    top: 0;
+    left: 6px;
+  }
+  label {
+    width: 10vw;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .mechta-checkbox {
+    label {
+      width: 72vw;
+    }
+  }
+}
+@media screen and (min-width: 1925px) {
+  .mechta-checkbox {
+    label {
+      width: 8vw;
+    }
+  }
+}
