@@ -50,7 +50,7 @@
     </div>
 
     <div class="row">
-      <QCard class="col card q-mr-md" flat>
+      <QCard v-for="_ in 4" :key="_" class="col card q-mr-md" flat>
         <QCardSection class="flex items-center">
           <div
             style="
@@ -78,18 +78,6 @@
             <div class="text-color-2">Новые товары</div>
           </div>
         </QCardSection>
-      </QCard>
-
-      <QCard class="col card q-mr-md" flat>
-        <QCardSection> content </QCardSection>
-      </QCard>
-
-      <QCard class="col card q-mr-md" flat>
-        <QCardSection> content </QCardSection>
-      </QCard>
-
-      <QCard class="col card" flat>
-        <QCardSection> content </QCardSection>
       </QCard>
     </div>
   </div>
