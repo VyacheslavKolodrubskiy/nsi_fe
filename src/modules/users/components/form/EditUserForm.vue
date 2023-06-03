@@ -61,8 +61,10 @@ function onSubmit() {
 
     <QCheckbox
       v-model="form.userBlocked"
+      checked-icon="img:src/assets/img/icons/checkbox-check.svg"
       class="q-mb-md"
       label="Заблокировать пользователя"
+      unchecked-icon="img:src/assets/img/icons/checkbox-uncheck.svg"
     />
 
     <QBtn
