@@ -26,28 +26,28 @@ $warning: #ffd400;
 
 $bg-color: #ffffff;
 
-$color1: #39444e;
-$color2: #7f8a94;
-$color3: #dce0e3;
-$color4: #f7f7f7;
-$color5: $bg-color;
-$colorAdd1: #b20087;
-$colorAdd2: #0075cd;
-$colorAdd3: #39c2c9;
-$colorBrand1: $primary;
-$colorBrand2: #394f62;
+$color-1: #39444e;
+$color-2: #7f8a94;
+$color-3: #dce0e3;
+$color-4: #f7f7f7;
+$color-5: $bg-color;
+$color-add-1: #b20087;
+$color-add-2: #0075cd;
+$color-add-3: #39c2c9;
+$color-brand-1: $primary;
+$color-brand-2: #394f62;
 
 $colors: (
-  color1: $color1,
-  color2: $color2,
-  color3: $color3,
-  color4: $color4,
-  color5: $color5,
-  colorAdd1: $colorAdd1,
-  colorAdd2: $colorAdd2,
-  colorAdd3: $colorAdd3,
-  colorBrand1: $colorBrand1,
-  colorBrand2: $colorBrand2,
+  color-1: $color-1,
+  color-2: $color-2,
+  color-3: $color-3,
+  color-4: $color-4,
+  color-5: $color-5,
+  color-add-1: $color-add-1,
+  color-add-2: $color-add-2,
+  color-add-3: $color-add-3,
+  color-brand-1: $color-brand-1,
+  color-brand-2: $color-brand-2,
 );
 
 @each $k, $v in $colors {

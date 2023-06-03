@@ -104,7 +104,7 @@ const filled = ref(20)
       row-key="name"
       :rows="Array.from({ length: 100 }, () => rows).flatMap((arr) => arr)"
       selection="single"
-      table-header-class="text-color2"
+      table-header-class="text-color-2"
     >
       <template #top-left>
         <div>

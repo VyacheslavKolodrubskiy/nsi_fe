@@ -67,7 +67,7 @@ const isActive = computed(() => (routeName: string) => {
       <QItemSection
         avatar
         class="bg-white flex flex-center"
-        :class="{ 'bg-colorBrand1': isActive(link.route.name) }"
+        :class="{ 'bg-color-brand-1': isActive(link.route.name) }"
         style="border-radius: 10px; padding: 10px"
       >
         <SvgIcon
@@ -76,7 +76,7 @@ const isActive = computed(() => (routeName: string) => {
         />
       </QItemSection>
 
-      <QItemSection class="q-ml-sm text-color1">
+      <QItemSection class="q-ml-sm text-color-1">
         {{ link.title }}
       </QItemSection>
     </QItem>

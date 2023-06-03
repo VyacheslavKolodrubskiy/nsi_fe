@@ -16,7 +16,7 @@
       width="320"
     />
 
-    <QHeader class="transparent">
+    <QHeader class="bg-transparent">
       <QToolbar>
         <QToolbarTitle class="text-center q-mt-md">
           <SvgIcon height="24" name="logo" width="160" />
@@ -28,7 +28,7 @@
       <RouterView />
     </QPageContainer>
 
-    <QFooter class="transparent">
+    <QFooter class="bg-transparent">
       <QToolbar>
         <QToolbarTitle
           class="text-center"

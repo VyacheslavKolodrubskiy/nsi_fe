@@ -130,7 +130,7 @@ function onEditClick(key: string) {
       :pagination="{ rowsPerPage: 8 }"
       row-key="name"
       :rows="Array.from({ length: 100 }, () => rows).flatMap((arr) => arr)"
-      table-header-class="text-color2"
+      table-header-class="text-color-2"
     >
       <template #top-left>
         <div>

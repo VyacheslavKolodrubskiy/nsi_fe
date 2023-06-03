@@ -31,7 +31,7 @@ const breadcrumbs = [
     <QBreadcrumbsEl
       v-for="breadcrumb in breadcrumbs"
       :key="breadcrumb.label"
-      class="text-color2"
+      class="text-color-2"
       :label="breadcrumb.label"
       style="font-size: 13px"
       :to="breadcrumb.to"
