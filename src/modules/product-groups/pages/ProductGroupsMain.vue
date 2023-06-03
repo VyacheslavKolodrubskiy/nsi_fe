@@ -23,7 +23,7 @@ const state = {
       :options="state.options"
       :series="state.series"
       type="bar"
-      width="500"
+      width="100%"
     ></ApexCharts>
   </div>
 </template>
