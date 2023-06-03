@@ -89,7 +89,7 @@ const rows = [
       :filter="filter"
       flat
       row-key="name"
-      :rows="rows"
+      :rows="Array.from({ length: 100 }, () => rows).flatMap((arr) => arr)"
       table-header-class="text-color2"
     >
       <template #top-left>

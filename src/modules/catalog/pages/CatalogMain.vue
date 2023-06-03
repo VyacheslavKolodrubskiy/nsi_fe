@@ -101,7 +101,7 @@ const filled = ref(20)
       :filter="filter"
       flat
       row-key="name"
-      :rows="rows"
+      :rows="Array.from({ length: 100 }, () => rows).flatMap((arr) => arr)"
       selection="single"
       table-header-class="text-color2"
     >
