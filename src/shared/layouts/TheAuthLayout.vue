@@ -1,7 +1,13 @@
 <script setup lang="ts"></script>
 
 <template>
-  <QLayout class="bg-color" style="z-index: 1" view="hHr LpR lFf">
+  <QLayout
+    style="
+      background-image: linear-gradient(to right, #f2f3f3 50%, #e7e9e9 50%);
+      z-index: 1;
+    "
+    view="hHr LpR lFf"
+  >
     <SvgIcon
       class="absolute-bottom-left"
       height="180"
@@ -34,9 +40,3 @@
     </QFooter>
   </QLayout>
 </template>
-
-<style lang="scss">
-.bg-color {
-  background-image: linear-gradient(to right, #f2f3f3 50%, #e7e9e9 50%);
-}
-</style>
