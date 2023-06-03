@@ -85,7 +85,7 @@ function onEditClick(key: string) {
       <QCardSection>
         <div class="q-mb-xs" style="font-size: 20px">Статусы товаров</div>
 
-        <div class="" style="font-size: 13px; color: #7f8a94">
+        <div class="text-colo1" style="color: #7f8a94">
           Доли и количество всех товаров в различных статусах
         </div>
       </QCardSection>
@@ -129,7 +129,7 @@ function onEditClick(key: string) {
       flat
       row-key="name"
       :rows="rows"
-      table-header-style="color: #7F8A94"
+      table-header-class="text-color2"
     >
       <template #top-left>
         <div>

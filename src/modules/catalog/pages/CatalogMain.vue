@@ -103,7 +103,7 @@ const filled = ref(20)
       row-key="name"
       :rows="rows"
       selection="single"
-      table-header-style="color: #7F8A94"
+      table-header-class="text-color2"
     >
       <template #top-left>
         <div>

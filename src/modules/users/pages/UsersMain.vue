@@ -90,7 +90,7 @@ const rows = [
       flat
       row-key="name"
       :rows="rows"
-      table-header-style="color: #7F8A94"
+      table-header-class="text-color2"
     >
       <template #top-left>
         <div>
