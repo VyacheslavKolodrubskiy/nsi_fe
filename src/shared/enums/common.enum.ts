@@ -1,5 +1,4 @@
 export const enum PageName {
-  DEFAULT = 'Default',
   MAIN = 'Main',
   AUTH = 'Auth',
   CATALOG_MAIN = 'CatalogMain',
