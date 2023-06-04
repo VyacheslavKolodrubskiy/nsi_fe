@@ -52,10 +52,6 @@ const rows = [
   },
 ]
 
-interface Option {
-  label: string
-}
-
 const options = ref<QSelectOption[]>([
   {
     value: 'today',
@@ -72,7 +68,7 @@ const options = ref<QSelectOption[]>([
 ])
 
 const filter = ref('')
-const currentOption = ref<Option>(options.value[0])
+const currentOption = ref<QSelectOption>(options.value[0])
 
 function onEditClick(key: string) {
   console.log('onEditClick', key)

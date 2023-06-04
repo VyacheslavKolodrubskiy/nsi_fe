@@ -1,4 +1,60 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ApexOptions } from 'apexcharts'
+import { QSelectOption } from 'quasar'
+
+const chartOptions: ApexOptions = {
+  series: [
+    {
+      name: 'Desktops',
+      data: [10, 41, 35, 51, 49, 62, 69, 91, 148],
+    },
+  ],
+  colors: ['#0F991B'],
+  chart: {
+    toolbar: {
+      show: false,
+    },
+    height: 350,
+    type: 'line',
+    zoom: {
+      enabled: false,
+    },
+  },
+  dataLabels: {
+    enabled: false,
+  },
+  stroke: {
+    width: 1,
+    curve: 'straight',
+  },
+  grid: {
+    column: {
+      colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+      opacity: 0.5,
+    },
+  },
+  xaxis: {
+    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+  },
+}
+
+const options = ref<QSelectOption[]>([
+  {
+    value: 'today',
+    label: 'Сегодня',
+  },
+  {
+    value: 'tomorrow',
+    label: 'Завтра',
+  },
+  {
+    value: 'allTime',
+    label: 'Все время',
+  },
+])
+
+const currentOption = ref<QSelectOption>(options.value[0])
+</script>
 
 <template>
   <div class="row no-wrap q-mb-xl">
@@ -49,8 +105,14 @@
       </div>
     </div>
 
-    <div class="row">
-      <QCard v-for="_ in 4" :key="_" class="col card q-mr-md" flat>
+    <div class="row q-mb-md">
+      <QCard
+        v-for="_ in 4"
+        :key="_"
+        class="col card"
+        :class="{ 'q-mr-md': _ !== 4 }"
+        flat
+      >
         <QCardSection class="flex items-center">
           <div
             style="
@@ -80,6 +142,31 @@
         </QCardSection>
       </QCard>
     </div>
+
+    <QCard class="card">
+      <QCardSection>
+        <div class="flex justify-between">
+          <div>
+            <div class="text-color-1" style="font-size: 20px">
+              Аналитика завершенных карточек
+            </div>
+
+            <div class="text-color-2" style="font-size: 13px">
+              Данные за {{ currentOption.label.toLowerCase() }}
+            </div>
+          </div>
+
+          <TableSelect v-model="currentOption" :options="options" />
+        </div>
+
+        <ApexChart
+          height="350"
+          :options="chartOptions"
+          :series="chartOptions.series"
+          type="line"
+        />
+      </QCardSection>
+    </QCard>
   </div>
 </template>
 
