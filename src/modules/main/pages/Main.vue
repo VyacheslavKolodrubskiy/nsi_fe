@@ -22,7 +22,11 @@ const select = ref<QSelectOption | null>(null)
 </script>
 
 <template>
-  <BaseSelect v-model="select" label="kek" :options="options" />
+  <BaseSelect
+    v-model="select"
+    label="kek"
+    :options="Array.from({ length: 3 }, () => options).flatMap((arr) => arr)"
+  />
 
   <div class="row q-mb-lg">
     <QCard class="card col q-mr-md q-pa-lg">
