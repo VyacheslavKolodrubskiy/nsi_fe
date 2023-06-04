@@ -31,6 +31,15 @@ const chartOptions: ApexOptions = {
       opacity: 0.5,
     },
   },
+  tooltip: {
+    y: {
+      title: {
+        formatter: function () {
+          return ''
+        },
+      },
+    },
+  },
   yaxis: {
     labels: {
       show: false,
