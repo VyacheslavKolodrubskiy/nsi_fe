@@ -33,7 +33,7 @@ const select = ref<QSelectOption | null>(null)
       <QCardSection>
         <div class="q-mb-xs" style="font-size: 20px">Статусы товаров</div>
 
-        <div class="text-colo1" style="color: #7f8a94">
+        <div class="text-color-2">
           Доли и количество всех товаров в различных статусах
         </div>
       </QCardSection>
@@ -54,7 +54,7 @@ const select = ref<QSelectOption | null>(null)
           Аналитика завершенных карточек
         </div>
 
-        <div style="font-size: 13px; color: #7f8a94">
+        <div class="text-color-2" style="font-size: 13px">
           Количество и процентное соотношение товаров в статусе Завершено
         </div>
       </QCardSection>

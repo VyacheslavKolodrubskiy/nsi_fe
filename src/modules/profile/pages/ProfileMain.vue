@@ -9,7 +9,7 @@ import ProfileForm from '../components/form/ProfileForm.vue'
         <div class="q-mb-md">
           <div style="font-size: 20px">Профиль</div>
 
-          <div style="font-size: 13px; color: #7f8a94">
+          <div class="text-color-2" style="font-size: 13px">
             Данные вашего профиля
           </div>
         </div>

@@ -28,7 +28,7 @@ function onReset() {
   <div class="q-mb-lg">
     <div class="q-mb-sm" style="font-size: 20px">Сменить пароль</div>
 
-    <div style="font-size: 13px; color: #7f8a94">Заполните форму</div>
+    <div class="text-color-2" style="font-size: 13px">Заполните форму</div>
   </div>
 
   <QForm @reset="onReset" @submit="onSubmit">

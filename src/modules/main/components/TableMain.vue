@@ -89,7 +89,7 @@ function onEditClick(key: string) {
       <div>
         <div class="q-mb-xs" style="font-size: 20px">Статистика менеджеров</div>
 
-        <div style="font-size: 13px; color: #7f8a94">
+        <div class="text-color-2" style="font-size: 13px">
           Данные за {{ currentOption.label.toLowerCase() }}
         </div>
       </div>

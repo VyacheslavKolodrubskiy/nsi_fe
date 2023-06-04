@@ -25,7 +25,9 @@ const { dialogRef, onDialogCancel } = useDialogPluginComponent()
             Редактировать пользователя
           </div>
 
-          <div style="font-size: 13px; color: #7f8a94">Заполните форму</div>
+          <div class="text-color-2" style="font-size: 13px">
+            Заполните форму
+          </div>
         </div>
 
         <EditUserForm />

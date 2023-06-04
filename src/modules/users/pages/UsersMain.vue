@@ -100,7 +100,7 @@ const rows = [
               Список пользователей
             </div>
 
-            <div style="font-size: 13px; color: #7f8a94">
+            <div class="text-color-2" style="font-size: 13px">
               Все пользователи Мастер-каталога
             </div>
           </div>

@@ -44,7 +44,7 @@ function onSubmit() {
       <div class="q-mb-lg">
         <h2 class="q-mb-sm">Вход в личный кабинет</h2>
 
-        <div class="text-subtitle1" style="color: #7f8a94">
+        <div class="text-subtitle1 text-color-2">
           Войдите для работы с Мастер-каталогом
         </div>
       </div>

@@ -111,7 +111,7 @@ const filled = ref(20)
           <div class="q-mb-md">
             <div class="q-mb-xs" style="font-size: 20px">Каталог товаров</div>
 
-            <div style="font-size: 13px; color: #7f8a94">
+            <div class="text-color-2" style="font-size: 13px">
               Доступные Вам карточки
             </div>
           </div>
@@ -154,10 +154,11 @@ const filled = ref(20)
       <template #body-cell-action="props">
         <QTd :props="props">
           <QBtn
+            color="color-1"
             flat
             label="Взять в работу"
             no-caps
-            style="color: #39444e; background: #cfebd1; border-radius: 5px"
+            style="cbackground: #cfebd1; border-radius: 5px"
           />
         </QTd>
       </template>
