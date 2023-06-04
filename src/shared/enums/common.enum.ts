@@ -12,4 +12,6 @@ export const enum PageName {
 
 export const enum LayoutName {
   MAIN_LAYOUT = 'MainLayout',
+  EMPTY_LAYOUT = 'EmptyLayout',
+  AUTH_LAYOUT = 'AuthLayout',
 }
