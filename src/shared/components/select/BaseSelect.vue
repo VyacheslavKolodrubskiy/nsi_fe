@@ -9,7 +9,7 @@ const emit = defineEmits(['update:modelValue'])
   <QSelect
     bg-color="white"
     color="color-3"
-    dropdown-icon="expand_more"
+    hide-dropdown-icon
     :label="label"
     label-color="color-1"
     :model-value="modelValue"
@@ -18,6 +18,10 @@ const emit = defineEmits(['update:modelValue'])
     outlined
     @update:model-value="emit('update:modelValue', $event)"
   >
+    <template #append>
+      <QIcon color="color-1" name="expand_more" />
+    </template>
+
     <template
       v-for="(_, name) in ($slots as Readonly<QSelectSlots>)"
       :key="name"
