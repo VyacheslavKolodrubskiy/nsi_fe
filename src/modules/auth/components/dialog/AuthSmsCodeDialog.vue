@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useDialogPluginComponent } from 'quasar'
-import { formatPhoneNumber } from 'utils/common'
+import { formatPhoneNumber } from 'shared/utils/common'
 import { useAuthStore } from '../../auth.store'
 
 const props = defineProps<{
