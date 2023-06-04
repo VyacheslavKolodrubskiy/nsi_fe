@@ -3,14 +3,14 @@ import { PageName } from 'shared/enums/common'
 </script>
 
 <template>
-  <div class="text-center q-mt-xl">
+  <QPage class="column flex-center text-center" padding>
     <QImg
       class="q-mb-lg"
       fit="contain"
       height="279px"
+      max-width="400px"
       no-spinner
       src="src/assets/img/404.png"
-      width="400px"
     />
 
     <div class="text-color-1 q-mb-lg">
@@ -30,5 +30,5 @@ import { PageName } from 'shared/enums/common'
       label="На главную"
       @click="$router.push({ name: PageName.DEFAULT })"
     />
-  </div>
+  </QPage>
 </template>

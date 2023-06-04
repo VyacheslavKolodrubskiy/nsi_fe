@@ -3,9 +3,7 @@
     <TheAuthHeader />
 
     <QPageContainer>
-      <QPage padding>
-        <RouterView />
-      </QPage>
+      <RouterView />
     </QPageContainer>
 
     <TheAuthFooter />

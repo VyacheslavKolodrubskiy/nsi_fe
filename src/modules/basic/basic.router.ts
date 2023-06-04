@@ -1,18 +1,18 @@
-import { PageName } from 'shared/enums/common'
 import type { Router, RouteRecordRaw } from 'vue-router'
 
 const moduleRoute: RouteRecordRaw = {
-  path: 'catalog',
-  component: () => import('shared/components/TheEmptyRouterView.vue'),
+  // Always leave this as last one,
+  // but you can also remove it
+  path: '/:catchAll(.*)*',
+  component: () => import('shared/layouts/TheNotFoundLayout.vue'),
   children: [
     {
       path: '',
-      name: PageName.CATALOG_MAIN,
-      component: () => import('modules/catalog/pages/CatalogMain.vue'),
+      component: () => import('modules/basic/pages/ErrorNotFound.vue'),
     },
   ],
 }
 
 export default (router: Router) => {
-  router.addRoute(PageName.DEFAULT, moduleRoute)
+  router.addRoute(moduleRoute)
 }
