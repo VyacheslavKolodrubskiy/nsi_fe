@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { PageName } from 'shared/enums/common.enum'
 
-const menuLinks: {
+interface Link {
   title: string
   route: {
     name: PageName
   }
-}[] = [
+}
+
+const menuLinks: Link[] = [
   {
     title: 'Личный кабинет',
     route: {

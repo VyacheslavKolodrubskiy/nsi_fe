@@ -7,7 +7,7 @@
 
       <QPageContainer>
         <QPage style="padding: 40px 0 0 16px">
-          <BaseBreadcrumbs />
+          <TheBreadcrumbs />
 
           <RouterView />
         </QPage>
