@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PageName } from 'shared/enums/common'
+import { PageName } from 'shared/enums/common.enum'
 </script>
 
 <template>
@@ -32,7 +32,7 @@ import { PageName } from 'shared/enums/common'
       <QBtn
         color="primary"
         label="На главную"
-        @click="$router.push({ name: PageName.DEFAULT })"
+        @click="$router.push({ name: PageName.MAIN })"
       />
     </div>
 

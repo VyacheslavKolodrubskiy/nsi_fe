@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
-import { PageName } from 'shared/enums/common'
+import { PageName } from 'shared/enums/common.enum'
 
 interface Link {
   title: string

@@ -1,4 +1,4 @@
-import { PageName } from 'shared/enums/common'
+import { PageName } from 'shared/enums/common.enum'
 import type { Router, RouteRecordRaw } from 'vue-router'
 
 const moduleRoute: RouteRecordRaw = {

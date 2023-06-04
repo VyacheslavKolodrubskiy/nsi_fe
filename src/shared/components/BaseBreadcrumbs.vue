@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { PageName } from 'shared/enums/common'
+import { PageName } from 'shared/enums/common.enum'
 
 const breadcrumbs = [
   {
     label: 'Главная',
-    to: { name: PageName.DEFAULT },
+    to: { name: PageName.MAIN },
   },
   {
     label: 'Личный кабинет',
-    to: { name: PageName.DEFAULT },
+    to: { name: PageName.MAIN },
   },
 ]
 </script>
