@@ -1,4 +1,4 @@
-import { PageName } from 'shared/enums/common'
+import { LayoutName, PageName } from 'shared/enums/common'
 import type { Router, RouteRecordRaw } from 'vue-router'
 
 const moduleRoute: RouteRecordRaw = {
@@ -15,5 +15,5 @@ const moduleRoute: RouteRecordRaw = {
 }
 
 export default (router: Router) => {
-  router.addRoute(PageName.DEFAULT, moduleRoute)
+  router.addRoute(LayoutName.MAIN_LAYOUT, moduleRoute)
 }

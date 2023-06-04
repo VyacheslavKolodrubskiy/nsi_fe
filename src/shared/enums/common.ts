@@ -8,5 +8,9 @@ export const enum PageName {
   DASHBOARD_MAIN = 'DashboardMain',
   CATEGORIES_MAIN = 'CategoriesMain',
   USERS_MAIN = 'UsersMain',
-  NOT_FOUND = 'NOT_FOUND',
+  ERROR_404 = 'ERROR_404',
+}
+
+export const enum LayoutName {
+  MAIN_LAYOUT = 'MainLayout',
 }

@@ -1,13 +1,20 @@
-import { PageName } from 'shared/enums/common'
+import { LayoutName, PageName } from 'shared/enums/common'
 import type { RouteRecordRaw } from 'vue-router'
 
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    name: PageName.DEFAULT,
+    name: LayoutName.MAIN_LAYOUT,
     redirect: { name: PageName.MAIN },
-    component: () => import('shared/layouts/TheDefaultLayout.vue'),
+    component: () => import('shared/layouts/TheMainLayout.vue'),
     children: [],
+  },
+  {
+    // Always leave this as last one,
+    // but you can also remove it
+    path: '/:catchAll(.*)*',
+    name: PageName.ERROR_404,
+    component: () => import('shared/components/404.vue'),
   },
 ]
 
