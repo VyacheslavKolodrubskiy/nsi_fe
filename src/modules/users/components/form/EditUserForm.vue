@@ -1,4 +1,7 @@
+import { QSelectOption } from 'quasar';
 <script setup lang="ts">
+import { QSelectOption } from 'quasar'
+
 interface Form {
   name: string
   email: string
@@ -15,14 +18,17 @@ const form = reactive<Form>({
   userBlocked: false,
 })
 
-const options = [
+const options: QSelectOption[] = [
   {
+    value: 'admin',
     label: 'Администратор',
   },
   {
+    value: 'user',
     label: 'Пользователь',
   },
   {
+    value: 'moderator',
     label: 'Модератор',
   },
 ]
@@ -38,7 +44,7 @@ function onSubmit() {
       v-model="form.name"
       class="q-mb-md"
       label="Имя пользователя"
-      label-color="label-color"
+      label-color="color-1"
       outlined
     />
 
@@ -46,7 +52,7 @@ function onSubmit() {
       v-model="form.email"
       class="q-mb-md"
       label="Почта/ Логин"
-      label-color="label-color"
+      label-color="color-1"
       outlined
     />
 
@@ -54,7 +60,7 @@ function onSubmit() {
       v-model="form.role"
       class="q-mb-xs"
       label="Роль пользователя"
-      label-color="label-color"
+      label-color="color-1"
       :options="options"
       outlined
     />

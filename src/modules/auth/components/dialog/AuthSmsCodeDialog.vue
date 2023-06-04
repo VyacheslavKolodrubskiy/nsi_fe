@@ -70,7 +70,7 @@ watchEffect(() => {
           v-model="smsCode"
           class="q-mb-md"
           label="Код из SMS"
-          label-color="label-color"
+          label-color="color-1"
           outlined
         />
 

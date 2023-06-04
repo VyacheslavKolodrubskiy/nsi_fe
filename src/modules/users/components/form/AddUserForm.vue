@@ -36,7 +36,7 @@ function onSubmit() {
       v-model="form.name"
       class="q-mb-md"
       label="Имя пользователя"
-      label-color="label-color"
+      label-color="color-1"
       outlined
     />
 
@@ -44,7 +44,7 @@ function onSubmit() {
       v-model="form.email"
       class="q-mb-md"
       label="Почта/ Логин"
-      label-color="label-color"
+      label-color="color-1"
       outlined
     />
 
@@ -52,7 +52,7 @@ function onSubmit() {
       v-model="form.role"
       class="q-mb-lg"
       label="Роль пользователя"
-      label-color="label-color"
+      label-color="color-1"
       :options="options"
       outlined
     />

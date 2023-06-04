@@ -38,7 +38,7 @@ function onReset() {
         autocomplete="current-password"
         class="q-mb-sm"
         label="Старый пароль"
-        label-color="label-color"
+        label-color="color-1"
         outlined
         :type="isPwdOld ? 'password' : 'text'"
       >
@@ -56,7 +56,7 @@ function onReset() {
         autocomplete="current-password"
         class="q-mb-sm"
         label="Новый пароль"
-        label-color="label-color"
+        label-color="color-1"
         outlined
         :type="isPwdNew ? 'password' : 'text'"
       >
@@ -73,7 +73,7 @@ function onReset() {
         v-model="form.repeatPassword"
         autocomplete="current-password"
         label="Повторите новый пароль"
-        label-color="label-color"
+        label-color="color-1"
         outlined
         :type="isPwdRepeat ? 'password' : 'text'"
       >

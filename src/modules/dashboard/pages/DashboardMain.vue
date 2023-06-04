@@ -5,7 +5,6 @@ import { QSelectOption } from 'quasar'
 const chartOptions: ApexOptions = {
   series: [
     {
-      name: 'Desktops',
       data: [10, 41, 35, 51, 49, 62, 69, 91, 148],
     },
   ],
@@ -14,7 +13,6 @@ const chartOptions: ApexOptions = {
     toolbar: {
       show: false,
     },
-    height: 350,
     type: 'line',
     zoom: {
       enabled: false,
@@ -31,6 +29,11 @@ const chartOptions: ApexOptions = {
     column: {
       colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
       opacity: 0.5,
+    },
+  },
+  yaxis: {
+    labels: {
+      show: false,
     },
   },
   xaxis: {
@@ -143,7 +146,7 @@ const currentOption = ref<QSelectOption>(options.value[0])
       </QCard>
     </div>
 
-    <QCard class="card">
+    <QCard class="card q-pa-md">
       <QCardSection>
         <div class="flex justify-between">
           <div>
@@ -160,7 +163,7 @@ const currentOption = ref<QSelectOption>(options.value[0])
         </div>
 
         <ApexChart
-          height="350"
+          height="250"
           :options="chartOptions"
           :series="chartOptions.series"
           type="line"

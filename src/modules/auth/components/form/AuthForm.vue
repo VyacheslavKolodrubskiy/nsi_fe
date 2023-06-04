@@ -55,7 +55,7 @@ function onSubmit() {
           v-model="form.phone"
           class="q-mb-sm text-subtitle2 q-mb-lg"
           label="Мобильный телефон"
-          label-color="label-color"
+          label-color="color-1"
           mask="(###)-###-####"
           outlined
           prefix="+7"
