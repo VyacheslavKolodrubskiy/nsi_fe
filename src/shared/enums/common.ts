@@ -8,4 +8,5 @@ export const enum PageName {
   DASHBOARD_MAIN = 'DashboardMain',
   CATEGORIES_MAIN = 'CategoriesMain',
   USERS_MAIN = 'UsersMain',
+  NOT_FOUND = 'NOT_FOUND',
 }

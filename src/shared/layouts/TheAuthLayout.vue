@@ -16,27 +16,12 @@
       width="320"
     />
 
-    <QHeader class="bg-transparent">
-      <QToolbar>
-        <QToolbarTitle class="text-center q-mt-md">
-          <SvgIcon height="24" name="logo" width="160" />
-        </QToolbarTitle>
-      </QToolbar>
-    </QHeader>
+    <TheAuthHeader />
 
     <QPageContainer>
       <RouterView />
     </QPageContainer>
 
-    <QFooter class="bg-transparent">
-      <QToolbar>
-        <QToolbarTitle
-          class="text-center"
-          style="font-size: 13px; color: #7f8a94"
-        >
-          © 2023 Mechta. Все права защищены.
-        </QToolbarTitle>
-      </QToolbar>
-    </QFooter>
+    <TheAuthFooter />
   </QLayout>
 </template>
