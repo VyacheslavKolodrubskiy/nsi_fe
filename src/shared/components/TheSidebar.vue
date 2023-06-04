@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useAppStore } from 'shared/stores/app.store'
+import { useAppStore } from 'stores/app.store'
 
 const drawer = ref(false)
 const appStore = useAppStore()
