@@ -102,7 +102,12 @@ const filled = ref(20)
       flat
       :pagination="{ rowsPerPage: 8 }"
       row-key="name"
-      :rows="Array.from({ length: 100 }, () => rows).flatMap((arr) => arr)"
+      :rows="
+        Array.from({ length: 100 }, (_, index) => ({
+          ...rows[0],
+          name: `${rows[0].status} ${index}`,
+        }))
+      "
       selection="single"
       table-header-class="text-color-2"
     >
