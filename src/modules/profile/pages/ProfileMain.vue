@@ -19,9 +19,10 @@ import ProfileForm from '../components/form/ProfileForm.vue'
             <QImg
               class="q-mb-md"
               fit="contain"
+              height="150px"
               no-spinner
               src="src/assets/img/user.png"
-              style="width: 150px; height: 150px"
+              width="150px"
             />
 
             <div class="self-center">

@@ -115,9 +115,10 @@ const rows = [
         <QTd :props="props">
           <div class="flex items-center no-wrap">
             <QImg
+              height="40px"
               no-spinner
               src="src/assets/img/user.png"
-              style="width: 40px; height: 40px"
+              width="40px"
             />
 
             <div class="q-ml-sm">{{ props.value }}</div>

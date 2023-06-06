@@ -13,9 +13,10 @@ import authProfile from 'assets/img/auth-profile.png'
       <div class="col flex flex-center q-px-md">
         <QImg
           fit="contain"
+          height="256px"
           no-spinner
           :src="authProfile"
-          style="max-width: 450px; max-height: 256px"
+          width="450px"
         />
       </div>
     </div>

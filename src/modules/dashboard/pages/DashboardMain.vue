@@ -76,9 +76,10 @@ const currentOption = ref<QSelectOption>(options.value[0])
           <QImg
             class="q-mb-md col"
             fit="contain"
+            height="150px"
             no-spinner
             src="src/assets/img/user.png"
-            style="width: 150px; height: 150px"
+            width="150px"
           />
         </div>
 
@@ -96,9 +97,10 @@ const currentOption = ref<QSelectOption>(options.value[0])
       <QCardSection class="full-height">
         <QImg
           fit="contain"
+          height="160px"
           no-spinner
           src="src/assets/img/chart.png"
-          style="max-width: 413px; max-height: 160px"
+          width="413px"
         />
       </QCardSection>
     </QCard>
