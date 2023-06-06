@@ -83,6 +83,7 @@ function onEditClick(key: string) {
     :pagination="{ rowsPerPage: 8 }"
     row-key="name"
     :rows="Array.from({ length: 100 }, () => rows).flatMap((arr) => arr)"
+    :rows-per-page-options="[]"
     table-header-class="text-color-2"
   >
     <template #top-left>
@@ -120,6 +121,18 @@ function onEditClick(key: string) {
           name="arrow-right"
           @click="onEditClick(props.key)"
       /></QTd>
+    </template>
+
+    <template #bottom="scope">
+      <QPagination
+        v-model="scope.pagesNumber"
+        active-color="orange"
+        active-design="push"
+        color="teal"
+        direction-links
+        max="5"
+        push
+      />
     </template>
   </QTable>
 </template>

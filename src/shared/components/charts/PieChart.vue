@@ -8,6 +8,9 @@ const chartOptions: ApexOptions = {
     width: 380,
     type: 'pie',
   },
+  dataLabels: {
+    enabled: false,
+  },
   labels: ['Новых товаров', 'В работе', 'Опубликовано', 'На доработке'],
   legend: {
     labels: {
@@ -33,9 +36,16 @@ const chartOptions: ApexOptions = {
   </div>
 </template>
 
-<style>
+<style lang="scss">
 .apexcharts-legend-series {
   display: flex;
   align-items: center;
+  &:not(:last-child) {
+    margin-bottom: 5px !important;
+  }
+}
+.apexcharts-legend-text {
+  padding-left: 0 !important;
+  margin-left: 10px !important;
 }
 </style>
