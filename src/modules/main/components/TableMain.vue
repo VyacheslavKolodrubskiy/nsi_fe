@@ -69,6 +69,7 @@ const options = ref<QSelectOption[]>([
 
 const filter = ref('')
 const currentOption = ref<QSelectOption>(options.value[0])
+const currentPage = ref(1)
 
 function onEditClick(key: string) {
   console.log('onEditClick', key)
@@ -80,9 +81,9 @@ function onEditClick(key: string) {
     :columns="columns"
     :filter="filter"
     flat
-    :pagination="{ rowsPerPage: 8 }"
+    :pagination="{ page: currentPage }"
     row-key="name"
-    :rows="Array.from({ length: 100 }, () => rows).flatMap((arr) => arr)"
+    :rows="Array.from({ length: 3 }, () => rows).flatMap((arr) => arr)"
     :rows-per-page-options="[]"
     table-header-class="text-color-2"
   >
@@ -124,15 +125,20 @@ function onEditClick(key: string) {
       /></QTd>
     </template>
 
-    <template #bottom="scope">
+    <template #bottom>
       <QPagination
-        v-model="scope.pagesNumber"
-        active-color="orange"
+        v-model="currentPage"
+        active-color="primary"
         active-design="push"
-        color="teal"
+        active-text-color="white"
         direction-links
         max="5"
+        outline
         push
+        rounded
+        size="15px"
+        text-color="color-1"
+        unelevated
       />
     </template>
   </QTable>
