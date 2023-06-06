@@ -1,35 +1,10 @@
 <script setup lang="ts">
-import { QSelectOption } from 'quasar'
-import BaseSelect from 'src/shared/components/select/BaseSelect.vue'
 import TableMain from '../components/TableMain.vue'
-
-const options: QSelectOption[] = [
-  {
-    value: 'today',
-    label: 'Сегодня',
-  },
-  {
-    value: 'yesterday',
-    label: 'Вчера',
-  },
-  {
-    value: 'thisWeek',
-    label: 'На этой неделе',
-  },
-]
-
-const select = ref<QSelectOption | null>(null)
 </script>
 
 <template>
-  <BaseSelect
-    v-model="select"
-    label="kek"
-    :options="Array.from({ length: 3 }, () => options).flatMap((arr) => arr)"
-  />
-
   <div class="row q-mb-lg">
-    <QCard class="card col q-mr-md q-pa-lg">
+    <QCard class="card col q-pa-lg q-mr-md">
       <QCardSection>
         <div class="q-mb-xs" style="font-size: 20px">Статусы товаров</div>
 
@@ -38,14 +13,7 @@ const select = ref<QSelectOption | null>(null)
         </div>
       </QCardSection>
 
-      <QCardSection>
-        <QImg
-          fit="contain"
-          no-spinner
-          src="src/assets/img/chart.png"
-          style="max-width: 413px; max-height: 160px"
-        />
-      </QCardSection>
+      <PieChart />
     </QCard>
 
     <QCard class="card col q-pa-lg">
@@ -59,14 +27,7 @@ const select = ref<QSelectOption | null>(null)
         </div>
       </QCardSection>
 
-      <QCardSection>
-        <QImg
-          fit="contain"
-          no-spinner
-          src="src/assets/img/chart.png"
-          style="max-width: 413px; max-height: 160px"
-        />
-      </QCardSection>
+      <PieChart />
     </QCard>
   </div>
 

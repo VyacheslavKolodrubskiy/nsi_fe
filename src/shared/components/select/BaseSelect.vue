@@ -20,10 +20,6 @@ const emit = defineEmits(['update:modelValue'])
     popup-content-class="popup-styled"
     @update:model-value="emit('update:modelValue', $event)"
   >
-    <!-- <template #append>
-      <QIcon color="color-1" name="expand_more" />
-    </template> -->
-
     <template
       v-for="(_, name) in ($slots as Readonly<QSelectSlots>)"
       :key="name"
