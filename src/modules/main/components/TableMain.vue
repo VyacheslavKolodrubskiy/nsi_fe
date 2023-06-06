@@ -129,8 +129,8 @@ function onEditClick(key: string) {
       <QPagination
         v-model="currentPage"
         active-color="primary"
-        active-design="push"
         active-text-color="white"
+        class="q-mt-lg"
         direction-links
         max="5"
         outline
