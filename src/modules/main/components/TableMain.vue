@@ -163,10 +163,6 @@ function onEditClick(key: string) {
     &:hover {
       background-color: $color-1 !important;
 
-      .q-btn--outline:before {
-        border: none !important;
-      }
-
       .block {
         color: $bg-color !important;
       }
