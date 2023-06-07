@@ -135,15 +135,17 @@ function onEditClick(key: string) {
         v-model="currentPage"
         active-color="primary"
         active-text-color="white"
-        class="q-mt-lg"
+        class="q-mt-lg custom-pagination"
+        color="color-1"
         direction-links
-        max="5"
+        gutter="sm"
+        :max="10"
+        :max-pages="6"
         outline
         push
         :ripple="false"
         rounded
         size="15px"
-        text-color="color-1"
         unelevated
       />
     </template>
@@ -151,7 +153,24 @@ function onEditClick(key: string) {
 </template>
 
 <style lang="scss">
-.q-btn--outline:before {
-  border-color: $color-3;
+.custom-pagination {
+  .q-btn--outline:before {
+    border-color: $color-3;
+  }
+  .q-pagination__content > .q-btn,
+  .q-pagination__content > .q-input,
+  .q-pagination__middle > .q-btn {
+    &:hover {
+      background-color: $color-1 !important;
+
+      .q-btn--outline:before {
+        border: none !important;
+      }
+
+      .block {
+        color: $bg-color !important;
+      }
+    }
+  }
 }
 </style>
