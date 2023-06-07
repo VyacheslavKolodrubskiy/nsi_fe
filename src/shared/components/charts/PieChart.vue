@@ -4,10 +4,6 @@ import { ApexOptions } from 'apexcharts'
 const chartOptions: ApexOptions = {
   series: [44, 55, 13, 43],
   colors: ['#E61771', '#0075CD', '#B20087', '#39C2C9'],
-  chart: {
-    width: 380,
-    type: 'pie',
-  },
   dataLabels: {
     enabled: false,
   },
@@ -26,14 +22,12 @@ const chartOptions: ApexOptions = {
 </script>
 
 <template>
-  <div id="chart" class="">
-    <ApexChart
-      :options="chartOptions"
-      :series="chartOptions.series"
-      type="pie"
-      width="380"
-    />
-  </div>
+  <ApexChart
+    :options="chartOptions"
+    :series="chartOptions.series"
+    type="pie"
+    width="380"
+  />
 </template>
 
 <style lang="scss">

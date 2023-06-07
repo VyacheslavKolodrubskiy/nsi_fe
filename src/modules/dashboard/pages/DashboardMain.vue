@@ -113,68 +113,62 @@ const currentOption = ref<QSelectOption>(options.value[0])
       </div>
     </div>
 
-    <div class="row q-mb-md">
-      <QCard
+    <div class="row q-mb-md q-gutter-md">
+      <div
         v-for="_ in 4"
         :key="_"
-        class="col card"
-        :class="{ 'q-mr-md': _ !== 4 }"
-        flat
+        class="card card--mini col flex items-center"
       >
-        <QCardSection class="flex items-center">
+        <div
+          style="
+            background: rgba(230, 23, 113, 0.2);
+            padding: 10px;
+            border-radius: 100%;
+            width: 60px;
+            height: 60px;
+          "
+        >
           <div
-            style="
-              background: rgba(230, 23, 113, 0.2);
-              padding: 10px;
-              border-radius: 100%;
-              width: 60px;
-              height: 60px;
-            "
+            class="bg-primary flex flex-center"
+            style="border-radius: 100%; width: 40px; height: 40px"
           >
-            <div
-              class="bg-primary flex flex-center"
-              style="border-radius: 100%; width: 40px; height: 40px"
-            >
-              <SvgIcon height="20" name="purchase" width="20" />
-            </div>
+            <SvgIcon height="20" name="purchase" width="20" />
           </div>
-
-          <div class="q-ml-md">
-            <div class="text-no-wrap">
-              <strong>30</strong>
-              (30%)
-            </div>
-
-            <div class="text-color-2">Новые товары</div>
-          </div>
-        </QCardSection>
-      </QCard>
-    </div>
-
-    <QCard class="card q-pa-md">
-      <QCardSection>
-        <div class="flex justify-between">
-          <div>
-            <div class="text-color-1" style="font-size: 20px">
-              Аналитика завершенных карточек
-            </div>
-
-            <div class="text-color-2" style="font-size: 13px">
-              Данные за {{ currentOption.label.toLowerCase() }}
-            </div>
-          </div>
-
-          <TableSelect v-model="currentOption" :options="options" />
         </div>
 
-        <ApexChart
-          height="250"
-          :options="chartOptions"
-          :series="chartOptions.series"
-          type="line"
-        />
-      </QCardSection>
-    </QCard>
+        <div class="q-ml-md">
+          <div class="text-no-wrap">
+            <strong>30</strong>
+            (30%)
+          </div>
+
+          <div class="text-color-2">Новые товары</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="flex justify-between">
+        <div>
+          <div class="text-color-1 q-mb-sm" style="font-size: 20px">
+            Аналитика завершенных карточек
+          </div>
+
+          <div class="text-color-2" style="font-size: 13px">
+            Данные за {{ currentOption.label.toLowerCase() }}
+          </div>
+        </div>
+
+        <TableSelect v-model="currentOption" :options="options" />
+      </div>
+
+      <ApexChart
+        height="250"
+        :options="chartOptions"
+        :series="chartOptions.series"
+        type="line"
+      />
+    </div>
   </div>
 </template>
 
