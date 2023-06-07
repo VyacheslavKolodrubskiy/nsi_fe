@@ -104,12 +104,16 @@ const currentOption = ref<QSelectOption>(options.value[0])
     <div class="row q-mb-md text-color-2">
       <div class="col-3">
         Вам доступно
-        <span class="text-color-1 text-weight-bold">273 товара</span>
+        <span class="text-color-1 text-weight-bold" style="font-size: 16px">
+          273 товара
+        </span>
       </div>
 
       <div class="col-3">
-        Вам доступно
-        <span class="text-color-1 text-weight-bold">273 товара</span>
+        Завершено
+        <span class="text-color-1 text-weight-bold" style="font-size: 16px">
+          5673 товара
+        </span>
       </div>
     </div>
 
