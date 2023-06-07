@@ -17,7 +17,7 @@ const emit = defineEmits(['update:modelValue'])
     :options="options"
     options-selected-class="text-color-1"
     outlined
-    popup-content-class="popup-styled"
+    popup-content-class="custom-scrollbar"
     @update:model-value="emit('update:modelValue', $event)"
   >
     <template
@@ -34,25 +34,6 @@ const emit = defineEmits(['update:modelValue'])
 .base-select {
   .q-select__dropdown-icon {
     color: $color-1;
-  }
-}
-
-.popup-styled {
-  scrollbar-width: thin;
-  scrollbar-color: $color-1 $bg-color;
-
-  &::-webkit-scrollbar {
-    width: 12px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: $bg-color;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: $color-1;
-    border-radius: 100px;
-    border: 3px solid $bg-color;
   }
 }
 </style>

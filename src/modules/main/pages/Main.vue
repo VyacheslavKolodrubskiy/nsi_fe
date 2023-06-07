@@ -31,7 +31,7 @@ import TableMain from '../components/TableMain.vue'
     </div>
   </div>
 
-  <div class="q-pa-lg bg-white" style="border-radius: 10px">
+  <div class="card">
     <TableMain />
   </div>
 </template>

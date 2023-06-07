@@ -15,6 +15,25 @@
   margin: 0;
 }
 
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: $color-1 $bg-color;
+
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $bg-color;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $color-1;
+    border-radius: 100px;
+    border: 3px solid $bg-color;
+  }
+}
+
 html,
 body,
 #q-app {
