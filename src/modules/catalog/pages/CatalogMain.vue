@@ -93,7 +93,7 @@ const filled = ref(20)
 </script>
 
 <template>
-  <div class="q-pa-lg bg-white" style="border-radius: 10px">
+  <div class="card">
     <QTable
       v-model:selected="selected"
       class="catalog-table"
@@ -163,7 +163,7 @@ const filled = ref(20)
             flat
             label="Взять в работу"
             no-caps
-            style="cbackground: #cfebd1; border-radius: 5px"
+            style="background: #cfebd1; border-radius: 5px"
           />
         </QTd>
       </template>

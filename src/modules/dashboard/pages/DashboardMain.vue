@@ -69,7 +69,7 @@ const currentOption = ref<QSelectOption>(options.value[0])
 </script>
 
 <template>
-  <div class="row no-wrap q-mb-xl q-col-gutter-md">
+  <div class="row q-mb-xl q-col-gutter-md">
     <div class="col">
       <div class="flex q-gutter-md">
         <div>
@@ -117,7 +117,7 @@ const currentOption = ref<QSelectOption>(options.value[0])
       <div
         v-for="_ in 4"
         :key="_"
-        class="card card--mini col flex items-center"
+        class="card card--mini col row q-gutter-sm items-center"
       >
         <div
           style="

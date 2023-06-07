@@ -83,7 +83,7 @@ const rows = [
     @click="addNewUser"
   />
 
-  <div class="q-py-lg q-px-xl bg-white" style="border-radius: 10px">
+  <div class="card">
     <QTable
       :columns="columns"
       :filter="filter"
