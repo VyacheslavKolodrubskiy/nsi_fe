@@ -17,6 +17,8 @@ const chartOptions: ApexOptions = {
       width: 24,
       height: 24,
     },
+    position: 'right',
+    offsetY: 80,
   },
 }
 </script>
@@ -26,7 +28,7 @@ const chartOptions: ApexOptions = {
     :options="chartOptions"
     :series="chartOptions.series"
     type="pie"
-    width="380"
+    width="100%"
   />
 </template>
 
