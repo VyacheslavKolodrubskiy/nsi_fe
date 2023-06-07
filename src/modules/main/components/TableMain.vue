@@ -76,7 +76,7 @@ const options = ref<QSelectOption[]>([
 const filter = ref('')
 const currentOption = ref<QSelectOption>(options.value[0])
 
-const initialPagination = ref<QTableProps['pagination']>({
+const pagination = ref<QTableProps['pagination']>({
   sortBy: 'desc',
   descending: false,
   page: 1,
@@ -90,7 +90,7 @@ function onEditClick(key: string) {
 
 <template>
   <QTable
-    v-model:pagination="initialPagination"
+    v-model:pagination="pagination"
     :columns="columns"
     :filter="filter"
     flat
@@ -141,7 +141,6 @@ function onEditClick(key: string) {
 
     <template #bottom="scope">
       <QPagination
-        v-model="scope.pagination.page"
         active-color="primary"
         active-text-color="white"
         class="custom-pagination"
@@ -149,13 +148,14 @@ function onEditClick(key: string) {
         direction-links
         gutter="sm"
         :max="scope.pagesNumber"
+        :model-value="pagination?.page ?? 0"
         outline
         push
         :ripple="false"
         rounded
         size="15px"
         unelevated
-        @update:model-value="(val) => (initialPagination!.page = val)"
+        @update:model-value="(page) => (pagination!.page = page)"
       />
     </template>
   </QTable>
