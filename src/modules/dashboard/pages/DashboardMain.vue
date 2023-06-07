@@ -71,10 +71,10 @@ const currentOption = ref<QSelectOption>(options.value[0])
 <template>
   <div class="row no-wrap q-mb-xl q-col-gutter-md">
     <div class="col">
-      <div class="flex">
+      <div class="flex q-gutter-md">
         <div>
           <QImg
-            class="q-mb-md col"
+            class=""
             fit="contain"
             height="150px"
             no-spinner
@@ -83,7 +83,7 @@ const currentOption = ref<QSelectOption>(options.value[0])
           />
         </div>
 
-        <div class="q-ml-xl q-pt-xl">
+        <div class="q-ml-xl q-pt-lg">
           <div class="q-mb-sm" style="font-size: 20px">Марина Кравец</div>
 
           <div class="q-mb-sm text-primary">m.kravets@machta.kz</div>
