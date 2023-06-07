@@ -73,7 +73,4 @@ function onSubmit() {
   </QCard>
 </template>
 
-<style scoped lang="scss">
-.eye-icon-color {
-}
-</style>
+<style scoped lang="scss"></style>

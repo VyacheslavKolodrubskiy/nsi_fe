@@ -15,6 +15,7 @@ import authProfile from 'assets/img/auth-profile.png'
           fit="contain"
           height="256px"
           no-spinner
+          no-transition
           :src="authProfile"
           width="450px"
         />

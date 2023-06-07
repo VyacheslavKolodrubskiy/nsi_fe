@@ -3,6 +3,7 @@ import { QTableColumn } from 'quasar'
 import { useQuasar } from 'quasar'
 import AddUserModal from '../components/modal/AddUserModal.vue'
 import EditUserModal from '../components/modal/EditUserModal.vue'
+import user from 'assets/img/user.png'
 
 const filter = ref('')
 
@@ -120,9 +121,11 @@ const rows = [
         <QTd :props="props">
           <div class="flex items-center no-wrap">
             <QImg
+              fit="contain"
               height="40px"
               no-spinner
-              src="src/assets/img/user.png"
+              no-transition
+              :src="user"
               width="40px"
             />
 

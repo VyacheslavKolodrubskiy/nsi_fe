@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { QSelectOption, QTableColumn } from 'quasar'
+import user from 'assets/img/user.png'
 
 const columns: QTableColumn[] = [
   {
@@ -110,9 +111,11 @@ function onEditClick(key: string) {
       <QTd :props="props">
         <div class="flex items-center no-wrap">
           <QImg
+            fit="contain"
             height="40px"
             no-spinner
-            src="src/assets/img/user.png"
+            no-transition
+            :src="user"
             width="40px"
           />
 

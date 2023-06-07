@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { PageName } from 'shared/enums/common.enum'
+import user from 'assets/img/user.png'
 
 interface Link {
   title: string
@@ -28,7 +29,7 @@ const menuLinks: Link[] = [
   <QBtnDropdown color="black" dropdown-icon="expand_more" flat :ripple="false">
     <template #label>
       <QAvatar rounded size="50px">
-        <img src="src/assets/img/user.png" />
+        <QImg fit="contain" no-spinner no-transition :src="user" />
       </QAvatar>
 
       <div class="text-black q-ml-sm">Марина Кравец</div>

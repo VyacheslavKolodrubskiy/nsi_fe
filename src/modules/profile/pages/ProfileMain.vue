@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ProfileForm from '../components/form/ProfileForm.vue'
+import user from 'assets/img/user.png'
 </script>
 
 <template>
@@ -21,7 +22,8 @@ import ProfileForm from '../components/form/ProfileForm.vue'
               fit="contain"
               height="150px"
               no-spinner
-              src="src/assets/img/user.png"
+              no-transition
+              :src="user"
               width="150px"
             />
 

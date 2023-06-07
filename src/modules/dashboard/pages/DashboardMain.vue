@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ApexOptions } from 'apexcharts'
 import { QSelectOption } from 'quasar'
+import user from 'assets/img/user.png'
 
 const chartOptions: ApexOptions = {
   series: [
@@ -73,14 +74,7 @@ const currentOption = ref<QSelectOption>(options.value[0])
     <div class="col">
       <div class="flex q-gutter-md">
         <div>
-          <QImg
-            class=""
-            fit="contain"
-            height="150px"
-            no-spinner
-            src="src/assets/img/user.png"
-            width="150px"
-          />
+          <QImg fit="contain" no-spinner no-transition :src="user" />
         </div>
 
         <div class="q-ml-xl q-pt-lg">
