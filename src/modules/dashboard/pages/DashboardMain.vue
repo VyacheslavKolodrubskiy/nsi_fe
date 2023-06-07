@@ -69,9 +69,9 @@ const currentOption = ref<QSelectOption>(options.value[0])
 </script>
 
 <template>
-  <div class="row no-wrap q-mb-xl">
-    <QCard class="col card q-mr-md bg-transparent">
-      <QCardSection class="flex no-wrap">
+  <div class="row no-wrap q-mb-xl q-col-gutter-md">
+    <div class="col">
+      <div class="flex">
         <div>
           <QImg
             class="q-mb-md col"
@@ -83,21 +83,21 @@ const currentOption = ref<QSelectOption>(options.value[0])
           />
         </div>
 
-        <div class="q-ml-xl q-pt-lg">
+        <div class="q-ml-xl q-pt-xl">
           <div class="q-mb-sm" style="font-size: 20px">Марина Кравец</div>
 
           <div class="q-mb-sm text-primary">m.kravets@machta.kz</div>
 
           <div class="text-bold">Менеджер</div>
         </div>
-      </QCardSection>
-    </QCard>
+      </div>
+    </div>
 
-    <QCard class="col card">
-      <QCardSection class="full-height">
+    <div class="col">
+      <div class="card">
         <PieChart />
-      </QCardSection>
-    </QCard>
+      </div>
+    </div>
   </div>
 
   <div>
