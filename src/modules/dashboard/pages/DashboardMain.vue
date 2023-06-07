@@ -101,7 +101,7 @@ const currentOption = ref<QSelectOption>(options.value[0])
   </div>
 
   <div>
-    <div class="row q-mb-md text-color-2">
+    <div class="row q-col-gutter-md q-mb-md text-color-2">
       <div class="col-3">
         Вам доступно
         <span class="text-color-1 text-weight-bold" style="font-size: 16px">
