@@ -3,9 +3,9 @@ import ProfileForm from '../components/form/ProfileForm.vue'
 </script>
 
 <template>
-  <div class="row">
-    <QCard class="col card q-mr-md column" flat>
-      <QCardSection class="q-pa-lg col">
+  <div class="row q-col-gutter-md">
+    <div class="col">
+      <div class="card">
         <div class="q-mb-md">
           <div style="font-size: 20px">Профиль</div>
 
@@ -46,13 +46,13 @@ import ProfileForm from '../components/form/ProfileForm.vue'
             <div style="font-weight: 700">Менеджер</div>
           </div>
         </div>
-      </QCardSection>
-    </QCard>
+      </div>
+    </div>
 
-    <QCard class="col card column" flat>
-      <QCardSection class="q-pa-lg col">
+    <div class="col">
+      <div class="card">
         <ProfileForm />
-      </QCardSection>
-    </QCard>
+      </div>
+    </div>
   </div>
 </template>

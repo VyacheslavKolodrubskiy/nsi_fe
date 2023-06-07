@@ -78,7 +78,7 @@ function onEditClick(key: string) {
 
 <template>
   <QTable
-    class="custom-table"
+    class="base-table"
     :columns="columns"
     :filter="filter"
     flat
@@ -136,7 +136,7 @@ function onEditClick(key: string) {
         v-model="currentPage"
         active-color="primary"
         active-text-color="white"
-        class="custom-pagination"
+        class="base-pagination"
         color="color-1"
         direction-links
         gutter="sm"
@@ -154,13 +154,13 @@ function onEditClick(key: string) {
 </template>
 
 <style lang="scss">
-.custom-table {
+.base-table {
   .q-table__bottom {
     padding-left: 0;
   }
 }
 
-.custom-pagination {
+.base-pagination {
   margin-top: 15px;
   .q-btn--outline:before {
     border-color: $color-3;
