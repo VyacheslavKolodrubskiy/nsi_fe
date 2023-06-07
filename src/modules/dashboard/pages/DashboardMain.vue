@@ -74,7 +74,14 @@ const currentOption = ref<QSelectOption>(options.value[0])
     <div class="col">
       <div class="flex q-gutter-md">
         <div>
-          <QImg fit="contain" no-spinner no-transition :src="user" />
+          <QImg
+            fit="contain"
+            height="150px"
+            no-spinner
+            no-transition
+            :src="user"
+            width="150px"
+          />
         </div>
 
         <div class="q-ml-xl q-pt-lg">

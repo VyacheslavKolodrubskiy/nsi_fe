@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { QSelectOption, QTableColumn } from 'quasar'
+import { QSelectOption, QTableColumn, QTableProps } from 'quasar'
 import user from 'assets/img/user.png'
 
 const columns: QTableColumn[] = [
@@ -42,7 +42,7 @@ const columns: QTableColumn[] = [
   },
 ]
 
-const rows = [
+const initialRows = [
   {
     name: 'Марина Кравец',
     inProgress: '89',
@@ -52,6 +52,11 @@ const rows = [
     action: '',
   },
 ]
+
+const rows = Array.from({ length: 15 }, (_, index) => ({
+  ...initialRows[0],
+  name: `${initialRows[0].name} ${index}`,
+}))
 
 const options = ref<QSelectOption[]>([
   {
@@ -70,7 +75,13 @@ const options = ref<QSelectOption[]>([
 
 const filter = ref('')
 const currentOption = ref<QSelectOption>(options.value[0])
-const currentPage = ref(1)
+
+const initialPagination = ref<QTableProps['pagination']>({
+  sortBy: 'desc',
+  descending: false,
+  page: 1,
+  rowsPerPage: 8,
+})
 
 function onEditClick(key: string) {
   console.log('onEditClick', key)
@@ -79,17 +90,12 @@ function onEditClick(key: string) {
 
 <template>
   <QTable
+    v-model:pagination="initialPagination"
     :columns="columns"
     :filter="filter"
     flat
-    :pagination="{ page: currentPage, rowsPerPage: 8 }"
     row-key="name"
-    :rows="
-      Array.from({ length: 100 }, (_, index) => ({
-        ...rows[0],
-        name: `${rows[0].name} ${index}`,
-      }))
-    "
+    :rows="rows"
     :rows-per-page-options="[]"
     table-header-class="text-color-2"
   >
@@ -133,23 +139,23 @@ function onEditClick(key: string) {
       /></QTd>
     </template>
 
-    <template #bottom>
+    <template #bottom="scope">
       <QPagination
-        v-model="currentPage"
+        v-model="scope.pagination.page"
         active-color="primary"
         active-text-color="white"
         class="custom-pagination"
         color="color-1"
         direction-links
         gutter="sm"
-        :max="10"
-        :max-pages="6"
+        :max="scope.pagesNumber"
         outline
         push
         :ripple="false"
         rounded
         size="15px"
         unelevated
+        @update:model-value="(val) => (initialPagination!.page = val)"
       />
     </template>
   </QTable>
