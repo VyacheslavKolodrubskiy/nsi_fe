@@ -49,7 +49,7 @@ const chartOptions: ApexOptions = {
       height: 24,
     },
     position: 'right',
-    offsetY: 80,
+    offsetY: 50,
   },
   fill: {
     opacity: 1,
