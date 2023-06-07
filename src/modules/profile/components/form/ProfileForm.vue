@@ -90,12 +90,7 @@ function onReset() {
     <QBtn
       color="primary"
       label="Сохранить"
-      style="
-        width: 115px;
-        height: 50px;
-        background: #e61771;
-        border-radius: 5px;
-      "
+      style="width: 115px; height: 50px; border-radius: 5px"
       type="submit"
     />
   </QForm>
