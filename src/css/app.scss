@@ -63,9 +63,11 @@ ul {
 }
 
 .card {
-  box-shadow: none;
+  padding: 32px;
   border-radius: 10px;
-  &__mini {
-    padding: 8px;
+  border-radius: 10px;
+  background-color: #fff;
+  &--mini {
+    padding: 16px;
   }
 }

@@ -95,13 +95,7 @@ const currentOption = ref<QSelectOption>(options.value[0])
 
     <QCard class="col card">
       <QCardSection class="full-height">
-        <QImg
-          fit="contain"
-          height="160px"
-          no-spinner
-          src="src/assets/img/chart.png"
-          width="413px"
-        />
+        <PieChart />
       </QCardSection>
     </QCard>
   </div>

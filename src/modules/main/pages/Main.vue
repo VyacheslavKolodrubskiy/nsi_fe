@@ -3,35 +3,31 @@ import TableMain from '../components/TableMain.vue'
 </script>
 
 <template>
-  <div class="row q-mb-lg">
-    <div class="col-6">
-      <QCard class="card q-pa-lg q-mr-md">
-        <QCardSection>
-          <div class="q-mb-xs" style="font-size: 20px">Статусы товаров</div>
+  <div class="row q-mb-lg q-col-gutter-md">
+    <div class="col">
+      <div class="card">
+        <div class="q-mb-xs" style="font-size: 20px">Статусы товаров</div>
 
-          <div class="text-color-2">
-            Доли и количество всех товаров в различных статусах
-          </div>
-        </QCardSection>
+        <div class="text-color-2">
+          Доли и количество всех товаров в различных статусах
+        </div>
 
         <PieChart />
-      </QCard>
+      </div>
     </div>
 
-    <div class="col-6">
-      <QCard class="card col q-pa-lg">
-        <QCardSection>
-          <div class="q-mb-xs" style="font-size: 20px">
-            Аналитика завершенных карточек
-          </div>
+    <div class="col">
+      <div class="card">
+        <div class="q-mb-xs" style="font-size: 20px">
+          Аналитика завершенных карточек
+        </div>
 
-          <div class="text-color-2" style="font-size: 13px">
-            Количество и процентное соотношение товаров в статусе Завершено
-          </div>
-        </QCardSection>
+        <div class="text-color-2" style="font-size: 13px">
+          Количество и процентное соотношение товаров в статусе Завершено
+        </div>
 
         <PieChart />
-      </QCard>
+      </div>
     </div>
   </div>
 

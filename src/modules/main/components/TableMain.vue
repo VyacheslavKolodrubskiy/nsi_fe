@@ -140,6 +140,7 @@ function onEditClick(key: string) {
         max="5"
         outline
         push
+        :ripple="false"
         rounded
         size="15px"
         text-color="color-1"
@@ -148,3 +149,9 @@ function onEditClick(key: string) {
     </template>
   </QTable>
 </template>
+
+<style lang="scss">
+.q-btn--outline:before {
+  border-color: $color-3;
+}
+</style>
