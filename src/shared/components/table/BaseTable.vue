@@ -69,6 +69,7 @@ const options = ref<QSelectOption[]>([
 
 const filter = ref('')
 const currentOption = ref<QSelectOption>(options.value[0])
+const currentPage = ref(1)
 
 function onEditClick(key: string) {
   console.log('onEditClick', key)
@@ -77,10 +78,11 @@ function onEditClick(key: string) {
 
 <template>
   <QTable
+    class="custom-table"
     :columns="columns"
     :filter="filter"
     flat
-    :pagination="{ rowsPerPage: 8 }"
+    :pagination="{ page: currentPage, rowsPerPage: 8 }"
     row-key="name"
     :rows="
       Array.from({ length: 100 }, (_, index) => ({
@@ -88,6 +90,7 @@ function onEditClick(key: string) {
         name: `${rows[0].name} ${index}`,
       }))
     "
+    :rows-per-page-options="[]"
     table-header-class="text-color-2"
   >
     <template #top-left>
@@ -127,5 +130,50 @@ function onEditClick(key: string) {
           @click="onEditClick(props.key)"
       /></QTd>
     </template>
+
+    <template #bottom>
+      <QPagination
+        v-model="currentPage"
+        active-color="primary"
+        active-text-color="white"
+        class="custom-pagination"
+        color="color-1"
+        direction-links
+        gutter="sm"
+        :max="10"
+        :max-pages="6"
+        outline
+        push
+        :ripple="false"
+        rounded
+        size="15px"
+        unelevated
+      />
+    </template>
   </QTable>
 </template>
+
+<style lang="scss">
+.custom-table {
+  .q-table__bottom {
+    padding-left: 0;
+  }
+}
+
+.custom-pagination {
+  margin-top: 15px;
+  .q-btn--outline:before {
+    border-color: $color-3;
+  }
+  .q-pagination__content > .q-btn,
+  .q-pagination__middle > .q-btn {
+    &:hover {
+      background-color: $color-1 !important;
+      .q-icon,
+      .block {
+        color: $bg-color !important;
+      }
+    }
+  }
+}
+</style>
