@@ -14,7 +14,7 @@ import ProfileForm from '../components/form/ProfileForm.vue'
           </div>
         </div>
 
-        <div class="row">
+        <div class="row q-gutter-x-xl">
           <div class="column">
             <QImg
               class="q-mb-md"
@@ -36,7 +36,7 @@ import ProfileForm from '../components/form/ProfileForm.vue'
             </div>
           </div>
 
-          <div class="q-ml-xl q-pt-lg">
+          <div class="q-pt-lg">
             <div class="q-mb-sm" style="font-size: 20px">Марина Кравец</div>
 
             <div class="q-mb-sm" style="color: #e61771">
