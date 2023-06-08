@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { QSelectOption, QTableColumn } from 'quasar'
+import { QSelectOption, QTableColumn, QTableProps } from 'quasar'
 
 const columns: QTableColumn[] = [
   {
@@ -86,6 +86,13 @@ const options = ref<QSelectOption[]>([
   },
 ])
 
+const pagination = ref<QTableProps['pagination']>({
+  sortBy: 'desc',
+  descending: false,
+  page: 1,
+  rowsPerPage: 8,
+})
+
 const filter = ref('')
 const currentOption = ref<Option>(options.value[0])
 const selected = ref([])
@@ -95,12 +102,12 @@ const filled = ref(20)
 <template>
   <div class="card">
     <QTable
+      v-model:pagination="pagination"
       v-model:selected="selected"
       class="catalog-table"
       :columns="columns"
       :filter="filter"
       flat
-      :pagination="{ rowsPerPage: 8 }"
       row-key="name"
       :rows="
         Array.from({ length: 100 }, (_, index) => ({
@@ -166,6 +173,28 @@ const filled = ref(20)
             style="background: #cfebd1; border-radius: 5px"
           />
         </QTd>
+      </template>
+
+      <template #bottom="scope">
+        <QPagination
+          active-color="primary"
+          active-text-color="white"
+          :boundary-numbers="false"
+          class="custom-pagination"
+          color="color-1"
+          direction-links
+          gutter="sm"
+          :max="scope.pagesNumber"
+          :max-pages="6"
+          :model-value="pagination?.page ?? 0"
+          outline
+          push
+          :ripple="false"
+          rounded
+          size="15px"
+          unelevated
+          @update:model-value="(page) => (pagination!.page = page)"
+        />
       </template>
     </QTable>
   </div>

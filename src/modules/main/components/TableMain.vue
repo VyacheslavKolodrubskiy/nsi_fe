@@ -53,7 +53,7 @@ const initialRows = [
   },
 ]
 
-const rows = Array.from({ length: 15 }, (_, index) => ({
+const rows = Array.from({ length: 100 }, (_, index) => ({
   ...initialRows[0],
   name: `${initialRows[0].name} ${index}`,
 }))
@@ -143,11 +143,13 @@ function onEditClick(key: string) {
       <QPagination
         active-color="primary"
         active-text-color="white"
+        :boundary-numbers="false"
         class="custom-pagination"
         color="color-1"
         direction-links
         gutter="sm"
         :max="scope.pagesNumber"
+        :max-pages="6"
         :model-value="pagination?.page ?? 0"
         outline
         push

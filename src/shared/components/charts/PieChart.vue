@@ -25,6 +25,7 @@ const chartOptions: ApexOptions = {
 
 <template>
   <ApexChart
+    :height="250"
     :options="chartOptions"
     :series="chartOptions.series"
     type="pie"
