@@ -67,9 +67,14 @@ const options = ref<QSelectOption[]>([
 ])
 
 const currentOption = ref<QSelectOption>(options.value[0])
+const value = ref(false)
 </script>
 
 <template>
+  {{ value }}
+
+  <BaseToggle v-model="value" />
+
   <div class="row q-mb-xl q-col-gutter-md">
     <div class="col">
       <div class="flex q-gutter-md">
