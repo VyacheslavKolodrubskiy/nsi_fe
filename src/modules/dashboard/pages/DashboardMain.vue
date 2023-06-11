@@ -76,6 +76,8 @@ const value2 = ref(false)
 
   <QToggle v-model="value2" />
 
+  <BaseToggle v-model="value" />
+
   <div class="row q-mb-xl q-col-gutter-md">
     <div class="col">
       <div class="flex q-gutter-md">
