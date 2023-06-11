@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { ApexOptions } from 'apexcharts'
 
-const chartOptions: ApexOptions = {
-  series: [44, 55, 13, 43],
+const options: ApexOptions = {
   colors: ['#E61771', '#0075CD', '#B20087', '#39C2C9'],
   dataLabels: {
     enabled: false,
@@ -21,16 +20,12 @@ const chartOptions: ApexOptions = {
     offsetY: 50,
   },
 }
+
+const series: ApexOptions['series'] = [44, 55, 13, 43]
 </script>
 
 <template>
-  <ApexChart
-    :height="250"
-    :options="chartOptions"
-    :series="chartOptions.series"
-    type="pie"
-    width="100%"
-  />
+  <ApexChart :options="options" :series="series" type="pie" :width="400" />
 </template>
 
 <style lang="scss">
