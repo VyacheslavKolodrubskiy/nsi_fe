@@ -5,7 +5,7 @@ interface Props extends QSelectProps {}
 
 const props = withDefaults(defineProps<Props>(), {
   dropdownIcon: 'expand_more',
-  bgColor: 'grey-3',
+  bgColor: 'color-4',
 })
 
 const emit = defineEmits(['update:model-value'])

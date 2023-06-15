@@ -128,8 +128,14 @@ const filled = ref(20)
             </div>
           </div>
 
-          <div>
+          <div class="flex items-center q-gutter-x-sm">
             <TableSelect v-model="currentOption" :options="options" />
+
+            <QBtn class="bg-color-4" flat no-caps :ripple="false">
+              <div>Создать группу</div>
+
+              <SvgIcon class="q-ml-sm" name="create-group" />
+            </QBtn>
           </div>
         </div>
       </template>
