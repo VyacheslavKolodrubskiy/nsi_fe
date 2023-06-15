@@ -143,7 +143,7 @@ const pagination = ref<QTableProps['pagination']>({
 
       <template #body-cell-action="props">
         <QTd :props="props">
-          <SvgIcon
+          <BaseIcon
             class="cursor-pointer"
             color="#39444E"
             name="edit"

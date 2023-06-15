@@ -145,7 +145,7 @@ const value2 = ref(false)
             class="bg-primary flex flex-center"
             style="border-radius: 100%; width: 40px; height: 40px"
           >
-            <SvgIcon height="20" name="purchase" width="20" />
+            <BaseIcon height="20" name="purchase" width="20" />
           </div>
         </div>
 

@@ -134,7 +134,7 @@ const filled = ref(20)
             <QBtn class="bg-color-4" flat no-caps :ripple="false">
               <div>Создать группу</div>
 
-              <SvgIcon class="q-ml-sm" name="create-group" />
+              <BaseIcon class="q-ml-sm" name="create-group" />
             </QBtn>
           </div>
         </div>
@@ -145,7 +145,7 @@ const filled = ref(20)
           <div
             class="rounded-borders bg-color-4 q-px-xs q-mr-sm flex flex-center cursor-pointer"
           >
-            <SvgIcon name="filter" />
+            <BaseIcon name="filter" />
           </div>
 
           <TableSearchInput v-model="filter" />

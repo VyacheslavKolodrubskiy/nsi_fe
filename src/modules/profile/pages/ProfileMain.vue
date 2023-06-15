@@ -29,11 +29,11 @@ import user from 'assets/img/user.png'
 
             <div class="self-center">
               <button class="q-mr-sm" type="button">
-                <SvgIcon name="edit" />
+                <BaseIcon name="edit" />
               </button>
 
               <button type="button">
-                <SvgIcon name="delete" />
+                <BaseIcon name="delete" />
               </button>
             </div>
           </div>

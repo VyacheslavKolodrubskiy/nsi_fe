@@ -10,7 +10,7 @@ import { PageName } from 'shared/enums/common.enum'
     <QToolbar>
       <div class="flex items-center">
         <RouterLink class="q-mr-xl" :to="{ name: PageName.MAIN }">
-          <SvgIcon height="24" name="logo" width="160" />
+          <BaseIcon height="24" name="logo" width="160" />
         </RouterLink>
       </div>
 

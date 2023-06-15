@@ -4,7 +4,7 @@ import { PageName } from 'shared/enums/common.enum'
 
 <template>
   <div class="text-center q-py-lg q-px-md column flex-center window-height">
-    <SvgIcon height="24" name="logo" width="160" />
+    <BaseIcon height="24" name="logo" width="160" />
 
     <div class="col q-my-md column no-wrap flex-center">
       <QImg

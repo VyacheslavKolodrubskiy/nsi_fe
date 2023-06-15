@@ -1,6 +1,6 @@
 <template>
   <QLayout view="hhh lpR fff">
-    <SvgIcon
+    <BaseIcon
       class="absolute-bottom-left"
       height="180"
       name="auth-decor"

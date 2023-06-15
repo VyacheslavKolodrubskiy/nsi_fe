@@ -24,7 +24,7 @@ const emit = defineEmits(['update:model-value'])
     @update:model-value="emit('update:model-value', $event)"
   >
     <template #append>
-      <SvgIcon v-if="!modelValue" height="24" name="search" width="24" />
+      <BaseIcon v-if="!modelValue" height="24" name="search" width="24" />
 
       <QIcon
         v-else

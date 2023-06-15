@@ -120,7 +120,7 @@ function onEditClick(key: string) {
 
     <template #body-cell-action="props">
       <QTd :props="props">
-        <SvgIcon
+        <BaseIcon
           class="cursor-pointer"
           name="arrow-right"
           @click="onEditClick(props.key)"

@@ -70,7 +70,7 @@ const isActive = computed(() => (routeName: string) => {
         :class="{ 'bg-color-brand-1': isActive(link.route.name) }"
         style="border-radius: 10px; padding: 10px"
       >
-        <SvgIcon
+        <BaseIcon
           :color="isActive(link.route.name) ? 'white' : '#E61771'"
           :name="link.icon"
         />
