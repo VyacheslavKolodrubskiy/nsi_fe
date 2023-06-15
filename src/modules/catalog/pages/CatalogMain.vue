@@ -67,10 +67,6 @@ const rows = [
   },
 ]
 
-interface Option {
-  label: string
-}
-
 const options = ref<QSelectOption[]>([
   {
     value: 'catalog',
@@ -94,7 +90,7 @@ const pagination = ref<QTableProps['pagination']>({
 })
 
 const filter = ref('')
-const currentOption = ref<Option>(options.value[0])
+const currentOption = ref<QSelectOption>(options.value[0])
 const selected = ref([])
 const filled = ref(20)
 </script>
