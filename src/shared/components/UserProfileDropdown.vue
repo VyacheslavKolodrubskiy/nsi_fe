@@ -26,7 +26,13 @@ const menuLinks: Link[] = [
 </script>
 
 <template>
-  <QBtnDropdown color="black" dropdown-icon="expand_more" flat :ripple="false">
+  <QBtnDropdown
+    color="black"
+    dropdown-icon="expand_more"
+    flat
+    no-caps
+    :ripple="false"
+  >
     <template #label>
       <QAvatar rounded size="50px">
         <QImg fit="contain" no-spinner no-transition :src="user" />
