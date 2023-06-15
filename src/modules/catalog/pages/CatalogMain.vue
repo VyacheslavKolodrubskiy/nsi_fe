@@ -146,7 +146,7 @@ const filled = ref(20)
 
       <template #top-right>
         <div class="flex">
-          <div class="rounded-borders bg-color-4 q-pa-xs q-mr-md">
+          <div class="rounded-borders bg-color-4 q-pa-xs q-mr-sm">
             <SvgIcon name="filter" />
           </div>
 

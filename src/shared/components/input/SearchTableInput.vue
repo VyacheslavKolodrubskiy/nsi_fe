@@ -14,11 +14,11 @@ const emit = defineEmits(['update:model-value'])
 
 <template>
   <QInput
+    bg-color="color-4"
     dense
     :model-value="modelValue"
     outlined
     :placeholder="placeholder"
-    style="background-color: #f7f7f7"
     type="text"
     @update:model-value="emit('update:model-value', $event)"
   >
@@ -34,3 +34,9 @@ const emit = defineEmits(['update:model-value'])
     </template>
   </QInput>
 </template>
+
+<style scoped lang="scss">
+.q-field :deep(.q-field__control:before) {
+  border: 0;
+}
+</style>

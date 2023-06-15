@@ -17,6 +17,7 @@ const expanded = ref(false)
     :bg-color="bgColor"
     dense
     hide-dropdown-icon
+    label-color="color-1"
     :model-value="modelValue"
     :options="options"
     outlined
@@ -45,11 +46,7 @@ const expanded = ref(false)
 </template>
 
 <style scoped lang="scss">
-.q-field {
-  &::v-deep {
-    .q-field__control:before {
-      border: 0;
-    }
-  }
+.q-field :deep(.q-field__control:before) {
+  border: 0;
 }
 </style>
