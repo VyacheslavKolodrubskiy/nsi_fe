@@ -17,7 +17,7 @@ const options: ApexOptions = {
       height: 24,
     },
     position: 'right',
-    offsetY: 50,
+    offsetY: 25,
   },
 }
 
