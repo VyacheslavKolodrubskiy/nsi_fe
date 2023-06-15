@@ -184,11 +184,12 @@ const filled = ref(20)
       <template #body-cell-action="props">
         <QTd :props="props">
           <QBtn
-            color="color-1"
-            flat
+            class="rounded-borders q-px-md q-py-xs"
+            color="primary"
+            dense
             label="Взять в работу"
             no-caps
-            style="background: #cfebd1; border-radius: 5px"
+            size="sm"
           />
         </QTd>
       </template>
