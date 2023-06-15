@@ -15,6 +15,7 @@ const emit = defineEmits(['update:model-value'])
 <template>
   <QInput
     bg-color="color-4"
+    :debounce="600"
     dense
     :model-value="modelValue"
     outlined
@@ -23,7 +24,14 @@ const emit = defineEmits(['update:model-value'])
     @update:model-value="emit('update:model-value', $event)"
   >
     <template #append>
-      <SvgIcon height="24" name="search" width="24" />
+      <SvgIcon v-if="!modelValue" height="24" name="search" width="24" />
+
+      <QIcon
+        v-else
+        class="cursor-pointer"
+        name="clear"
+        @click="emit('update:model-value', '')"
+      />
     </template>
 
     <template
