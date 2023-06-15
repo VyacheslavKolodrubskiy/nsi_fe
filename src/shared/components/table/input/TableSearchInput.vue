@@ -24,14 +24,15 @@ const emit = defineEmits(['update:model-value'])
     @update:model-value="emit('update:model-value', $event)"
   >
     <template #append>
-      <BaseIcon v-if="!modelValue" height="24" name="search" width="24" />
-
       <QIcon
-        v-else
+        v-if="modelValue"
         class="cursor-pointer"
+        color="color-2"
         name="clear"
         @click="emit('update:model-value', '')"
       />
+
+      <QIcon color="color-2" name="search" />
     </template>
 
     <template
