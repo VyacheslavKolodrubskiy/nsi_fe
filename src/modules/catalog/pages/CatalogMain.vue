@@ -128,8 +128,12 @@ const filled = ref(20)
             </div>
           </div>
 
-          <div class="flex items-center q-gutter-x-sm">
-            <TableSelect v-model="currentOption" :options="options" />
+          <div class="flex items-center">
+            <TableSelect
+              v-model="currentOption"
+              class="q-mr-md"
+              :options="options"
+            />
 
             <QBtn class="bg-color-4" flat no-caps :ripple="false">
               <div>Создать группу</div>
@@ -141,7 +145,13 @@ const filled = ref(20)
       </template>
 
       <template #top-right>
-        <SearchTableInput v-model="filter" />
+        <div class="flex">
+          <div class="rounded-borders bg-color-4 q-pa-xs q-mr-md">
+            <SvgIcon name="filter" />
+          </div>
+
+          <SearchTableInput v-model="filter" />
+        </div>
       </template>
 
       <template #body-cell-filled="props">

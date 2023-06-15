@@ -43,3 +43,13 @@ const expanded = ref(false)
     </template>
   </QSelect>
 </template>
+
+<style scoped lang="scss">
+.q-field {
+  &::v-deep {
+    .q-field__control:before {
+      border: 0;
+    }
+  }
+}
+</style>
