@@ -44,7 +44,7 @@ function onSubmit() {
       <div class="q-mb-lg">
         <h2 class="q-mb-sm">Вход в личный кабинет</h2>
 
-        <div class="text-subtitle2 text-color-2">
+        <div class="text-body1 text-color-2">
           Войдите для работы с Мастер-каталогом
         </div>
       </div>
@@ -53,7 +53,7 @@ function onSubmit() {
         <QInput
           ref="phoneInputRef"
           v-model="form.phone"
-          class="q-mb-sm text-subtitle2 q-mb-lg"
+          class="q-mb-sm text-body1 q-mb-lg"
           label="Мобильный телефон"
           label-color="color-1"
           mask="(###)-###-####"
