@@ -20,22 +20,18 @@ const emit = defineEmits(['update:model-value'])
 </template>
 
 <style scoped lang="scss">
-.q-toggle {
-  &::v-deep {
-    .q-toggle__track {
-      border-radius: 14px;
-      height: 30px;
-      width: 60px;
-      opacity: 0.12;
-      top: calc(50% - 14px);
-    }
-    .q-toggle__thumb {
-      border-radius: 50%;
-      height: 20px;
-      position: relative;
-      width: 20px;
-      top: -24px;
-    }
-  }
+.q-toggle :deep(.q-toggle__track) {
+  border-radius: 14px;
+  height: 30px;
+  width: 60px;
+  opacity: 0.12;
+  top: calc(50% - 14px);
+}
+.q-toggle :deep(.q-toggle__thumb) {
+  border-radius: 50%;
+  height: 20px;
+  position: relative;
+  width: 20px;
+  top: -24px;
 }
 </style>

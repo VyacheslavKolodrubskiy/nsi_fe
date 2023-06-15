@@ -148,7 +148,7 @@ const filled = ref(20)
             <SvgIcon name="filter" />
           </div>
 
-          <SearchTableInput v-model="filter" />
+          <TableSearchInput v-model="filter" />
         </div>
       </template>
 

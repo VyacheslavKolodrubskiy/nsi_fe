@@ -118,9 +118,9 @@ const pagination = ref<QTableProps['pagination']>({
             </div>
           </div>
 
-          <SearchTableInput v-model="filter">
+          <TableSearchInput v-model="filter">
             <template></template>
-          </SearchTableInput>
+          </TableSearchInput>
         </div>
       </template>
 
