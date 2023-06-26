@@ -1,8 +1,11 @@
-import { AxiosInstance } from 'axios'
+import {
+  AxiosError,
+  AxiosInstance,
+  AxiosRequestConfig,
+  AxiosResponse,
+} from 'axios'
 import axios from 'axios'
-import console from 'console'
 import { boot } from 'quasar/wrappers'
-import { useAuthStore } from 'src/modules/auth/auth.store'
 
 declare module '@vue/runtime-core' {
   interface ComponentCustomProperties {
@@ -26,39 +29,42 @@ const api = axios.create({
 })
 
 export default boot(({ app, store }) => {
-  const { token, refreshToken, setNewAccessToken } = useAuthStore()
-
-  async function refreshAccessToken() {
+  async function refreshAccessToken(error: AxiosError): Promise<AxiosResponse> {
     try {
       const { data } = await api.post('/profile/auth/token', {
-        refresh_token: refreshToken,
+        refresh_token: localStorage.getItem('refreshToken'),
       })
 
-      const newAccessToken = data.access_token
-      api.defaults.headers.common['Authorization'] = `Bearer ${newAccessToken}`
+      localStorage.setItem('token', data.access_token)
 
-      if (newAccessToken) {
-        setNewAccessToken(newAccessToken)
-      }
+      api.defaults.headers.common[
+        'Authorization'
+      ] = `Bearer ${data.access_token}`
+
+      const originalRequest = error.config as AxiosRequestConfig
+      originalRequest.headers = originalRequest.headers || {}
+      originalRequest.headers['Authorization'] = `Bearer ${data.access_token}`
+
+      return api(originalRequest)
     } catch (error) {
-      console.error('Error refreshing token:', error)
       throw error
     }
   }
 
   api.interceptors.request.use((config) => {
+    const token = localStorage.getItem('token')
+
     if (token) {
       config.headers.Authorization = `Bearer ${token}`
     }
 
     return config
   })
-
   api.interceptors.response.use(
     (response) => response,
-    (error = {}) => {
+    async (error = {}) => {
       if (error.response.status === 401) {
-        // return refreshAccessToken()
+        return await refreshAccessToken(error)
       }
 
       return Promise.reject(error)
