@@ -25,30 +25,27 @@ const api = axios.create({
   timeout: RTO,
 })
 
-let refreshToken = ''
-
-async function refreshAccessToken() {
-  try {
-    const response = await axios.post('https://api.example.com/refresh_token', {
-      refreshToken: refreshToken,
-    })
-
-    const newAccessToken = response.data.access_token
-    api.defaults.headers.common['Authorization'] = `Bearer ${newAccessToken}`
-
-    if (response.data.refresh_token) {
-      refreshToken = response.data.refresh_token
-    }
-
-    return api(response.config)
-  } catch (error) {
-    console.error('Error refreshing token:', error)
-    throw error
-  }
-}
-
 export default boot(({ app, store }) => {
-  const { token, refreshToken } = useAuthStore()
+  const { token, refreshToken, setNewAccessToken } = useAuthStore()
+
+  async function refreshAccessToken() {
+    try {
+      const { data } = await api.post('/profile/auth/token', {
+        refresh_token: refreshToken,
+      })
+
+      const newAccessToken = data.access_token
+      api.defaults.headers.common['Authorization'] = `Bearer ${newAccessToken}`
+
+      if (newAccessToken) {
+        setNewAccessToken(newAccessToken)
+      }
+    } catch (error) {
+      console.error('Error refreshing token:', error)
+      throw error
+    }
+  }
+
   api.interceptors.request.use((config) => {
     if (token) {
       config.headers.Authorization = `Bearer ${token}`
@@ -61,7 +58,7 @@ export default boot(({ app, store }) => {
     (response) => response,
     (error = {}) => {
       if (error.response.status === 401) {
-        // return refreshToken()
+        // return refreshAccessToken()
       }
 
       return Promise.reject(error)

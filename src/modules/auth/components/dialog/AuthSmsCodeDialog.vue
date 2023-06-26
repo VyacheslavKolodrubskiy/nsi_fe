@@ -12,11 +12,11 @@ const { dialogRef, onDialogHide } = useDialogPluginComponent()
 
 const timer = ref(0)
 const smsCode = ref('')
-const { sendValidatingCode, auth } = useAuthStore()
+const { sendValidationCode, auth } = useAuthStore()
 
 function handleClick() {
   timer.value = 60
-  sendValidatingCode(props.phone)
+  sendValidationCode(props.phone)
 }
 
 watchEffect(() => {

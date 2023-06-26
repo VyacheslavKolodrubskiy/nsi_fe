@@ -14,7 +14,7 @@ const form = reactive<Form>({
 })
 
 const $q = useQuasar()
-const { sendValidatingCode } = useAuthStore()
+const { sendValidationCode } = useAuthStore()
 const phoneInputRef = ref<HTMLInputElement | null>(null)
 
 const fullPhone = computed(() => {
@@ -22,7 +22,7 @@ const fullPhone = computed(() => {
 })
 
 function onSubmit() {
-  sendValidatingCode(fullPhone.value)
+  sendValidationCode(fullPhone.value)
   console.log('fullPhone.value:', fullPhone.value)
 
   $q.dialog({

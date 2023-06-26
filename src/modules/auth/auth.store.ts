@@ -14,7 +14,7 @@ export const useAuthStore = defineStore('auth', {
     isAuthenticated: (state) => !!state.token,
   },
   actions: {
-    async sendValidatingCode(phone: string) {
+    async sendValidationCode(phone: string) {
       try {
         await this.$api.post('/profile/send_validating_code', {
           err_ne: false,
@@ -43,16 +43,8 @@ export const useAuthStore = defineStore('auth', {
         console.error(error)
       }
     },
-    async refreshAccessToken() {
-      try {
-        const { data } = await this.$api.post('/profile/auth/token', {
-          refreshToken: this.refreshToken,
-        })
-
-        this.token = data.access_token
-      } catch (error) {
-        console.error(error)
-      }
+    setNewAccessToken(token: string) {
+      this.token = token
     },
     setToken(token: string, refreshToken: string) {
       this.token = token
