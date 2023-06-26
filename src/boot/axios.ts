@@ -1,7 +1,8 @@
 import { AxiosInstance } from 'axios'
 import axios from 'axios'
-import { Notify } from 'quasar'
+import console from 'console'
 import { boot } from 'quasar/wrappers'
+import { useAuthStore } from 'src/modules/auth/auth.store'
 
 declare module '@vue/runtime-core' {
   interface ComponentCustomProperties {
@@ -24,23 +25,44 @@ const api = axios.create({
   timeout: RTO,
 })
 
+let refreshToken = ''
+
+async function refreshAccessToken() {
+  try {
+    const response = await axios.post('https://api.example.com/refresh_token', {
+      refreshToken: refreshToken,
+    })
+
+    const newAccessToken = response.data.access_token
+    api.defaults.headers.common['Authorization'] = `Bearer ${newAccessToken}`
+
+    if (response.data.refresh_token) {
+      refreshToken = response.data.refresh_token
+    }
+
+    return api(response.config)
+  } catch (error) {
+    console.error('Error refreshing token:', error)
+    throw error
+  }
+}
+
 export default boot(({ app, store }) => {
-  // api.interceptors.request.use((config) => {
-  //   const token = store.state.auth.token
+  const { token, refreshToken } = useAuthStore()
+  api.interceptors.request.use((config) => {
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`
+    }
 
-  //   if (token) {
-  //     config.headers.Authorization = `Bearer ${token}`
-  //   }
+    return config
+  })
 
-  //   return config
-  // })
   api.interceptors.response.use(
     (response) => response,
     (error = {}) => {
-      Notify.create({
-        type: 'negative',
-        message: `Сообщение ошибки: ${error.response.data?.error_code}, Код ошибки: ${error.response.status}`,
-      })
+      if (error.response.status === 401) {
+        // return refreshToken()
+      }
 
       return Promise.reject(error)
     }

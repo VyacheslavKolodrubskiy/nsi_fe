@@ -1,12 +1,14 @@
 import { defineStore } from 'pinia'
 
-interface AuthState {
+export interface AuthState {
   token: string | null
+  refreshToken: string | null
 }
 
 export const useAuthStore = defineStore('auth', {
   state: (): AuthState => ({
     token: null,
+    refreshToken: null,
   }),
   getters: {
     isAuthenticated: (state) => !!state.token,
@@ -22,21 +24,44 @@ export const useAuthStore = defineStore('auth', {
         console.error(error)
       }
     },
-    async auth(phone: string, sms_code: string) {
+    async auth(phone: string, sms_code: number) {
       try {
-        await this.$api.post('/profile/auth', {
+        const { data } = await this.$api.post('/profile/auth', {
           sms_code,
           phone,
         })
+
+        this.setToken(data.access_token, data.refresh_token)
       } catch (error) {
         console.error(error)
       }
     },
-    setToken(token: string) {
+    async logout() {
+      try {
+        await this.$api.post('/profile/logout')
+      } catch (error) {
+        console.error(error)
+      }
+    },
+    async refreshAccessToken() {
+      try {
+        const { data } = await this.$api.post('/profile/auth/token', {
+          refreshToken: this.refreshToken,
+        })
+
+        this.token = data.access_token
+      } catch (error) {
+        console.error(error)
+      }
+    },
+    setToken(token: string, refreshToken: string) {
       this.token = token
+      this.refreshToken = refreshToken
     },
     clearToken() {
       this.token = null
+      this.refreshToken = null
+      this.logout()
     },
   },
   persist: true,

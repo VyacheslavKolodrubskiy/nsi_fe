@@ -27,7 +27,7 @@ watchEffect(() => {
   }
 
   if (smsCode.value.length === 4) {
-    auth(props.phone, smsCode.value)
+    auth(props.phone, +smsCode.value)
 
     onDialogHide()
   }

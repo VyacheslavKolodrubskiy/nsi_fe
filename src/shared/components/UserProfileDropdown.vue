@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { PageName } from 'shared/enums/common.enum'
+import { useAuthStore } from '../../modules/auth/auth.store'
 import user from 'assets/img/user.png'
 
 interface Link {
@@ -7,7 +8,10 @@ interface Link {
   route: {
     name: PageName
   }
+  logout?: () => void
 }
+
+const { clearToken } = useAuthStore()
 
 const menuLinks: Link[] = [
   {
@@ -20,6 +24,9 @@ const menuLinks: Link[] = [
     title: 'Выход',
     route: {
       name: PageName.AUTH,
+    },
+    logout() {
+      clearToken()
     },
   },
 ]
@@ -48,6 +55,7 @@ const menuLinks: Link[] = [
         v-close-popup
         clickable
         :to="{ name: link.route.name }"
+        @click="link.logout && link.logout()"
       >
         <QItemSection>
           <QItemLabel>{{ link.title }}</QItemLabel>

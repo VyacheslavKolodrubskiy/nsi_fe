@@ -22,7 +22,7 @@ const fullPhone = computed(() => {
 })
 
 function onSubmit() {
-  // sendValidatingCode(fullPhone.value)
+  sendValidatingCode(fullPhone.value)
   console.log('fullPhone.value:', fullPhone.value)
 
   $q.dialog({
