@@ -28,7 +28,7 @@ export const useAuthStore = defineStore('auth', {
         console.error(error)
       }
     },
-    async auth(phone: string, sms_code: number) {
+    async authenticateUser(phone: string, sms_code: number) {
       try {
         const { data } = await this.$api.post('/profile/auth', {
           sms_code,
@@ -38,7 +38,7 @@ export const useAuthStore = defineStore('auth', {
         this.accessToken = data.access_token
         this.refreshToken = data.refresh_token
 
-        return this.accessToken
+        return data
       } catch (error) {
         console.error(error)
       }
@@ -57,8 +57,6 @@ export const useAuthStore = defineStore('auth', {
         })
 
         this.accessToken = data.access_token
-
-        return this.accessToken
       } catch (error) {
         console.error(error)
       }

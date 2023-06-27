@@ -46,11 +46,7 @@ export default boot(({ app, store }) => {
       const { refreshAccessToken } = useAuthStore()
 
       if (error.response.status === 401) {
-        const token = await refreshAccessToken()
-
-        if (token) {
-          originalRequest.headers.Authorization = `Bearer ${token}`
-        }
+        await refreshAccessToken()
 
         return api(originalRequest)
       }

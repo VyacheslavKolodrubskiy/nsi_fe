@@ -15,7 +15,7 @@ const { dialogRef, onDialogHide } = useDialogPluginComponent()
 const timer = ref(0)
 const smsCode = ref('')
 const router = useRouter()
-const { sendValidationCode, auth } = useAuthStore()
+const { sendValidationCode, authenticateUser } = useAuthStore()
 
 function handleClick() {
   timer.value = 60
@@ -30,7 +30,7 @@ watchEffect(async () => {
   }
 
   if (smsCode.value.length === 4) {
-    const token = await auth(props.phone, +smsCode.value)
+    const token = await authenticateUser(props.phone, +smsCode.value)
 
     if (token) {
       router.push({ name: PageName.MAIN })
