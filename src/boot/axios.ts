@@ -29,10 +29,10 @@ export default boot(({ app, store }) => {
     async (
       config: InternalAxiosRequestConfig
     ): Promise<InternalAxiosRequestConfig> => {
-      const token = useAuthStore().getToken
+      const { accessToken } = useAuthStore()
 
-      if (token) {
-        config.headers.Authorization = `Bearer ${token}`
+      if (accessToken) {
+        config.headers.Authorization = `Bearer ${accessToken}`
       }
 
       return config
