@@ -64,9 +64,6 @@ export const useAuthStore = defineStore('auth', {
         console.error(error)
       }
     },
-    updateToken(token: string) {
-      this.token = token
-    },
     setToken(token: string, refreshToken: string) {
       this.token = token
       this.refreshToken = refreshToken
