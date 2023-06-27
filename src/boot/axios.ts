@@ -1,11 +1,7 @@
-import {
-  AxiosError,
-  AxiosInstance,
-  AxiosRequestConfig,
-  AxiosResponse,
-} from 'axios'
+import { AxiosInstance, AxiosResponse, InternalAxiosRequestConfig } from 'axios'
 import axios from 'axios'
 import { boot } from 'quasar/wrappers'
+import { useAuthStore } from 'src/modules/auth/auth.store'
 
 declare module '@vue/runtime-core' {
   interface ComponentCustomProperties {
@@ -22,49 +18,43 @@ declare module '@vue/runtime-core' {
 
 const RTO = 30000
 
-const api = axios.create({
+const api: AxiosInstance = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
   responseType: 'json',
   timeout: RTO,
 })
 
 export default boot(({ app, store }) => {
-  async function refreshAccessToken(error: AxiosError): Promise<AxiosResponse> {
-    try {
-      const { data } = await api.post('/profile/auth/token', {
-        refresh_token: localStorage.getItem('refreshToken'),
-      })
+  api.interceptors.request.use(
+    async (
+      config: InternalAxiosRequestConfig
+    ): Promise<InternalAxiosRequestConfig> => {
+      const token = useAuthStore().getToken
 
-      localStorage.setItem('token', data.access_token)
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`
+      }
 
-      api.defaults.headers.common[
-        'Authorization'
-      ] = `Bearer ${data.access_token}`
-
-      const originalRequest = error.config as AxiosRequestConfig
-      originalRequest.headers = originalRequest.headers || {}
-      originalRequest.headers['Authorization'] = `Bearer ${data.access_token}`
-
-      return api(originalRequest)
-    } catch (error) {
-      throw error
+      return config
     }
-  }
+  )
 
-  api.interceptors.request.use((config) => {
-    const token = localStorage.getItem('token')
-
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`
-    }
-
-    return config
-  })
   api.interceptors.response.use(
-    (response) => response,
-    async (error = {}) => {
-      if (error.response.status === 401) {
-        return await refreshAccessToken(error)
+    (response: AxiosResponse) => response,
+    async (error: any): Promise<any> => {
+      const originalRequest = error.config
+      const { refreshAccessToken } = useAuthStore()
+
+      if (error.response.status === 401 && !originalRequest._retry) {
+        originalRequest._retry = true
+
+        const token = await refreshAccessToken()
+
+        if (token) {
+          originalRequest.headers.Authorization = `Bearer ${token}`
+        }
+
+        return api(originalRequest)
       }
 
       return Promise.reject(error)

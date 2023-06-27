@@ -1,17 +1,21 @@
 import { defineStore } from 'pinia'
+import { LocalStorage } from 'quasar'
+
+export type Token = string | null
 
 export interface AuthState {
-  token: string | null
-  refreshToken: string | null
+  token: Token
+  refreshToken: Token
 }
 
 export const useAuthStore = defineStore('auth', {
   state: (): AuthState => ({
-    token: null,
-    refreshToken: null,
+    token: LocalStorage.getItem('token') || null,
+    refreshToken: LocalStorage.getItem('refreshToken') || null,
   }),
   getters: {
     isAuthenticated: (state) => !!state.token,
+    getToken: (state) => state.token || null,
   },
   actions: {
     async sendValidationCode(phone: string) {
@@ -39,11 +43,28 @@ export const useAuthStore = defineStore('auth', {
     async logout() {
       try {
         await this.$api.post('/profile/logout')
+
+        this.clearToken()
       } catch (error) {
         console.error(error)
       }
     },
-    setNewAccessToken(token: string) {
+    async refreshAccessToken() {
+      try {
+        const {
+          data: { access_token: newToken },
+        } = await this.$api.post('/profile/auth/token', {
+          refresh_token: this.token,
+        })
+
+        this.token = newToken
+
+        return newToken
+      } catch (error) {
+        console.error(error)
+      }
+    },
+    updateToken(token: string) {
       this.token = token
     },
     setToken(token: string, refreshToken: string) {
@@ -53,7 +74,6 @@ export const useAuthStore = defineStore('auth', {
     clearToken() {
       this.token = null
       this.refreshToken = null
-      this.logout()
     },
   },
   persist: true,
