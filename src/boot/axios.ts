@@ -41,7 +41,7 @@ export default boot(({ app, store }) => {
 
   api.interceptors.response.use(
     (response: AxiosResponse) => response,
-    async (error: any): Promise<any> => {
+    async (error: any): Promise<AxiosInstance> => {
       const originalRequest = error.config
       const { refreshAccessToken } = useAuthStore()
 
