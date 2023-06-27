@@ -23,7 +23,6 @@ const fullPhone = computed(() => {
 
 function onSubmit() {
   sendValidationCode(fullPhone.value)
-  console.log('fullPhone.value:', fullPhone.value)
 
   $q.dialog({
     component: AuthSmsCodeDialog,

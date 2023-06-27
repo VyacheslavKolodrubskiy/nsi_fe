@@ -35,7 +35,10 @@ export const useAuthStore = defineStore('auth', {
           phone,
         })
 
-        this.setToken(data.access_token, data.refresh_token)
+        this.token = data.access_token
+        this.refreshToken = data.refresh_token
+
+        return this.token
       } catch (error) {
         console.error(error)
       }
@@ -51,22 +54,16 @@ export const useAuthStore = defineStore('auth', {
     },
     async refreshAccessToken() {
       try {
-        const {
-          data: { access_token: newToken },
-        } = await this.$api.post('/profile/auth/token', {
+        const { data } = await this.$api.post('/profile/auth/token', {
           refresh_token: this.token,
         })
 
-        this.token = newToken
+        this.token = data.access_token
 
-        return newToken
+        return this.token
       } catch (error) {
         console.error(error)
       }
-    },
-    setToken(token: string, refreshToken: string) {
-      this.token = token
-      this.refreshToken = refreshToken
     },
     clearToken() {
       this.token = null

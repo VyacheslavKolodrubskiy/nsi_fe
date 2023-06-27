@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
 import { useDialogPluginComponent } from 'quasar'
+import { PageName } from 'shared/enums/common.enum'
 import { formatPhoneNumber } from 'shared/utils/common'
 import { useAuthStore } from '../../auth.store'
 
@@ -12,6 +14,7 @@ const { dialogRef, onDialogHide } = useDialogPluginComponent()
 
 const timer = ref(0)
 const smsCode = ref('')
+const router = useRouter()
 const { sendValidationCode, auth } = useAuthStore()
 
 function handleClick() {
@@ -19,7 +22,7 @@ function handleClick() {
   sendValidationCode(props.phone)
 }
 
-watchEffect(() => {
+watchEffect(async () => {
   if (timer.value > 0) {
     setTimeout(() => {
       timer.value--
@@ -27,7 +30,11 @@ watchEffect(() => {
   }
 
   if (smsCode.value.length === 4) {
-    auth(props.phone, +smsCode.value)
+    const token = await auth(props.phone, +smsCode.value)
+
+    if (token) {
+      router.push({ name: PageName.MAIN })
+    }
 
     onDialogHide()
   }
