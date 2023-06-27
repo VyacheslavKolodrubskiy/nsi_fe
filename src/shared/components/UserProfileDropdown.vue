@@ -11,7 +11,7 @@ interface Link {
   logout?: () => void
 }
 
-const { logout } = useAuthStore()
+const { logout, clearToken } = useAuthStore()
 
 const menuLinks: Link[] = [
   {
@@ -25,7 +25,10 @@ const menuLinks: Link[] = [
     route: {
       name: PageName.AUTH,
     },
-    logout: () => logout(),
+    logout: () => {
+      clearToken()
+      logout()
+    },
   },
 ]
 </script>

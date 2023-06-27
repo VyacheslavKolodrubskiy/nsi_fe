@@ -46,8 +46,6 @@ export const useAuthStore = defineStore('auth', {
     async logout() {
       try {
         await this.$api.post('/profile/logout')
-
-        this.clearToken()
       } catch (error) {
         console.error(error)
       }
