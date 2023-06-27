@@ -4,18 +4,18 @@ import { LocalStorage } from 'quasar'
 export type Token = string | null
 
 export interface AuthState {
-  token: Token
+  accessToken: Token
   refreshToken: Token
 }
 
 export const useAuthStore = defineStore('auth', {
   state: (): AuthState => ({
-    token: LocalStorage.getItem('token') || null,
+    accessToken: LocalStorage.getItem('accessToken') || null,
     refreshToken: LocalStorage.getItem('refreshToken') || null,
   }),
   getters: {
-    isAuthenticated: (state) => !!state.token,
-    getToken: (state) => state.token || null,
+    isAuthenticated: (state) => !!state.accessToken,
+    getToken: (state) => state.accessToken || null,
   },
   actions: {
     async sendValidationCode(phone: string) {
@@ -35,10 +35,10 @@ export const useAuthStore = defineStore('auth', {
           phone,
         })
 
-        this.token = data.access_token
+        this.accessToken = data.access_token
         this.refreshToken = data.refresh_token
 
-        return this.token
+        return this.accessToken
       } catch (error) {
         console.error(error)
       }
@@ -53,18 +53,18 @@ export const useAuthStore = defineStore('auth', {
     async refreshAccessToken() {
       try {
         const { data } = await this.$api.post('/profile/auth/token', {
-          refresh_token: this.token,
+          refresh_token: this.accessToken,
         })
 
-        this.token = data.access_token
+        this.accessToken = data.access_token
 
-        return this.token
+        return this.accessToken
       } catch (error) {
         console.error(error)
       }
     },
     clearToken() {
-      this.token = null
+      this.accessToken = null
       this.refreshToken = null
     },
   },

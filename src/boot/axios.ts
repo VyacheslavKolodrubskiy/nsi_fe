@@ -45,9 +45,7 @@ export default boot(({ app, store }) => {
       const originalRequest = error.config
       const { refreshAccessToken } = useAuthStore()
 
-      if (error.response.status === 401 && !originalRequest._retry) {
-        originalRequest._retry = true
-
+      if (error.response.status === 401) {
         const token = await refreshAccessToken()
 
         if (token) {
