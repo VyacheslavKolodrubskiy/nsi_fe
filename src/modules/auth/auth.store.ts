@@ -38,30 +38,24 @@ export const useAuthStore = defineStore('auth', {
         this.accessToken = data.access_token
         this.refreshToken = data.refresh_token
 
-        return data
+        return this.accessToken
       } catch (error) {
         console.error(error)
       }
     },
     async logout() {
+      this.clearTokens()
+
       try {
         await this.$api.post('/profile/logout')
       } catch (error) {
         console.error(error)
       }
     },
-    async refreshAccessToken() {
-      try {
-        const { data } = await this.$api.post('/profile/auth/token', {
-          refresh_token: this.accessToken,
-        })
-
-        this.accessToken = data.access_token
-      } catch (error) {
-        console.error(error)
-      }
+    setAccessToken(token: string) {
+      this.accessToken = token
     },
-    clearToken() {
+    clearTokens() {
       this.accessToken = null
       this.refreshToken = null
     },

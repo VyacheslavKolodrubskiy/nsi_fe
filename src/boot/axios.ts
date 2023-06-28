@@ -1,7 +1,9 @@
-import { AxiosInstance, AxiosResponse, InternalAxiosRequestConfig } from 'axios'
+import { AxiosInstance, InternalAxiosRequestConfig } from 'axios'
 import axios from 'axios'
+import { Notify } from 'quasar'
 import { boot } from 'quasar/wrappers'
 import { useAuthStore } from 'src/modules/auth/auth.store'
+import { PageName } from 'src/shared/enums/common.enum'
 
 declare module '@vue/runtime-core' {
   interface ComponentCustomProperties {
@@ -24,7 +26,7 @@ const api: AxiosInstance = axios.create({
   timeout: RTO,
 })
 
-export default boot(({ app, store }) => {
+export default boot(({ app, store, router }) => {
   api.interceptors.request.use(
     async (
       config: InternalAxiosRequestConfig
@@ -40,15 +42,40 @@ export default boot(({ app, store }) => {
   )
 
   api.interceptors.response.use(
-    (response: AxiosResponse) => response,
-    async (error: any): Promise<AxiosInstance> => {
+    (response) => {
+      return response
+    },
+    async (error) => {
+      Notify.create({
+        type: 'negative',
+        message: `Сообщение ошибки: ${error.response.data?.error_code}, Код ошибки: ${error.response.status}`,
+      })
+
+      const { accessToken, setAccessToken, clearTokens } = useAuthStore()
       const originalRequest = error.config
-      const { refreshAccessToken } = useAuthStore()
 
-      if (error.response.status === 401) {
-        await refreshAccessToken()
+      if (error.response && error.response.status === 401) {
+        if (!originalRequest._retry) {
+          originalRequest._retry = true
 
-        return api(originalRequest)
+          try {
+            const { data } = await api.post('/profile/auth/token', {
+              refresh_token: accessToken,
+            })
+
+            setAccessToken(data.access_token)
+            originalRequest.headers.Authorization = `Bearer ${data.access_token}`
+
+            return api(originalRequest)
+          } catch (error) {
+            console.error('Failed to refresh token:', error)
+
+            clearTokens()
+            router.push({ name: PageName.AUTH })
+          }
+        } else {
+          console.error('Failed to refresh token after retrying:', error)
+        }
       }
 
       return Promise.reject(error)
