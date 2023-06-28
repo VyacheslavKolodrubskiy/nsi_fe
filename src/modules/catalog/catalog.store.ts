@@ -5,6 +5,14 @@ interface CatalogState {}
 export const useCatalogStore = defineStore('catalog', {
   state: (): CatalogState => ({}),
   getters: {},
-  actions: {},
-  persist: true,
+  actions: {
+    async fetchProducts() {
+      try {
+        const { data } = await this.$api.get('/product')
+        console.log('data:', data)
+      } catch (error) {
+        console.error(error)
+      }
+    },
+  },
 })

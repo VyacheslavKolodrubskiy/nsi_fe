@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { QSelectOption, QTableColumn, QTableProps } from 'quasar'
+import { useCatalogStore } from '../catalog.store'
 
 const columns: QTableColumn[] = [
   {
@@ -88,6 +89,10 @@ const pagination = ref<QTableProps['pagination']>({
   page: 1,
   rowsPerPage: 8,
 })
+
+const { fetchProducts } = useCatalogStore()
+
+fetchProducts()
 
 const filter = ref('')
 const currentOption = ref<QSelectOption>(options.value[0])

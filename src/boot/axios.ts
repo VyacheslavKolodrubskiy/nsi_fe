@@ -48,7 +48,7 @@ export default boot(({ app, store, router }) => {
     async (error) => {
       Notify.create({
         type: 'negative',
-        message: `Сообщение ошибки: ${error.response.data?.error_code}, Код ошибки: ${error.response.status}`,
+        message: `Сообщение ошибки: ${error.message}`,
       })
 
       const { accessToken, setAccessToken, clearTokens } = useAuthStore()
