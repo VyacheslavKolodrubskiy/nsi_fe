@@ -59,7 +59,7 @@ export default boot(({ app, store, router }) => {
           originalRequest._retry = true
 
           try {
-            const { data } = await api.post('/profile/auth/token', {
+            const { data } = await api.post('/account/profile/auth/token', {
               refresh_token: accessToken,
             })
 

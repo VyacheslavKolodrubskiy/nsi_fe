@@ -1,15 +1,32 @@
 import { defineStore } from 'pinia'
 
-interface CatalogState {}
+import { Catalog, CatalogResponse } from './catalog.models'
+
+interface CatalogState {
+  catalog: Catalog[]
+  totalCount: number
+}
 
 export const useCatalogStore = defineStore('catalog', {
-  state: (): CatalogState => ({}),
-  getters: {},
+  state: (): CatalogState => ({
+    catalog: [],
+    totalCount: 0,
+  }),
+  getters: {
+    getCatalog: (state) => state.catalog,
+    getCatalogTotalCount: (state) => state.totalCount,
+  },
   actions: {
-    async fetchProducts() {
+    async fetchCatalog() {
       try {
-        const { data } = await this.$api.get('/product')
-        console.log('data:', data)
+        const { data } = await this.$api.get<CatalogResponse>('/nsi/product', {
+          params: {
+            page_size: 10,
+          },
+        })
+
+        this.catalog = data.results
+        this.totalCount = data.total_count
       } catch (error) {
         console.error(error)
       }

@@ -20,7 +20,7 @@ export const useAuthStore = defineStore('auth', {
   actions: {
     async sendValidationCode(phone: string) {
       try {
-        await this.$api.post('/profile/send_validating_code', {
+        await this.$api.post('/account/profile/send_validating_code', {
           err_ne: false,
           phone,
         })
@@ -30,7 +30,7 @@ export const useAuthStore = defineStore('auth', {
     },
     async authenticateUser(phone: string, sms_code: number) {
       try {
-        const { data } = await this.$api.post('/profile/auth', {
+        const { data } = await this.$api.post('/account/profile/auth', {
           sms_code,
           phone,
         })
@@ -47,7 +47,7 @@ export const useAuthStore = defineStore('auth', {
       this.clearTokens()
 
       try {
-        await this.$api.post('/profile/logout')
+        await this.$api.post('/account/profile/logout')
       } catch (error) {
         console.error(error)
       }

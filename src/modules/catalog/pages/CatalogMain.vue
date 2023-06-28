@@ -90,14 +90,15 @@ const pagination = ref<QTableProps['pagination']>({
   rowsPerPage: 8,
 })
 
-const { fetchProducts } = useCatalogStore()
-
-fetchProducts()
+const { fetchCatalog, getCatalog } = useCatalogStore()
+console.log('getCatalog:', getCatalog)
 
 const filter = ref('')
 const currentOption = ref<QSelectOption>(options.value[0])
 const selected = ref([])
 const filled = ref(20)
+
+// fetchCatalog()
 </script>
 
 <template>
