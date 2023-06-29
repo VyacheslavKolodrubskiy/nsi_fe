@@ -3,7 +3,7 @@
     <QLayout view="hhh lpR fff">
       <TheMainHeader />
 
-      <!-- <TheSidebar /> -->
+      <TheSidebar />
 
       <QPageContainer>
         <QPage style="padding: 40px 0 0 16px">

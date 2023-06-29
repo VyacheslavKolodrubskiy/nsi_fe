@@ -89,7 +89,7 @@ const filled = ref(20)
 const selected = ref([])
 const catalogStore = useCatalogStore()
 const { fetchCatalog } = catalogStore
-const { catalog } = storeToRefs(catalogStore)
+const { catalog, totalCount } = storeToRefs(catalogStore)
 const currentOption = ref<QSelectOption>(options.value[0])
 
 function onUpdatePagination(page: number) {
@@ -203,8 +203,8 @@ if (!catalog.value?.length) {
           color="color-1"
           direction-links
           gutter="sm"
-          :max="scope.pagesNumber"
-          :max-pages="6"
+          :max="totalCount"
+          :max-pages="catalog.length"
           :model-value="pagination?.page ?? 0"
           outline
           push
