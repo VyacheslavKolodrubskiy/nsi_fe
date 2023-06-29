@@ -45,7 +45,8 @@ export default boot(({ app, store, router }) => {
       return response
     },
     async (error) => {
-      const { accessToken, setAccessToken, clearTokens } = useAuthStore()
+      const { setAccessToken, refreshToken, clearTokens } = useAuthStore()
+
       const originalRequest = error.config
 
       if (error.response && error.response.status === 401) {
@@ -54,7 +55,7 @@ export default boot(({ app, store, router }) => {
 
           try {
             const { data } = await api.post('/account/profile/auth/token', {
-              refresh_token: accessToken,
+              refresh_token: refreshToken,
             })
 
             setAccessToken(data.access_token)

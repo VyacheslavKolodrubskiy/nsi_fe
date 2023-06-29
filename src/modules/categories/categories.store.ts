@@ -1,10 +1,37 @@
 import { defineStore } from 'pinia'
 
-interface CategoriesState {}
+import { Category } from './categories.models'
+
+interface CategoriesState {
+  categories: Category[]
+  page: number
+  totalCount: number
+}
 
 export const useCategoriesStore = defineStore('categories', {
-  state: (): CategoriesState => ({}),
+  state: (): CategoriesState => ({
+    categories: [],
+    page: 1,
+    totalCount: 0,
+  }),
   getters: {},
-  actions: {},
-  persist: true,
+  actions: {
+    async fetchCategories(page: number) {
+      try {
+        const { data } = await this.$api.get('/nsi/product_category', {
+          params: {
+            page_size: 8,
+            page,
+          },
+        })
+
+        console.log('data:', data)
+
+        this.categories = data.results
+        this.totalCount = data.total_count
+      } catch (error) {
+        console.error(error)
+      }
+    },
+  },
 })
