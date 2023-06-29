@@ -1,6 +1,5 @@
 import { AxiosInstance, InternalAxiosRequestConfig } from 'axios'
 import axios from 'axios'
-import { Notify } from 'quasar'
 import { boot } from 'quasar/wrappers'
 import { useAuthStore } from 'src/modules/auth/auth.store'
 import { PageName } from 'src/shared/enums/common.enum'
@@ -46,11 +45,6 @@ export default boot(({ app, store, router }) => {
       return response
     },
     async (error) => {
-      Notify.create({
-        type: 'negative',
-        message: `Сообщение ошибки: ${error.message}`,
-      })
-
       const { accessToken, setAccessToken, clearTokens } = useAuthStore()
       const originalRequest = error.config
 

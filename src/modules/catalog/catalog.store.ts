@@ -4,12 +4,14 @@ import { Catalog, CatalogResponse } from './catalog.models'
 
 interface CatalogState {
   catalog: Catalog[]
+  page: number
   totalCount: number
 }
 
 export const useCatalogStore = defineStore('catalog', {
   state: (): CatalogState => ({
     catalog: [],
+    page: 1,
     totalCount: 0,
   }),
   getters: {
@@ -17,11 +19,12 @@ export const useCatalogStore = defineStore('catalog', {
     getCatalogTotalCount: (state) => state.totalCount,
   },
   actions: {
-    async fetchCatalog() {
+    async fetchCatalog(page: number) {
       try {
         const { data } = await this.$api.get<CatalogResponse>('/nsi/product', {
           params: {
-            page_size: 10,
+            page_size: 8,
+            page,
           },
         })
 

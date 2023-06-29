@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { QSelectOption, QTableColumn, QTableProps } from 'quasar'
+import { storeToRefs } from 'pinia'
+import { date, QSelectOption, QTableColumn, QTableProps } from 'quasar'
 import { useCatalogStore } from '../catalog.store'
 
 const columns: QTableColumn[] = [
@@ -10,35 +11,41 @@ const columns: QTableColumn[] = [
     field: 'status',
   },
   {
-    name: 'article',
+    name: 'code',
     align: 'left',
     label: 'Артикул',
-    field: 'article',
+    field: 'code',
   },
   {
-    name: 'productName',
+    name: 'name',
     align: 'left',
     label: 'Наименование товара',
-    field: 'productName',
+    field: 'name',
     style: 'max-width: 160px; white-space: normal',
   },
   {
-    name: 'category',
+    name: 'category_id',
     align: 'left',
     label: 'Категория',
-    field: 'category',
+    field: 'category_id',
   },
   {
-    name: 'createdAt',
+    name: 'created_at',
     align: 'left',
     label: 'Cоздание',
-    field: 'createdAt',
+    field: 'created_at',
+    format(val) {
+      return date.formatDate(val, 'DD.MM.YYYY')
+    },
   },
   {
-    name: 'updatedAt',
+    name: 'modified_at',
     align: 'left',
     label: 'Изменение',
-    field: 'updatedAt',
+    field: 'modified_at',
+    format(val) {
+      return date.formatDate(val, 'DD.MM.YYYY')
+    },
   },
   {
     name: 'filled',
@@ -52,19 +59,6 @@ const columns: QTableColumn[] = [
     label: '',
     field: 'action',
     style: 'width: 20px',
-  },
-]
-
-const rows = [
-  {
-    status: 'Новый',
-    article: '04812',
-    productName: 'Холодильник BOSCH KDD 86AI304',
-    category: 'Холодильники',
-    createdAt: '30.03.2023',
-    updatedAt: '29.04.2023',
-    filled: '',
-    action: '',
   },
 ]
 
@@ -90,15 +84,24 @@ const pagination = ref<QTableProps['pagination']>({
   rowsPerPage: 8,
 })
 
-const { fetchCatalog, getCatalog } = useCatalogStore()
-console.log('getCatalog:', getCatalog)
-
 const filter = ref('')
-const currentOption = ref<QSelectOption>(options.value[0])
-const selected = ref([])
 const filled = ref(20)
+const selected = ref([])
+const catalogStore = useCatalogStore()
+const { fetchCatalog } = catalogStore
+const { catalog } = storeToRefs(catalogStore)
+const currentOption = ref<QSelectOption>(options.value[0])
 
-// fetchCatalog()
+function onUpdatePagination(page: number) {
+  if (pagination.value?.page) {
+    pagination.value.page = page
+    fetchCatalog(pagination.value?.page)
+  }
+}
+
+if (!catalog.value?.length) {
+  pagination.value?.page && fetchCatalog(pagination.value.page)
+}
 </script>
 
 <template>
@@ -111,12 +114,7 @@ const filled = ref(20)
       :filter="filter"
       flat
       row-key="name"
-      :rows="
-        Array.from({ length: 100 }, (_, index) => ({
-          ...rows[0],
-          name: `${rows[0].status} ${index}`,
-        }))
-      "
+      :rows="catalog"
       selection="single"
       table-header-class="text-color-2"
     >
@@ -214,7 +212,7 @@ const filled = ref(20)
           rounded
           size="15px"
           unelevated
-          @update:model-value="(page) => (pagination!.page = page)"
+          @update:model-value="onUpdatePagination"
         />
       </template>
     </QTable>
