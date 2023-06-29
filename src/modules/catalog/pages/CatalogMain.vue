@@ -1,66 +1,8 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { date, QSelectOption, QTableColumn, QTableProps } from 'quasar'
+import { QSelectOption, QTableProps } from 'quasar'
+import { columns } from '../catalog.constants'
 import { useCatalogStore } from '../catalog.store'
-
-const columns: QTableColumn[] = [
-  {
-    name: 'status',
-    align: 'left',
-    label: 'Статус',
-    field: 'status',
-  },
-  {
-    name: 'code',
-    align: 'left',
-    label: 'Артикул',
-    field: 'code',
-  },
-  {
-    name: 'name',
-    align: 'left',
-    label: 'Наименование товара',
-    field: 'name',
-    style: 'max-width: 160px; white-space: normal',
-  },
-  {
-    name: 'category_id',
-    align: 'left',
-    label: 'Категория',
-    field: 'category_id',
-  },
-  {
-    name: 'created_at',
-    align: 'left',
-    label: 'Cоздание',
-    field: 'created_at',
-    format(val) {
-      return date.formatDate(val, 'DD.MM.YYYY')
-    },
-  },
-  {
-    name: 'modified_at',
-    align: 'left',
-    label: 'Изменение',
-    field: 'modified_at',
-    format(val) {
-      return date.formatDate(val, 'DD.MM.YYYY')
-    },
-  },
-  {
-    name: 'filled',
-    align: 'left',
-    label: 'Заполнено',
-    field: 'filled',
-  },
-  {
-    name: 'action',
-    align: 'left',
-    label: '',
-    field: 'action',
-    style: 'width: 20px',
-  },
-]
 
 const options = ref<QSelectOption[]>([
   {
@@ -89,7 +31,7 @@ const filled = ref(20)
 const selected = ref([])
 const catalogStore = useCatalogStore()
 const { fetchCatalog } = catalogStore
-const { catalog, totalCount } = storeToRefs(catalogStore)
+const { catalog } = storeToRefs(catalogStore)
 const currentOption = ref<QSelectOption>(options.value[0])
 
 function onUpdatePagination(page: number) {
@@ -203,7 +145,7 @@ if (!catalog.value?.length) {
           color="color-1"
           direction-links
           gutter="sm"
-          :max="totalCount"
+          :max="scope.pagesNumber"
           :max-pages="catalog.length"
           :model-value="pagination?.page ?? 0"
           outline
