@@ -49,6 +49,17 @@ async function onUpdatePagination(page: number) {
   pagination.value.rowsNumber = totalCount.value
 }
 
+watch(
+  filter,
+  async (value) => {
+    if (value) {
+      filters.value.search = value
+      await fetchCatalog(filters.value)
+    }
+  },
+  { immediate: true }
+)
+
 onMounted(async () => {
   await fetchCatalog(filters.value)
   pagination.value.rowsNumber = totalCount.value
