@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { QSelectOption } from 'quasar'
+import { QSelectOption, QTable } from 'quasar'
 import { columns } from '../catalog.constants'
 import { CatalogFilters } from '../catalog.models'
 import { useCatalogStore } from '../catalog.store'
@@ -46,11 +46,13 @@ const filters: CatalogFilters = {
 async function onUpdatePagination(page: number) {
   await fetchCatalog(filters)
   pagination.page = page
+  console.log('pagination.page:', pagination.page)
   pagination.rowsNumber = totalCount.value
 }
 
 onMounted(async () => {
   await fetchCatalog(filters)
+  pagination.rowsNumber = totalCount.value
 })
 </script>
 
@@ -153,9 +155,9 @@ onMounted(async () => {
           color="color-1"
           direction-links
           gutter="sm"
-          :max="20"
+          :max="pagination.rowsNumber"
           :max-pages="6"
-          :model-value="pagination?.page ?? 1"
+          :model-value="pagination.page"
           outline
           push
           :ripple="false"
