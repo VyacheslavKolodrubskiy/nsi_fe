@@ -19,3 +19,10 @@ export interface Catalog {
   manager_id: number
   description: string
 }
+
+export interface CatalogFilters {
+  page: number
+  search: string
+  page_size: number
+  sort_name: string
+}

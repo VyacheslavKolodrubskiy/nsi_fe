@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { QSelectOption, QTableProps } from 'quasar'
+import { QSelectOption } from 'quasar'
 import { columns } from '../catalog.constants'
+import { CatalogFilters } from '../catalog.models'
 import { useCatalogStore } from '../catalog.store'
 
 const options = ref<QSelectOption[]>([
@@ -19,11 +20,12 @@ const options = ref<QSelectOption[]>([
   },
 ])
 
-const pagination = ref<QTableProps['pagination']>({
+const pagination = reactive({
   sortBy: 'desc',
   descending: false,
   page: 1,
   rowsPerPage: 8,
+  rowsNumber: 20,
 })
 
 const filter = ref('')
@@ -31,19 +33,25 @@ const filled = ref(20)
 const selected = ref([])
 const catalogStore = useCatalogStore()
 const { fetchCatalog } = catalogStore
-const { catalog } = storeToRefs(catalogStore)
+const { catalog, totalCount } = storeToRefs(catalogStore)
 const currentOption = ref<QSelectOption>(options.value[0])
 
-function onUpdatePagination(page: number) {
-  if (pagination.value?.page) {
-    pagination.value.page = page
-    fetchCatalog(pagination.value?.page)
-  }
+const filters: CatalogFilters = {
+  page: pagination.page,
+  search: filter.value,
+  page_size: pagination.rowsPerPage,
+  sort_name: pagination.sortBy,
 }
 
-if (!catalog.value?.length) {
-  pagination.value?.page && fetchCatalog(pagination.value.page)
+async function onUpdatePagination(page: number) {
+  await fetchCatalog(filters)
+  pagination.page = page
+  pagination.rowsNumber = totalCount.value
 }
+
+onMounted(async () => {
+  await fetchCatalog(filters)
+})
 </script>
 
 <template>
@@ -136,7 +144,7 @@ if (!catalog.value?.length) {
         </QTd>
       </template>
 
-      <template #bottom="scope">
+      <template #bottom>
         <QPagination
           active-color="primary"
           active-text-color="white"
@@ -145,9 +153,9 @@ if (!catalog.value?.length) {
           color="color-1"
           direction-links
           gutter="sm"
-          :max="scope.pagesNumber"
-          :max-pages="catalog.length"
-          :model-value="pagination?.page ?? 0"
+          :max="20"
+          :max-pages="6"
+          :model-value="pagination?.page ?? 1"
           outline
           push
           :ripple="false"
