@@ -20,7 +20,7 @@ const options = ref<QSelectOption[]>([
   },
 ])
 
-const pagination = reactive({
+const pagination = ref({
   sortBy: 'desc',
   descending: false,
   page: 1,
@@ -36,23 +36,22 @@ const { fetchCatalog } = catalogStore
 const { catalog, totalCount } = storeToRefs(catalogStore)
 const currentOption = ref<QSelectOption>(options.value[0])
 
-const filters: CatalogFilters = {
-  page: pagination.page,
+const filters = ref<CatalogFilters>({
+  page: pagination.value.page,
   search: filter.value,
-  page_size: pagination.rowsPerPage,
-  sort_name: pagination.sortBy,
-}
+  page_size: pagination.value.rowsPerPage,
+  sort_name: pagination.value.sortBy,
+})
 
 async function onUpdatePagination(page: number) {
-  await fetchCatalog(filters)
-  pagination.page = page
-  console.log('pagination.page:', pagination.page)
-  pagination.rowsNumber = totalCount.value
+  filters.value.page = page
+  await fetchCatalog(filters.value)
+  pagination.value.rowsNumber = totalCount.value
 }
 
 onMounted(async () => {
-  await fetchCatalog(filters)
-  pagination.rowsNumber = totalCount.value
+  await fetchCatalog(filters.value)
+  pagination.value.rowsNumber = totalCount.value
 })
 </script>
 
@@ -157,18 +156,20 @@ onMounted(async () => {
           gutter="sm"
           :max="pagination.rowsNumber"
           :max-pages="6"
-          :model-value="pagination.page"
+          :model-value="filters.page"
           outline
           push
           :ripple="false"
           rounded
-          size="15px"
           unelevated
           @update:model-value="onUpdatePagination"
-        />
-      </template>
+      /></template>
     </QTable>
   </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.q-pagination :deep(.q-btn-item) {
+  min-width: 2em !important;
+}
+</style>
