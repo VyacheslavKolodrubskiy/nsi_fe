@@ -183,4 +183,23 @@ onMounted(async () => {
 .q-pagination :deep(.q-btn-item) {
   min-width: 2em !important;
 }
+.q-pagination :deep(.q-btn--outline)::before {
+  border-color: $color-3;
+}
+.q-pagination :deep(.q-pagination__content) {
+  .q-btn,
+  .q-pagination__middle .q-btn {
+    &:hover {
+      background-color: $color-1 !important;
+
+      &::before {
+        border: none !important;
+      }
+      .q-icon,
+      .block {
+        color: $bg-color !important;
+      }
+    }
+  }
+}
 </style>

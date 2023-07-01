@@ -1,170 +1,69 @@
 <script setup lang="ts">
-import { QSelectOption, QTableColumn } from 'quasar'
-import user from 'assets/img/user.png'
+import { QPaginationProps, QTableProps, QTableSlots } from 'quasar'
 
-const columns: QTableColumn[] = [
-  {
-    name: 'name',
-    align: 'left',
-    label: 'ФИО менеджера',
-    field: 'name',
-  },
-  {
-    name: 'inProgress',
-    align: 'left',
-    label: 'В работе',
-    field: 'inProgress',
-  },
-  {
-    name: 'published',
-    align: 'left',
-    label: 'Опубликовано',
-    field: 'published',
-  },
-  {
-    name: 'onCompletion',
-    align: 'left',
-    label: 'На доработке',
-    field: 'onCompletion',
-  },
-  {
-    name: 'finished',
-    align: 'left',
-    label: 'Завершено',
-    field: 'finished',
-  },
-  {
-    name: 'action',
-    align: 'left',
-    label: '',
-    field: 'action',
-    style: 'width: 20px',
-  },
-]
+withDefaults(defineProps<QTableProps & QPaginationProps>(), {
+  rowKey: 'id',
+})
 
-const rows = [
-  {
-    name: 'Марина Кравец',
-    inProgress: '89',
-    published: '7',
-    onCompletion: '67',
-    finished: '5',
-    action: '',
-  },
-]
-
-const options = ref<QSelectOption[]>([
-  {
-    value: 'today',
-    label: 'Сегодня',
-  },
-  {
-    value: 'tomorrow',
-    label: 'Завтра',
-  },
-  {
-    value: 'allTime',
-    label: 'Все время',
-  },
-])
-
-const filter = ref('')
-const currentOption = ref<QSelectOption>(options.value[0])
-const currentPage = ref(1)
-
-function onEditClick(key: string) {
-  console.log('onEditClick', key)
-}
+const emit = defineEmits(['update:model-value'])
 </script>
 
 <template>
   <QTable
-    class="base-table"
     :columns="columns"
     :filter="filter"
     flat
-    :pagination="{ page: currentPage, rowsPerPage: 8 }"
-    row-key="name"
-    :rows="
-      Array.from({ length: 100 }, (_, index) => ({
-        ...rows[0],
-        name: `${rows[0].name} ${index}`,
-      }))
-    "
+    :row-key="rowKey"
+    :rows="rows"
     :rows-per-page-options="[]"
     table-header-class="text-color-2"
   >
-    <template #top-left>
-      <div>
-        <div class="q-mb-xs" style="font-size: 20px">Статистика менеджеров</div>
-
-        <div class="text-color-2" style="font-size: 13px">
-          Данные за {{ currentOption.label.toLowerCase() }}
-        </div>
-      </div>
-    </template>
-
-    <template #top-right>
-      <TableSelect v-model="currentOption" :options="options" />
-    </template>
-
-    <template #body-cell-name="props">
-      <QTd :props="props">
-        <div class="flex items-center no-wrap">
-          <QImg fit="contain" no-spinner no-transition :src="user" />
-
-          <div class="q-ml-md">{{ props.value }}</div>
-        </div>
-      </QTd>
-    </template>
-
-    <template #body-cell-action="props">
-      <QTd :props="props">
-        <BaseIcon
-          class="cursor-pointer"
-          name="arrow-right"
-          @click="onEditClick(props.key)"
-      /></QTd>
+    <template
+      v-for="(_, name) in ($slots as Readonly<QTableSlots>)"
+      :key="name"
+      #[name]="slotData"
+    >
+      <slot :name="name" v-bind="{ ...slotData }" />
     </template>
 
     <template #bottom>
       <QPagination
-        v-model="currentPage"
         active-color="primary"
         active-text-color="white"
-        class="base-pagination"
         color="color-1"
         direction-links
         gutter="sm"
-        :max="10"
-        :max-pages="6"
+        :max="max"
+        :max-pages="maxPages"
+        :model-value="modelValue"
         outline
         push
         :ripple="false"
         rounded
         size="15px"
         unelevated
+        @update:model-value="emit('update:model-value', $event)"
       />
     </template>
   </QTable>
 </template>
 
-<style lang="scss">
-.base-table {
-  .q-table__bottom {
-    padding-left: 0;
-  }
+<style scoped lang="scss">
+.q-pagination :deep(.q-btn-item) {
+  min-width: 2em !important;
 }
-
-.base-pagination {
-  margin-top: 15px;
-  .q-btn--outline:before {
-    border-color: $color-3;
-  }
-  .q-pagination__content > .q-btn,
-  .q-pagination__middle > .q-btn {
+.q-pagination :deep(.q-btn--outline)::before {
+  border-color: $color-3;
+}
+.q-pagination :deep(.q-pagination__content) {
+  .q-btn,
+  .q-pagination__middle .q-btn {
     &:hover {
       background-color: $color-1 !important;
+
+      &::before {
+        border: none !important;
+      }
       .q-icon,
       .block {
         color: $bg-color !important;
