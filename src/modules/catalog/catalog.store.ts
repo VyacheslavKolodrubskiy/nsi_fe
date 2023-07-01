@@ -1,7 +1,7 @@
 import console from 'console'
 import { defineStore } from 'pinia'
 
-import { Catalog, CatalogFilters, CatalogResponse } from './catalog.models'
+import { Catalog, CatalogFilters, CatalogResponse } from './catalog.interfaces'
 
 interface CatalogState {
   catalog: Catalog[]

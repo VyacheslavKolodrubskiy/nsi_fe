@@ -2,7 +2,7 @@
 import { storeToRefs } from 'pinia'
 import { QSelectOption, QTable } from 'quasar'
 import { columns } from '../catalog.constants'
-import { CatalogFilters } from '../catalog.models'
+import { CatalogFilters } from '../catalog.interfaces'
 import { useCatalogStore } from '../catalog.store'
 
 const options = ref<QSelectOption[]>([
