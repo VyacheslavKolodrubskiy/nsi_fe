@@ -1,8 +1,8 @@
 import { AxiosInstance, InternalAxiosRequestConfig } from 'axios'
 import axios from 'axios'
+import { useAuthStore } from 'modules/auth/auth.store'
 import { boot } from 'quasar/wrappers'
-import { useAuthStore } from 'src/modules/auth/auth.store'
-import { PageName } from 'src/shared/enums/common.enum'
+import { PageName } from 'shared/enums/common.enum'
 
 declare module '@vue/runtime-core' {
   interface ComponentCustomProperties {
