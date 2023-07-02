@@ -7,8 +7,8 @@ interface Props extends QBtnProps {
 }
 
 withDefaults(defineProps<Props>(), {
-  width: 50,
-  height: 108,
+  width: 108,
+  height: 50,
 })
 </script>
 
