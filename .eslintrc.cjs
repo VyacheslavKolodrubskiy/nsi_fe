@@ -30,6 +30,7 @@ module.exports = {
     'no-var': 'error',
     'prefer-arrow-callback': 'error',
     'no-const-assign': 'error',
+    'vue/static-class-names-order': 'error',
     quotes: ['error', 'single', { avoidEscape: true }],
     'prefer-template': 'error',
     'padding-line-between-statements': [

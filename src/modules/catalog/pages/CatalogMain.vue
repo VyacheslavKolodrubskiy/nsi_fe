@@ -109,7 +109,7 @@ onMounted(async () => {
       <template #top-right>
         <div class="flex">
           <div
-            class="rounded-borders bg-color-4 q-px-xs q-mr-sm flex flex-center cursor-pointer"
+            class="bg-color-4 cursor-pointer flex flex-center q-mr-sm q-px-xs rounded-borders"
           >
             <BaseIcon name="filter" />
           </div>
@@ -146,7 +146,7 @@ onMounted(async () => {
       <template #body-cell-action="props">
         <QTd :props="props">
           <QBtn
-            class="rounded-borders q-px-md q-py-xs"
+            class="q-px-md q-py-xs rounded-borders"
             color="primary"
             dense
             label="Взять в работу"

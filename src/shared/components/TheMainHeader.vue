@@ -4,7 +4,7 @@ import { PageName } from 'shared/enums/common.enum'
 
 <template>
   <QHeader
-    class="bg-white q-py-sm q-px-lg"
+    class="bg-white q-px-lg q-py-sm"
     style="border-radius: 0px 0px 10px 10px"
   >
     <QToolbar>

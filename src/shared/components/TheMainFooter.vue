@@ -5,8 +5,8 @@ const { toggleSidebar } = useAppStore()
 </script>
 
 <template>
-  <QFooter class="bg-transparent q-py-lg flex items-center justify-between">
-    <div class="flex items-center cursor-pointer" @click="toggleSidebar">
+  <QFooter class="bg-transparent flex items-center justify-between q-py-lg">
+    <div class="cursor-pointer flex items-center" @click="toggleSidebar">
       <div
         class="flex flex-center"
         style="

@@ -43,17 +43,17 @@ watchEffect(async () => {
 
 <template>
   <QDialog ref="dialogRef" @hide="onDialogHide">
-    <QCard class="text-center full-width" flat style="max-width: 300px">
+    <QCard class="full-width text-center" flat style="max-width: 300px">
       <QCardSection class="q-pa-lg">
         <QIcon
           v-close-popup
-          class="block q-ml-auto cursor-pointer q-mb-md"
+          class="block cursor-pointer q-mb-md q-ml-auto"
           name="close"
           size="24px"
         />
 
         <div class="q-mb-lg">
-          <div class="text-grey q-mb-md">
+          <div class="q-mb-md text-grey">
             <div class="q-mb-sm">
               Мы отправили код <br />
 

@@ -70,7 +70,7 @@ const currentOption = ref<QSelectOption>(options.value[0])
 </script>
 
 <template>
-  <div class="row q-mb-xl q-col-gutter-md">
+  <div class="q-col-gutter-md q-mb-xl row">
     <div class="col">
       <div class="flex q-gutter-md">
         <div>
@@ -102,7 +102,7 @@ const currentOption = ref<QSelectOption>(options.value[0])
   </div>
 
   <div>
-    <div class="row q-col-gutter-md q-mb-md text-color-2">
+    <div class="q-col-gutter-md q-mb-md row text-color-2">
       <div class="col-3">
         Вам доступно
         <span class="text-color-1 text-weight-bold" style="font-size: 16px">
@@ -118,11 +118,11 @@ const currentOption = ref<QSelectOption>(options.value[0])
       </div>
     </div>
 
-    <div class="row q-mb-md q-gutter-md">
+    <div class="q-gutter-md q-mb-md row">
       <div
         v-for="_ in 4"
         :key="_"
-        class="card card--mini col row q-gutter-sm items-center"
+        class="card card--mini col items-center q-gutter-sm row"
       >
         <div
           style="
@@ -155,7 +155,7 @@ const currentOption = ref<QSelectOption>(options.value[0])
     <div class="card">
       <div class="flex justify-between">
         <div>
-          <div class="text-color-1 q-mb-sm" style="font-size: 20px">
+          <div class="q-mb-sm text-color-1" style="font-size: 20px">
             Аналитика завершенных карточек
           </div>
 

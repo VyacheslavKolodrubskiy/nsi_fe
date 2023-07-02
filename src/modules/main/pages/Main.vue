@@ -3,7 +3,7 @@ import TableMain from '../components/TableMain.vue'
 </script>
 
 <template>
-  <div class="row q-mb-lg q-col-gutter-md">
+  <div class="q-col-gutter-md q-mb-lg row">
     <div class="col">
       <div class="card">
         <div class="q-mb-xl">

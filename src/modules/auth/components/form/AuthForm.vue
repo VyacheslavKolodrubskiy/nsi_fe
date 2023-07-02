@@ -35,7 +35,7 @@ function onSubmit() {
 
 <template>
   <QCard
-    class="text-center q-pa-lg full-width card"
+    class="card full-width q-pa-lg text-center"
     flat
     style="max-width: 400px"
   >
@@ -52,7 +52,7 @@ function onSubmit() {
         <QInput
           ref="phoneInputRef"
           v-model="form.phone"
-          class="q-mb-sm text-body1 q-mb-lg"
+          class="q-mb-lg q-mb-sm text-body1"
           label="Мобильный телефон"
           label-color="color-1"
           mask="(###)-###-####"
@@ -62,7 +62,7 @@ function onSubmit() {
         />
 
         <QBtn
-          class="q-pa-md full-width rounded-borders"
+          class="full-width q-pa-md rounded-borders"
           color="primary"
           label="Получить код"
           type="submit"

@@ -11,7 +11,7 @@ const { dialogRef, onDialogCancel } = useDialogPluginComponent()
   <QDialog ref="dialogRef">
     <QCard flat style="width: 380px; border-radius: 10px">
       <QCardSection class="q-pb-xl q-px-lg">
-        <div class="text-right q-mb-md">
+        <div class="q-mb-md text-right">
           <QIcon
             class="cursor-pointer"
             name="close"
@@ -20,7 +20,7 @@ const { dialogRef, onDialogCancel } = useDialogPluginComponent()
           />
         </div>
 
-        <div class="text-center q-mb-md">
+        <div class="q-mb-md text-center">
           <div class="q-mb-xs" style="font-size: 20px">
             Редактировать пользователя
           </div>

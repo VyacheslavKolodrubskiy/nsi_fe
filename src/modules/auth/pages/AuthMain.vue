@@ -6,7 +6,7 @@ import authProfile from 'assets/img/auth-profile.png'
 <template>
   <QPage class="flex flex-center" padding>
     <div
-      class="relative-position flex items-end justify-center"
+      class="flex items-end justify-center relative-position"
       style="width: 700px; height: 513px"
     >
       <QImg

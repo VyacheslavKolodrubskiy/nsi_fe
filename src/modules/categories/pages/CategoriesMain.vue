@@ -2,6 +2,7 @@
 import { storeToRefs } from 'pinia'
 import { QTableProps } from 'quasar'
 import { useCategoriesStore } from '../categories.store'
+import CategoriesEmpty from '../components/CategoriesEmpty.vue'
 
 const simple = [
   {
@@ -48,14 +49,6 @@ const pagination = ref<QTableProps['pagination']>({
   rowsPerPage: 8,
 })
 
-const categoriesStore = useCategoriesStore()
-const { fetchCategories } = categoriesStore
-const { categories } = storeToRefs(categoriesStore)
-
-const selectedUsers = ref([])
-const editedCategory = ref('Холодильники')
-const expandedCategoriesIds = ref<string[]>([])
-
 const options = [
   {
     label: 'Стас Старовойтов',
@@ -67,7 +60,18 @@ const options = [
   },
 ]
 
+const categoriesStore = useCategoriesStore()
+const { fetchCategories } = categoriesStore
+const { categories } = storeToRefs(categoriesStore)
+
+const selectedUsers = ref([])
+const editedCategory = ref('Холодильники')
+const expandedCategoriesIds = ref<string[]>([])
 const editor = ref('What you see is <b>what</b> you get.')
+
+const hasCategories = computed(() => {
+  return !!Object.keys(selectedUsers.value)?.length
+})
 
 function onClick(id: string) {
   if (!expandedCategoriesIds.value.includes(id)) {
@@ -85,49 +89,20 @@ if (!categories.value?.length) {
 </script>
 
 <template>
-  <div class="row no-wrap q-col-gutter-md min-h-inherit">
+  <div class="min-h-inherit no-wrap q-col-gutter-md row">
     <div class="col">
       <div class="card column">
-        <div class="flex justify-between q-mb-md">
-          <div>
+        <div class="q-mb-md row">
+          <div class="col">
             <div class="text-h2">Категории каталога</div>
 
-            <div class="text-color-2 text-caption">Список всех категорий</div>
+            <div class="text-caption text-color-2">Список всех категорий</div>
           </div>
 
-          <QIcon name="add_circle_outlined" size="sm" />
+          <BaseIcon class="col-auto cursor-pointer q-ml-xs" name="add-circle" />
         </div>
 
-        <div class="q-mb-lg col">
-          <div v-for="item in simple" :key="item.label">
-            <div
-              class="flex items-center cursor-pointer"
-              style="padding: 11px 0; border-bottom: 1px solid #dce0e3"
-              @click="onClick(item.label)"
-            >
-              <BaseIcon
-                class="q-mr-sm"
-                :class="{
-                  'rotate-90': expandedCategoriesIds.includes(item.label),
-                }"
-                height="20"
-                name="chevron-right"
-                style="transition: 0.2s"
-                width="20"
-              />
-
-              <div class="text-color-1">
-                {{ item.label }}
-              </div>
-            </div>
-
-            <QSlideTransition>
-              <div v-if="expandedCategoriesIds.includes(item.label)">
-                {{ item.children }}
-              </div>
-            </QSlideTransition>
-          </div>
-        </div>
+        <div class="col q-mb-lg">kek</div>
 
         <div class="q-gutter-md text-right">
           <BaseButton label="Сохранить" />
@@ -138,11 +113,13 @@ if (!categories.value?.length) {
     </div>
 
     <div class="col">
-      <div class="card column">
+      <CategoriesEmpty v-if="!hasCategories" />
+
+      <div v-else class="card column">
         <div class="q-mb-md">
           <div class="text-h2">Редактировать категорию</div>
 
-          <div class="text-color-2 text-caption">Внесите новые данные</div>
+          <div class="text-caption text-color-2">Внесите новые данные</div>
         </div>
 
         <QInput
@@ -186,7 +163,6 @@ if (!categories.value?.length) {
           <BaseButton label="Отмена" outline />
         </div>
       </div>
-      d
     </div>
   </div>
 </template>

@@ -58,7 +58,7 @@ function onSubmit() {
     />
 
     <QBtn
-      class="q-pa-md full-width"
+      class="full-width q-pa-md"
       color="primary"
       label="Создать"
       type="submit"

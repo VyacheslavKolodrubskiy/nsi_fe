@@ -4,7 +4,7 @@ import user from 'assets/img/user.png'
 </script>
 
 <template>
-  <div class="row q-col-gutter-md">
+  <div class="q-col-gutter-md row">
     <div class="col">
       <div class="card">
         <div class="q-mb-md">
@@ -15,7 +15,7 @@ import user from 'assets/img/user.png'
           </div>
         </div>
 
-        <div class="row q-gutter-x-xl">
+        <div class="q-gutter-x-xl row">
           <div class="column">
             <QImg
               class="q-mb-md"

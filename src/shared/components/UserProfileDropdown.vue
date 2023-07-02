@@ -43,7 +43,7 @@ const menuLinks: Link[] = [
         <QImg fit="contain" no-spinner no-transition :src="user" />
       </QAvatar>
 
-      <div class="text-black q-ml-sm">Марина Кравец</div>
+      <div class="q-ml-sm text-black">Марина Кравец</div>
     </template>
 
     <QList class="text-center">
