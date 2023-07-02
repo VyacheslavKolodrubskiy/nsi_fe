@@ -1,28 +1,11 @@
-export interface CatalogResponse {
-  page: number
-  page_size: number
-  total_count: number
-  results: Catalog[]
-}
-
-export interface Catalog {
-  id: string
-  code: string
-  type: number
-  name: string
-  group_id: string
+export interface Category {
   created_at: string
-  modified_at: string
-  status: string
-  published: boolean
-  category_id: string
-  manager_id: number
   description: string
-}
-
-export interface CatalogFilters {
-  page: number
-  search: string
-  page_size: number
-  sort_name: string
+  id: string
+  is_group: boolean
+  manager_id: number
+  modified_at: string
+  name: string
+  parent_id: string
+  product_group_id: string
 }

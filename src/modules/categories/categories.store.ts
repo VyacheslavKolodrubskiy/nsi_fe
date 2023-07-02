@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 
-import { Category } from './categories.models'
+import { Category } from './categories.interfaces'
 
 interface CategoriesState {
   categories: Category[]
@@ -24,8 +24,6 @@ export const useCategoriesStore = defineStore('categories', {
             page,
           },
         })
-
-        console.log('data:', data)
 
         this.categories = data.results
         this.totalCount = data.total_count

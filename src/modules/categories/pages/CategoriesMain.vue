@@ -52,10 +52,9 @@ const categoriesStore = useCategoriesStore()
 const { fetchCategories } = categoriesStore
 const { categories } = storeToRefs(categoriesStore)
 
-const expandedCategoriesIds = ref<string[]>([])
-
-const editedCategory = ref('Холодильники')
 const selectedUsers = ref([])
+const editedCategory = ref('Холодильники')
+const expandedCategoriesIds = ref<string[]>([])
 
 const options = [
   {
@@ -131,24 +130,9 @@ if (!categories.value?.length) {
         </div>
 
         <div class="q-gutter-md text-right">
-          <QBtn
-            class="rounded-borders"
-            color="primary"
-            dense
-            label="Сохранить"
-            no-caps
-            style="height: 50px; width: 108px"
-          />
+          <BaseButton label="Сохранить" />
 
-          <QBtn
-            class="rounded-borders"
-            color="primary"
-            dense
-            label="Отмена"
-            no-caps
-            outline
-            style="height: 50px; width: 89px"
-          />
+          <BaseButton label="Отмена" outline />
         </div>
       </div>
     </div>
@@ -197,26 +181,12 @@ if (!categories.value?.length) {
         />
 
         <div class="q-gutter-md text-right">
-          <QBtn
-            class="rounded-borders"
-            color="primary"
-            dense
-            label="Сохранить"
-            no-caps
-            style="height: 50px; width: 108px"
-          />
+          <BaseButton label="Сохранить" />
 
-          <QBtn
-            class="rounded-borders"
-            color="primary"
-            dense
-            label="Отмена"
-            no-caps
-            outline
-            style="height: 50px; width: 89px"
-          />
+          <BaseButton label="Отмена" outline />
         </div>
       </div>
+      d
     </div>
   </div>
 </template>
