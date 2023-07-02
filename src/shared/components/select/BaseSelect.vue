@@ -14,7 +14,7 @@ const emit = defineEmits(['update:model-value'])
     :model-value="modelValue"
     :options="options"
     outlined
-    popup-content-class="custom-scrollbar"
+    popup-content-class="custom-scrollbar q-py-sm"
     @update:model-value="emit('update:model-value', $event)"
   >
     <template

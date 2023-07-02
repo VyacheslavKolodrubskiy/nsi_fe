@@ -1,8 +1,13 @@
 <script setup lang="ts">
 import { QSelectProps, QSelectSlots } from 'quasar'
 
-defineProps<QSelectProps>()
+const props = defineProps<QSelectProps>()
 const emit = defineEmits(['update:model-value'])
+
+function onToggleOption(opt: any, toggleOption: (opt: any) => void) {
+  const option = props.modelValue?.value === opt.value ? null : opt
+  toggleOption(option)
+}
 </script>
 
 <template>
@@ -14,7 +19,7 @@ const emit = defineEmits(['update:model-value'])
     :model-value="modelValue"
     :options="options"
     outlined
-    popup-content-class="custom-scrollbar"
+    popup-content-class="custom-scrollbar q-py-sm"
     @update:model-value="emit('update:model-value', $event)"
   >
     <template
@@ -26,10 +31,13 @@ const emit = defineEmits(['update:model-value'])
     </template>
 
     <template v-slot:option="{ opt, selected, toggleOption }">
-      <div class="cursor-pointer flex items-center" @click="toggleOption(opt)">
-        <QCheckbox :model-value="selected" />
-
-        <div>{{ opt.label }}</div>
+      <div>
+        <QCheckbox
+          class="full-width"
+          :label="opt.label"
+          :model-value="selected"
+          @update:model-value="onToggleOption(opt, toggleOption)"
+        />
       </div>
     </template>
   </QSelect>
