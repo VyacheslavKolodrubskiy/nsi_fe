@@ -72,9 +72,9 @@ function onSubmit() {
       unchecked-icon="img:src/assets/img/icons/checkbox-uncheck.svg"
     />
 
-    <QBtn
-      class="full-width q-pa-md"
-      color="primary"
+    <BaseButton
+      class="full-width"
+      height="50"
       label="Сохранить"
       type="submit"
     />
