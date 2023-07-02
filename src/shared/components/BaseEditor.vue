@@ -7,7 +7,6 @@ const emit = defineEmits(['update:model-value'])
 
 <template>
   <QEditor
-    class="col q-mb-lg"
     min-height="5rem"
     :model-value="modelValue"
     :toolbar="[

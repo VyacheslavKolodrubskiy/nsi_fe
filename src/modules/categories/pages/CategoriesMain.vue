@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import { QTableProps } from 'quasar'
+import { managerOptions, supplierOptions } from '../categories.constants'
 import { useCategoriesStore } from '../categories.store'
 import CategoriesEmpty from '../components/CategoriesEmpty.vue'
 
@@ -11,17 +12,6 @@ const pagination = ref<QTableProps['pagination']>({
   rowsPerPage: 8,
 })
 
-const options = [
-  {
-    label: 'Стас Старовойтов',
-    value: 1,
-  },
-  {
-    label: 'Руслан Белый',
-    value: 2,
-  },
-]
-
 const categoriesStore = useCategoriesStore()
 const { fetchCategories } = categoriesStore
 const { categories } = storeToRefs(categoriesStore)
@@ -29,6 +19,7 @@ const { categories } = storeToRefs(categoriesStore)
 const expanded = ref([])
 const showCategoryForm = ref(false)
 const selectedManager = ref([])
+const selectedSupplier = ref([])
 const editedCategory = ref('')
 const editor = ref('')
 
@@ -47,7 +38,7 @@ if (!categories.value?.length) {
       <div class="card column">
         <div class="q-mb-md row">
           <div class="col">
-            <div class="text-h2">Категории каталога</div>
+            <div class="q-mb-xs text-h2">Категории каталога</div>
 
             <div class="text-caption text-color-2">Список всех категорий</div>
           </div>
@@ -83,28 +74,37 @@ if (!categories.value?.length) {
 
       <div v-else class="card column">
         <div class="q-mb-md">
-          <div class="text-h2">Создать категорию</div>
+          <div class="q-mb-xs text-h2">Создать категорию</div>
 
           <div class="text-caption text-color-2">Заполните форму</div>
         </div>
 
-        <QInput
-          v-model="editedCategory"
-          autocomplete="current-password"
-          class="q-mb-sm"
-          label="Название категории"
-          label-color="color-1"
-          outlined
-        />
+        <div class="col">
+          <QInput
+            v-model="editedCategory"
+            autocomplete="current-password"
+            class="q-mb-sm"
+            label="Название категории"
+            label-color="color-1"
+            outlined
+          />
 
-        <BaseSelectWithCheckbox
-          v-model="selectedManager"
-          class="q-mb-sm"
-          label="Назначить менеджера"
-          :options="options"
-        />
+          <BaseSelectWithCheckbox
+            v-model="selectedManager"
+            class="q-mb-sm"
+            label="Назначить менеджера"
+            :options="managerOptions"
+          />
 
-        <BaseEditor v-model="editor" />
+          <BaseEditor v-model="editor" class="q-mb-sm" />
+
+          <BaseSelectWithCheckbox
+            v-model="selectedSupplier"
+            class="q-mb-sm"
+            label="Категория поставщиков"
+            :options="supplierOptions"
+          />
+        </div>
 
         <div class="q-gutter-md text-right">
           <BaseButton label="Сохранить" />
@@ -115,14 +115,3 @@ if (!categories.value?.length) {
     </div>
   </div>
 </template>
-
-<!-- <style scoped lang="scss">
-.q-tree :deep(.q-tree__node-header) {
-  &:hover {
-    background: hsla(206, 100%, 40%, 0.10000000149011612);
-  }
-}
-.q-tree :deep(.q-focus-helper) {
-  background: red;
-}
-</style> -->

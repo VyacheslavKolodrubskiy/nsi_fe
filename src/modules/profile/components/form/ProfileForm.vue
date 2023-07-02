@@ -87,11 +87,6 @@ function onReset() {
       </QInput>
     </div>
 
-    <QBtn
-      color="primary"
-      label="Сохранить"
-      style="width: 115px; height: 50px; border-radius: 5px"
-      type="submit"
-    />
+    <BaseButton height="50" label="Сохранить" type="submit" width="115" />
   </QForm>
 </template>

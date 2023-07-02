@@ -1,7 +1,15 @@
 <script setup lang="ts">
 import { QBtnProps, QBtnSlots } from 'quasar'
 
-defineProps<QBtnProps>()
+interface Props extends QBtnProps {
+  width?: string | number
+  height?: string | number
+}
+
+withDefaults(defineProps<Props>(), {
+  width: 50,
+  height: 108,
+})
 </script>
 
 <template>
@@ -12,7 +20,8 @@ defineProps<QBtnProps>()
     :label="label"
     no-caps
     :outline="outline"
-    style="height: 50px; width: 108px"
+    :style="{ width: `${width}px`, height: `${height}px` }"
+    :type="type"
   >
     <template v-for="(_, name) in ($slots as Readonly<QBtnSlots>)" :key="name">
       <slot :name="name" />

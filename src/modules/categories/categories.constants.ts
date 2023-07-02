@@ -40,3 +40,25 @@ export const nodes: QTreeNode[] = [
     ],
   },
 ]
+
+export const managerOptions = [
+  {
+    label: 'Стас Старовойтов',
+    value: 1,
+  },
+  {
+    label: 'Руслан Белый',
+    value: 2,
+  },
+]
+
+export const supplierOptions = [
+  {
+    label: 'Категория 1',
+    value: 1,
+  },
+  {
+    label: 'Категория 2',
+    value: 2,
+  },
+]
