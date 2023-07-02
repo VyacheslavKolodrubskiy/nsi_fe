@@ -20,7 +20,7 @@ const expanded = ref([])
 const showCategoryForm = ref(false)
 const selectedManager = ref([])
 const selectedSupplier = ref([])
-const editedCategory = ref('')
+const categoryName = ref('')
 const editor = ref('')
 
 const hasCategories = computed(() => {
@@ -81,7 +81,7 @@ if (!categories.value?.length) {
 
         <div class="col">
           <QInput
-            v-model="editedCategory"
+            v-model="categoryName"
             autocomplete="current-password"
             class="q-mb-sm"
             label="Название категории"
