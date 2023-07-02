@@ -1,4 +1,3 @@
-import { QSelectOption } from 'quasar';
 <script setup lang="ts">
 import { QSelectOption } from 'quasar'
 

@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { QBtnSlots } from 'quasar'
-import { QBtnProps } from 'quasar'
+import { QBtnProps, QBtnSlots } from 'quasar'
 
 defineProps<QBtnProps>()
 </script>
