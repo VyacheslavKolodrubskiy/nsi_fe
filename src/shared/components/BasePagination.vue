@@ -1,0 +1,51 @@
+<script setup lang="ts">
+import { QPaginationProps } from 'quasar'
+
+defineProps<QPaginationProps>()
+const emit = defineEmits(['update:model-value'])
+</script>
+
+<template>
+  <QPagination
+    active-color="primary"
+    active-text-color="white"
+    color="color-1"
+    direction-links
+    gutter="sm"
+    :max="max"
+    :max-pages="maxPages"
+    :model-value="modelValue"
+    outline
+    push
+    :ripple="false"
+    rounded
+    size="15px"
+    unelevated
+    @update:model-value="emit('update:model-value', $event)"
+  />
+</template>
+
+<style scoped lang="scss">
+.q-pagination :deep(.q-btn-item) {
+  min-width: 2em !important;
+}
+.q-pagination :deep(.q-btn--outline)::before {
+  border-color: $color-3;
+}
+.q-pagination :deep(.q-pagination__content) {
+  .q-btn,
+  .q-pagination__middle .q-btn {
+    &:hover {
+      background-color: $color-1 !important;
+
+      &::before {
+        border: none !important;
+      }
+      .q-icon,
+      .block {
+        color: $bg-color !important;
+      }
+    }
+  }
+}
+</style>
