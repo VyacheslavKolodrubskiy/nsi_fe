@@ -45,6 +45,7 @@ function onReset() {
         <template #append>
           <QIcon
             class="cursor-pointer"
+            color="color-1"
             :name="isPwdOld ? 'visibility_off' : 'visibility'"
             @click="isPwdOld = !isPwdOld"
           />
@@ -63,6 +64,7 @@ function onReset() {
         <template #append>
           <QIcon
             class="cursor-pointer"
+            color="color-1"
             :name="isPwdNew ? 'visibility_off' : 'visibility'"
             @click="isPwdNew = !isPwdNew"
           />
@@ -80,6 +82,7 @@ function onReset() {
         <template #append>
           <QIcon
             class="cursor-pointer"
+            color="color-1"
             :name="isPwdRepeat ? 'visibility_off' : 'visibility'"
             @click="isPwdRepeat = !isPwdRepeat"
           />
