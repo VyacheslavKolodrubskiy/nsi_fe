@@ -72,6 +72,8 @@ module.exports = {
     'vue/padding-line-between-blocks': 'error',
     'vue/padding-line-between-tags': 'error',
     'vue/custom-event-name-casing': ['error', 'kebab-case'],
+    'vue/no-v-text-v-html-on-component': 'off',
+    // 'vue/valid-v-model': 'off',
     'vue/attribute-hyphenation': ['error', 'always'],
     'vue/component-tags-order': [
       'error',

@@ -2,7 +2,7 @@
 import { QInputProps, QInputSlots } from 'quasar'
 
 const props = defineProps<QInputProps>()
-const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits(['update:model-value'])
 </script>
 
 <template>
@@ -14,7 +14,7 @@ const emit = defineEmits(['update:modelValue'])
     :model-value="modelValue"
     outlined
     type="text"
-    @update:model-value="emit('update:modelValue', $event)"
+    @update:model-value="emit('update:model-value', $event)"
   >
     <template
       v-for="(_, name) in ($slots as Readonly<QInputSlots>)"

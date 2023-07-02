@@ -4,44 +4,6 @@ import { QTableProps } from 'quasar'
 import { useCategoriesStore } from '../categories.store'
 import CategoriesEmpty from '../components/CategoriesEmpty.vue'
 
-const simple = [
-  {
-    label: 'Good food',
-    children: [{ label: 'Quality ingredients' }, { label: 'Good recipe' }],
-  },
-  {
-    label: 'Good service (disabled node)',
-    children: [
-      {
-        label: 'Prompt attention',
-        children: [
-          { label: 'Happy atmosphere' },
-          { label: 'Good table presentation' },
-          { label: 'Pleasing decor' },
-        ],
-      },
-      { label: 'Professional waiter' },
-    ],
-  },
-  {
-    label: 'Pleasant surroundings',
-    children: [
-      {
-        label: 'Happy atmosphere',
-        children: [
-          { label: 'Happy atmosphere' },
-          { label: 'Good table presentation' },
-          { label: 'Pleasing decor' },
-        ],
-      },
-      { label: 'Good table presentation' },
-      {
-        label: 'Pleasing decor',
-      },
-    ],
-  },
-]
-
 const pagination = ref<QTableProps['pagination']>({
   sortBy: 'desc',
   descending: false,
@@ -65,12 +27,13 @@ const { fetchCategories } = categoriesStore
 const { categories } = storeToRefs(categoriesStore)
 
 const expanded = ref([])
-const selectedUsers = ref([])
-const editedCategory = ref('Холодильники')
-const editor = ref('What you see is <b>what</b> you get.')
+const showCategoryForm = ref(false)
+const selectedManager = ref([])
+const editedCategory = ref('')
+const editor = ref('')
 
 const hasCategories = computed(() => {
-  return !!Object.keys(selectedUsers.value)?.length
+  return !!Object.keys(categories.value)?.length
 })
 
 if (!categories.value?.length) {
@@ -89,17 +52,22 @@ if (!categories.value?.length) {
             <div class="text-caption text-color-2">Список всех категорий</div>
           </div>
 
-          <BaseIcon class="col-auto cursor-pointer q-ml-xs" name="add-circle" />
+          <BaseIcon
+            class="col-auto cursor-pointer q-ml-xs"
+            name="add-circle"
+            @click="showCategoryForm = true"
+          />
         </div>
 
         <div class="col q-mb-lg">
-          <QTree
+          <!-- <QTree
             v-model:expanded="expanded"
             icon="chevron_right"
             no-connectors
             node-key="label"
-            :nodes="simple"
-          />
+            :nodes="nodes"
+          >
+          </QTree> -->
         </div>
 
         <div class="q-gutter-md text-right">
@@ -111,13 +79,13 @@ if (!categories.value?.length) {
     </div>
 
     <div class="col">
-      <CategoriesEmpty v-if="!hasCategories" />
+      <CategoriesEmpty v-if="!showCategoryForm" />
 
       <div v-else class="card column">
         <div class="q-mb-md">
-          <div class="text-h2">Редактировать категорию</div>
+          <div class="text-h2">Создать категорию</div>
 
-          <div class="text-caption text-color-2">Внесите новые данные</div>
+          <div class="text-caption text-color-2">Заполните форму</div>
         </div>
 
         <QInput
@@ -129,31 +97,14 @@ if (!categories.value?.length) {
           outlined
         />
 
-        <QSelect
-          v-model="selectedUsers"
+        <BaseSelectWithCheckbox
+          v-model="selectedManager"
           class="q-mb-sm"
           label="Назначить менеджера"
-          label-color="color-1"
-          multiple
           :options="options"
-          outlined
         />
 
-        <QEditor
-          v-model="editor"
-          class="col q-mb-lg"
-          min-height="5rem"
-          :toolbar="[
-            [
-              'bold',
-              'italic',
-              'strike',
-              'underline',
-              'subscript',
-              'superscript',
-            ],
-          ]"
-        />
+        <BaseEditor v-model="editor" />
 
         <div class="q-gutter-md text-right">
           <BaseButton label="Сохранить" />
@@ -165,7 +116,7 @@ if (!categories.value?.length) {
   </div>
 </template>
 
-<style scoped lang="scss">
+<!-- <style scoped lang="scss">
 .q-tree :deep(.q-tree__node-header) {
   &:hover {
     background: hsla(206, 100%, 40%, 0.10000000149011612);
@@ -174,4 +125,4 @@ if (!categories.value?.length) {
 .q-tree :deep(.q-focus-helper) {
   background: red;
 }
-</style>
+</style> -->

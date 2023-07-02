@@ -24,6 +24,14 @@ const emit = defineEmits(['update:model-value'])
     >
       <slot :name="name" v-bind="{ ...slotData }" />
     </template>
+
+    <template v-slot:option="{ opt, selected, toggleOption }">
+      <div class="cursor-pointer flex items-center" @click="toggleOption(opt)">
+        <QCheckbox :model-value="selected" />
+
+        <div>{{ opt.label }}</div>
+      </div>
+    </template>
   </QSelect>
 </template>
 
