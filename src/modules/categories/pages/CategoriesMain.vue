@@ -64,24 +64,14 @@ const categoriesStore = useCategoriesStore()
 const { fetchCategories } = categoriesStore
 const { categories } = storeToRefs(categoriesStore)
 
+const expanded = ref([])
 const selectedUsers = ref([])
 const editedCategory = ref('Холодильники')
-const expandedCategoriesIds = ref<string[]>([])
 const editor = ref('What you see is <b>what</b> you get.')
 
 const hasCategories = computed(() => {
   return !!Object.keys(selectedUsers.value)?.length
 })
-
-function onClick(id: string) {
-  if (!expandedCategoriesIds.value.includes(id)) {
-    expandedCategoriesIds.value.push(id)
-  } else {
-    expandedCategoriesIds.value = expandedCategoriesIds.value.filter(
-      (item) => item !== id
-    )
-  }
-}
 
 if (!categories.value?.length) {
   pagination.value?.page && fetchCategories(pagination.value.page)
@@ -102,7 +92,15 @@ if (!categories.value?.length) {
           <BaseIcon class="col-auto cursor-pointer q-ml-xs" name="add-circle" />
         </div>
 
-        <div class="col q-mb-lg">kek</div>
+        <div class="col q-mb-lg">
+          <QTree
+            v-model:expanded="expanded"
+            icon="chevron_right"
+            no-connectors
+            node-key="label"
+            :nodes="simple"
+          />
+        </div>
 
         <div class="q-gutter-md text-right">
           <BaseButton label="Сохранить" />
@@ -167,4 +165,13 @@ if (!categories.value?.length) {
   </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.q-tree :deep(.q-tree__node-header) {
+  &:hover {
+    background: hsla(206, 100%, 40%, 0.10000000149011612);
+  }
+}
+.q-tree :deep(.q-focus-helper) {
+  background: red;
+}
+</style>
