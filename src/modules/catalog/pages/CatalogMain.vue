@@ -31,6 +31,7 @@ const pagination = ref({
 const filter = ref('')
 const filled = ref(20)
 const selected = ref([])
+const selected2 = ref([])
 const catalogStore = useCatalogStore()
 const { fetchCatalog } = catalogStore
 const { catalog, totalCount } = storeToRefs(catalogStore)
@@ -68,14 +69,12 @@ onMounted(async () => {
 
 <template>
   <div class="card">
+    {{ selected }}
+    {{ selected2 }}
     <QTable
-      v-model:pagination="pagination"
-      v-model:selected="selected"
-      class="catalog-table"
       :columns="columns"
       :filter="filter"
       flat
-      row-key="name"
       :rows="catalog"
       selection="single"
       table-header-class="text-color-2"
@@ -116,6 +115,10 @@ onMounted(async () => {
 
           <TableSearchInput v-model="filter" />
         </div>
+      </template>
+
+      <template #body-selection="{ row }">
+        <BaseCheckbox v-model="row.id" />
       </template>
 
       <template #body-cell-filled="props">
