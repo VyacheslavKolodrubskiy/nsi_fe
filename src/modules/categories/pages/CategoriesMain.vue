@@ -22,6 +22,7 @@ const categoryName = ref('')
 const selectedManager = ref(null)
 const selectedSupplier = ref(null)
 const showCategoryForm = ref(false)
+const checkbox = ref(false)
 
 const hasCategories = computed(() => {
   return !!Object.keys(categories.value)?.length

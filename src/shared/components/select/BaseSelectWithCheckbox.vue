@@ -32,7 +32,7 @@ function onToggleOption(opt: any, toggleOption: (opt: any) => void) {
 
     <template v-slot:option="{ opt, selected, toggleOption }">
       <div>
-        <QCheckbox
+        <BaseCheckbox
           class="full-width"
           :label="opt.label"
           :model-value="selected"
