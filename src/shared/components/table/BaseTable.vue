@@ -3,6 +3,7 @@ import { QPaginationProps, QTableProps, QTableSlots } from 'quasar'
 
 withDefaults(defineProps<QTableProps & QPaginationProps>(), {
   rowKey: 'id',
+  rowsPerPageOptions: () => [8],
 })
 
 const emit = defineEmits(['update:model-value'])
@@ -15,7 +16,7 @@ const emit = defineEmits(['update:model-value'])
     flat
     :row-key="rowKey"
     :rows="rows"
-    :rows-per-page-options="[8]"
+    :rows-per-page-options="rowsPerPageOptions"
     table-header-class="text-color-2"
   >
     <template
