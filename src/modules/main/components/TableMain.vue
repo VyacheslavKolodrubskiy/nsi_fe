@@ -1,77 +1,7 @@
 <script setup lang="ts">
-import { QSelectOption, QTableColumn, QTableProps } from 'quasar'
+import { QSelectOption, QTableProps } from 'quasar'
+import { columns, options, rows } from '../main.constants'
 import user from 'assets/img/user.png'
-
-const columns: QTableColumn[] = [
-  {
-    name: 'name',
-    align: 'left',
-    label: 'ФИО менеджера',
-    field: 'name',
-  },
-  {
-    name: 'inProgress',
-    align: 'left',
-    label: 'В работе',
-    field: 'inProgress',
-  },
-  {
-    name: 'published',
-    align: 'left',
-    label: 'Опубликовано',
-    field: 'published',
-  },
-  {
-    name: 'onCompletion',
-    align: 'left',
-    label: 'На доработке',
-    field: 'onCompletion',
-  },
-  {
-    name: 'finished',
-    align: 'left',
-    label: 'Завершено',
-    field: 'finished',
-  },
-  {
-    name: 'action',
-    align: 'left',
-    label: '',
-    field: 'action',
-    style: 'width: 20px',
-  },
-]
-
-const initialRows = [
-  {
-    name: 'Марина Кравец',
-    inProgress: '89',
-    published: '7',
-    onCompletion: '67',
-    finished: '5',
-    action: '',
-  },
-]
-
-const rows = Array.from({ length: 100 }, (_, index) => ({
-  ...initialRows[0],
-  name: `${initialRows[0].name} ${index}`,
-}))
-
-const options = ref<QSelectOption[]>([
-  {
-    value: 'today',
-    label: 'Сегодня',
-  },
-  {
-    value: 'tomorrow',
-    label: 'Завтра',
-  },
-  {
-    value: 'allTime',
-    label: 'Все время',
-  },
-])
 
 const filter = ref('')
 const currentOption = ref<QSelectOption>(options.value[0])

@@ -51,7 +51,7 @@ if (!categories.value?.length) {
           />
         </div>
 
-        <div class="col q-mb-lg">
+        <div class="col q-mb-md">
           <!-- <QTree
             v-model:expanded="expanded"
             icon="chevron_right"
@@ -80,7 +80,7 @@ if (!categories.value?.length) {
           <div class="text-caption text-color-2">Заполните форму</div>
         </div>
 
-        <div class="col">
+        <div class="col q-mb-md">
           <QInput
             v-model="categoryName"
             autocomplete="current-password"

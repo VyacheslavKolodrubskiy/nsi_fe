@@ -1,24 +1,9 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import { QSelectOption, QTable } from 'quasar'
-import { columns } from '../catalog.constants'
+import { columns, options } from '../catalog.constants'
 import { CatalogFilters } from '../catalog.interfaces'
 import { useCatalogStore } from '../catalog.store'
-
-const options = ref<QSelectOption[]>([
-  {
-    value: 'catalog',
-    label: 'Каталог',
-  },
-  {
-    value: 'catalog',
-    label: 'Каталог',
-  },
-  {
-    value: 'catalog',
-    label: 'Каталог',
-  },
-])
 
 const filter = ref('')
 const filled = ref(20)

@@ -1,4 +1,4 @@
-import { date, QTableColumn } from 'quasar'
+import { date, QSelectOption, QTableColumn } from 'quasar'
 
 export const columns: QTableColumn[] = [
   {
@@ -58,3 +58,18 @@ export const columns: QTableColumn[] = [
     style: 'width: 20px',
   },
 ]
+
+export const options = ref<QSelectOption[]>([
+  {
+    value: 'catalog',
+    label: 'Каталог',
+  },
+  {
+    value: 'catalog',
+    label: 'Каталог',
+  },
+  {
+    value: 'catalog',
+    label: 'Каталог',
+  },
+])
