@@ -1,35 +1,24 @@
 <script setup lang="ts">
-import { storeToRefs } from 'pinia'
-import { QTableProps } from 'quasar'
 import { managerOptions, supplierOptions } from '../categories.constants'
+import { Category } from '../categories.interfaces'
 import { useCategoriesStore } from '../categories.store'
 import CategoriesEmpty from '../components/CategoriesEmpty.vue'
 
-const pagination = ref<QTableProps['pagination']>({
-  sortBy: 'desc',
-  descending: false,
-  page: 1,
-  rowsPerPage: 8,
+const categoryForm = reactive<Category>({
+  description: '',
+  id: '',
+  is_group: false,
+  manager_id: null,
+  modified_at: `${new Date().toISOString()}`,
+  name: '',
 })
 
 const categoriesStore = useCategoriesStore()
-const { fetchCategories } = categoriesStore
-const { categories } = storeToRefs(categoriesStore)
-
-const editor = ref('')
-const expanded = ref([])
-const categoryName = ref('')
-const selectedManager = ref(null)
-const selectedSupplier = ref(null)
+const { createCategory } = categoriesStore
 const showCategoryForm = ref(false)
-const checkbox = ref(false)
 
-const hasCategories = computed(() => {
-  return !!Object.keys(categories.value)?.length
-})
-
-if (!categories.value?.length) {
-  pagination.value?.page && fetchCategories(pagination.value.page)
+function onCreateCategory() {
+  createCategory(categoryForm)
 }
 </script>
 
@@ -82,7 +71,7 @@ if (!categories.value?.length) {
 
         <div class="col q-mb-md">
           <QInput
-            v-model="categoryName"
+            v-model="categoryForm.name"
             autocomplete="current-password"
             class="q-mb-sm"
             label="Название категории"
@@ -91,16 +80,16 @@ if (!categories.value?.length) {
           />
 
           <BaseSelectWithCheckbox
-            v-model="selectedManager"
+            v-model="categoryForm.manager_id"
             class="q-mb-sm"
             label="Назначить менеджера"
             :options="managerOptions"
           />
 
-          <BaseEditor v-model="editor" class="q-mb-sm" />
+          <BaseEditor v-model="categoryForm.description" class="q-mb-sm" />
 
           <BaseSelectWithCheckbox
-            v-model="selectedSupplier"
+            v-model="categoryForm.product_group_id"
             class="q-mb-sm"
             label="Категория поставщиков"
             :options="supplierOptions"
@@ -108,7 +97,7 @@ if (!categories.value?.length) {
         </div>
 
         <div class="flex justify-end no-wrap q-gutter-md">
-          <BaseButton label="Сохранить" />
+          <BaseButton label="Сохранить" @click="onCreateCategory" />
 
           <BaseButton label="Отмена" outline />
         </div>

@@ -5,7 +5,7 @@ const props = defineProps<QSelectProps>()
 const emit = defineEmits(['update:model-value'])
 
 function onToggleOption(opt: any, toggleOption: (opt: any) => void) {
-  const option = props.modelValue?.value === opt.value ? null : opt
+  const option = props.modelValue === opt.value ? null : opt
   toggleOption(option)
 }
 </script>
@@ -14,8 +14,10 @@ function onToggleOption(opt: any, toggleOption: (opt: any) => void) {
   <QSelect
     color="color-3"
     dropdown-icon="expand_more"
+    emit-value
     :label="label"
     label-color="color-1"
+    map-options
     :model-value="modelValue"
     :options="options"
     outlined
@@ -33,7 +35,6 @@ function onToggleOption(opt: any, toggleOption: (opt: any) => void) {
     <template v-slot:option="{ opt, selected, toggleOption }">
       <div>
         <BaseCheckbox
-          class="full-width"
           :label="opt.label"
           :model-value="selected"
           @update:model-value="onToggleOption(opt, toggleOption)"

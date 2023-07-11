@@ -31,5 +31,13 @@ export const useCategoriesStore = defineStore('categories', {
         console.error(error)
       }
     },
+    async createCategory(category: Category) {
+      try {
+        const { data } = await this.$api.post('/nsi/product_category', category)
+        console.log('data:', data)
+      } catch (error) {
+        console.error(error)
+      }
+    },
   },
 })

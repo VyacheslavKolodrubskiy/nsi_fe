@@ -10,6 +10,8 @@ withDefaults(defineProps<Props>(), {
   width: 108,
   height: 50,
 })
+
+const emit = defineEmits(['click'])
 </script>
 
 <template>
@@ -22,6 +24,7 @@ withDefaults(defineProps<Props>(), {
     :outline="outline"
     :style="{ width: `${width}px`, height: `${height}px` }"
     :type="type"
+    @click="emit('click')"
   >
     <template v-for="(_, name) in ($slots as Readonly<QBtnSlots>)" :key="name">
       <slot :name="name" />
