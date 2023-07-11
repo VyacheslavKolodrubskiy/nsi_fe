@@ -1,70 +1,7 @@
 <script setup lang="ts">
-import { ApexOptions } from 'apexcharts'
 import { QSelectOption } from 'quasar'
+import { chartOptions, options } from '../dashboard.constants'
 import user from 'assets/img/user.png'
-
-const chartOptions: ApexOptions = {
-  series: [
-    {
-      data: [10, 41, 35, 51, 49, 62, 69, 91, 148],
-    },
-  ],
-  colors: ['#0F991B'],
-  chart: {
-    toolbar: {
-      show: false,
-    },
-    type: 'line',
-    zoom: {
-      enabled: false,
-    },
-  },
-  dataLabels: {
-    enabled: false,
-  },
-  stroke: {
-    width: 1,
-    curve: 'straight',
-  },
-  grid: {
-    column: {
-      colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
-      opacity: 0.5,
-    },
-  },
-  tooltip: {
-    y: {
-      title: {
-        formatter: function () {
-          return ''
-        },
-      },
-    },
-  },
-  yaxis: {
-    labels: {
-      show: false,
-    },
-  },
-  xaxis: {
-    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
-  },
-}
-
-const options = ref<QSelectOption[]>([
-  {
-    value: 'today',
-    label: 'Сегодня',
-  },
-  {
-    value: 'tomorrow',
-    label: 'Завтра',
-  },
-  {
-    value: 'allTime',
-    label: 'Все время',
-  },
-])
 
 const currentOption = ref<QSelectOption>(options.value[0])
 </script>
