@@ -15,7 +15,7 @@ const emit = defineEmits(['update:model-value'])
     flat
     :row-key="rowKey"
     :rows="rows"
-    :rows-per-page-options="[]"
+    :rows-per-page-options="[8]"
     table-header-class="text-color-2"
   >
     <template

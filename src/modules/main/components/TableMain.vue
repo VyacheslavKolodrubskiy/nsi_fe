@@ -26,7 +26,7 @@ function onEditClick(key: string) {
     flat
     row-key="name"
     :rows="rows"
-    :rows-per-page-options="[]"
+    :rows-per-page-options="[8]"
     table-header-class="text-color-2"
   >
     <template #top-left>

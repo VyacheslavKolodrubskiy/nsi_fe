@@ -16,7 +16,7 @@ const currentOption = ref<QSelectOption>(options.value[0])
 const filters = ref<CatalogFilters>({
   page: 1,
   search: filter.value,
-  page_size: 20,
+  page_size: 8,
   sort_name: 'desc',
   rowsNumber: 20,
 })
@@ -53,6 +53,7 @@ onMounted(async () => {
       :filter="filter"
       flat
       :rows="catalog"
+      :rows-per-page-options="[8]"
       selection="single"
       table-header-class="text-color-2"
     >
