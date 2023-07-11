@@ -31,7 +31,6 @@ const pagination = ref({
 const filter = ref('')
 const filled = ref(20)
 const selected = ref([])
-const selected2 = ref([])
 const catalogStore = useCatalogStore()
 const { fetchCatalog } = catalogStore
 const { catalog, totalCount } = storeToRefs(catalogStore)
@@ -69,9 +68,9 @@ onMounted(async () => {
 
 <template>
   <div class="card">
-    {{ selected }}
-    {{ selected2 }}
     <QTable
+      v-model:selected="selected"
+      color="primary"
       :columns="columns"
       :filter="filter"
       flat
@@ -117,10 +116,6 @@ onMounted(async () => {
         </div>
       </template>
 
-      <template #body-selection="{ row }">
-        <BaseCheckbox v-model="row.id" />
-      </template>
-
       <template #body-cell-filled="props">
         <QTd :props="props">
           <div
@@ -160,24 +155,11 @@ onMounted(async () => {
       </template>
 
       <template #bottom>
-        <QPagination
-          active-color="primary"
-          active-text-color="white"
-          :boundary-numbers="false"
-          class="custom-pagination"
-          color="color-1"
-          direction-links
-          gutter="sm"
-          :max="pagination.rowsNumber"
-          :max-pages="6"
+        <BasePagination
           :model-value="filters.page"
-          outline
-          push
-          :ripple="false"
-          rounded
-          unelevated
           @update:model-value="onUpdatePagination"
-      /></template>
+        />
+      </template>
     </QTable>
   </div>
 </template>

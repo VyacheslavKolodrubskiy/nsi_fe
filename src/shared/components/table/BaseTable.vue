@@ -27,21 +27,8 @@ const emit = defineEmits(['update:model-value'])
     </template>
 
     <template #bottom>
-      <QPagination
-        active-color="primary"
-        active-text-color="white"
-        color="color-1"
-        direction-links
-        gutter="sm"
-        :max="max"
-        :max-pages="maxPages"
+      <BasePagination
         :model-value="modelValue"
-        outline
-        push
-        :ripple="false"
-        rounded
-        size="15px"
-        unelevated
         @update:model-value="emit('update:model-value', $event)"
       />
     </template>

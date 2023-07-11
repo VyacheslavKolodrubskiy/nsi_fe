@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import { QPaginationProps } from 'quasar'
 
-defineProps<QPaginationProps>()
+withDefaults(defineProps<QPaginationProps>(), {
+  max: 6,
+  size: '15px',
+})
+
 const emit = defineEmits(['update:model-value'])
 </script>
 
@@ -19,7 +23,7 @@ const emit = defineEmits(['update:model-value'])
     push
     :ripple="false"
     rounded
-    size="15px"
+    :size="size"
     unelevated
     @update:model-value="emit('update:model-value', $event)"
   />

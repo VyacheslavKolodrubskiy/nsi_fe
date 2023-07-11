@@ -62,7 +62,7 @@ if (!categories.value?.length) {
           </QTree> -->
         </div>
 
-        <div class="q-gutter-md text-right">
+        <div class="flex justify-end no-wrap q-gutter-md">
           <BaseButton label="Сохранить" />
 
           <BaseButton label="Отмена" outline />
@@ -107,7 +107,7 @@ if (!categories.value?.length) {
           />
         </div>
 
-        <div class="q-gutter-md text-right">
+        <div class="flex justify-end no-wrap q-gutter-md">
           <BaseButton label="Сохранить" />
 
           <BaseButton label="Отмена" outline />
