@@ -15,7 +15,7 @@ export const useCatalogStore = defineStore('catalog', {
   }),
   getters: {},
   actions: {
-    async fetchCatalog(filters: CatalogFilters) {
+    async fetchCatalog({ rowsNumber, ...filters }: CatalogFilters) {
       try {
         const { data } = await this.$api.get<CatalogResponse>('/nsi/product', {
           params: { ...filters, with_total_count: true },

@@ -20,14 +20,6 @@ const options = ref<QSelectOption[]>([
   },
 ])
 
-const pagination = ref({
-  sortBy: 'desc',
-  descending: false,
-  page: 1,
-  rowsPerPage: 8,
-  rowsNumber: 20,
-})
-
 const filter = ref('')
 const filled = ref(20)
 const selected = ref([])
@@ -37,16 +29,17 @@ const { catalog, totalCount } = storeToRefs(catalogStore)
 const currentOption = ref<QSelectOption>(options.value[0])
 
 const filters = ref<CatalogFilters>({
-  page: pagination.value.page,
+  page: 1,
   search: filter.value,
-  page_size: pagination.value.rowsPerPage,
-  sort_name: pagination.value.sortBy,
+  page_size: 20,
+  sort_name: 'desc',
+  rowsNumber: 20,
 })
 
 async function onUpdatePagination(page: number) {
   filters.value.page = page
   await fetchCatalog(filters.value)
-  pagination.value.rowsNumber = totalCount.value
+  filters.value.rowsNumber = totalCount.value
 }
 
 watch(
@@ -62,7 +55,7 @@ watch(
 
 onMounted(async () => {
   await fetchCatalog(filters.value)
-  pagination.value.rowsNumber = totalCount.value
+  filters.value.rowsNumber = totalCount.value
 })
 </script>
 

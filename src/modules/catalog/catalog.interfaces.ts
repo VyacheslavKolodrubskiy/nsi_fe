@@ -25,4 +25,5 @@ export interface CatalogFilters {
   search: string
   page_size: number
   sort_name: string
+  rowsNumber: number
 }
