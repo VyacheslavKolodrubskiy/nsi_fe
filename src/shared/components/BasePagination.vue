@@ -4,6 +4,7 @@ import { QPaginationProps } from 'quasar'
 withDefaults(defineProps<QPaginationProps>(), {
   max: 6,
   size: '15px',
+  ripple: false,
 })
 
 const emit = defineEmits(['update:model-value'])
@@ -21,7 +22,7 @@ const emit = defineEmits(['update:model-value'])
     :model-value="modelValue"
     outline
     push
-    :ripple="false"
+    :ripple="ripple"
     rounded
     :size="size"
     unelevated
