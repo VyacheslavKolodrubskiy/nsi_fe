@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { PageName } from 'shared/enums/common.enum'
 import { useAuthStore } from '../../modules/auth/auth.store'
-import user from 'assets/img/user.png'
+import userImg from 'assets/img/user.png'
 
 interface Link {
   title: string
@@ -40,7 +40,7 @@ const menuLinks: Link[] = [
   >
     <template #label>
       <QAvatar rounded size="50px">
-        <QImg fit="contain" no-spinner no-transition :src="user" />
+        <QImg fit="contain" no-spinner no-transition :src="userImg" />
       </QAvatar>
 
       <div class="q-ml-sm text-black">Марина Кравец</div>

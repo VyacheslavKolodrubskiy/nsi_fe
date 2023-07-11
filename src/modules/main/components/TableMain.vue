@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { QSelectOption, QTableProps } from 'quasar'
 import { columns, options, rows } from '../main.constants'
-import user from 'assets/img/user.png'
+import userImg from 'assets/img/user.png'
 
 const filter = ref('')
 const currentOption = ref<QSelectOption>(options.value[0])
@@ -51,7 +51,7 @@ function onEditClick(key: string) {
             height="40px"
             no-spinner
             no-transition
-            :src="user"
+            :src="userImg"
             width="40px"
           />
 

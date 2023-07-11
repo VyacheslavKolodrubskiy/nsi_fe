@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { QSelectOption } from 'quasar'
 import { chartOptions, options } from '../dashboard.constants'
-import user from 'assets/img/user.png'
+import userImg from 'assets/img/user.png'
 
 const currentOption = ref<QSelectOption>(options.value[0])
 </script>
@@ -16,7 +16,7 @@ const currentOption = ref<QSelectOption>(options.value[0])
             height="150px"
             no-spinner
             no-transition
-            :src="user"
+            :src="userImg"
             width="150px"
           />
         </div>
