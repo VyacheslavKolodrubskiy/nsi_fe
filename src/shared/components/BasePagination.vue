@@ -5,6 +5,10 @@ withDefaults(defineProps<QPaginationProps>(), {
   max: 6,
   size: '15px',
   ripple: false,
+  gutter: 'sm',
+  activeColor: 'primary',
+  activeTextColor: 'white',
+  color: 'color-1',
 })
 
 const emit = defineEmits(['update:model-value'])
@@ -12,11 +16,11 @@ const emit = defineEmits(['update:model-value'])
 
 <template>
   <QPagination
-    active-color="primary"
-    active-text-color="white"
-    color="color-1"
+    :active-color="activeColor"
+    :active-text-color="activeTextColor"
+    :color="color"
     direction-links
-    gutter="sm"
+    :gutter="gutter"
     :max="max"
     :max-pages="maxPages"
     :model-value="modelValue"

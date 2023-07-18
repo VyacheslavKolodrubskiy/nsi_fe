@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { QPaginationProps, QTableProps, QTableSlots } from 'quasar'
+import { QTableProps, QTableSlots } from 'quasar'
 
-withDefaults(defineProps<QTableProps & QPaginationProps>(), {
+withDefaults(defineProps<QTableProps>(), {
   rowKey: 'id',
   rowsPerPageOptions: () => [8],
+  tableHeaderClass: 'text-color-2',
+  selection: 'single',
 })
-
-const emit = defineEmits(['update:model-value'])
 </script>
 
 <template>
@@ -17,7 +17,8 @@ const emit = defineEmits(['update:model-value'])
     :row-key="rowKey"
     :rows="rows"
     :rows-per-page-options="rowsPerPageOptions"
-    table-header-class="text-color-2"
+    :selection="selection"
+    :table-header-class="tableHeaderClass"
   >
     <template
       v-for="(_, name) in ($slots as Readonly<QTableSlots>)"
@@ -26,37 +27,7 @@ const emit = defineEmits(['update:model-value'])
     >
       <slot :name="name" v-bind="{ ...slotData }" />
     </template>
-
-    <template #bottom>
-      <BasePagination
-        :model-value="modelValue"
-        @update:model-value="emit('update:model-value', $event)"
-      />
-    </template>
   </QTable>
 </template>
 
-<style scoped lang="scss">
-.q-pagination :deep(.q-btn-item) {
-  min-width: 2em !important;
-}
-.q-pagination :deep(.q-btn--outline)::before {
-  border-color: $color-3;
-}
-.q-pagination :deep(.q-pagination__content) {
-  .q-btn,
-  .q-pagination__middle .q-btn {
-    &:hover {
-      background-color: $color-1 !important;
-
-      &::before {
-        border: none !important;
-      }
-      .q-icon,
-      .block {
-        color: $bg-color !important;
-      }
-    }
-  }
-}
-</style>
+<style scoped lang="scss"></style>

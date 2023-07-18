@@ -6,19 +6,28 @@ import CategoriesEmpty from '../components/CategoriesEmpty.vue'
 
 const categoryForm = reactive<Category>({
   description: '',
-  id: '',
   is_group: false,
   manager_id: null,
   modified_at: `${new Date().toISOString()}`,
   name: '',
+  created_at: '',
 })
 
 const categoriesStore = useCategoriesStore()
-const { createCategory } = categoriesStore
+const { createCategory, fetchCategory } = categoriesStore
 const showCategoryForm = ref(false)
 
-function onCreateCategory() {
-  createCategory(categoryForm)
+async function onCreateCategory() {
+  try {
+    const id = await createCategory({
+      ...categoryForm,
+      manager_id: categoryForm.manager_id || 0,
+    })
+
+    id && (await fetchCategory(id))
+  } catch (error) {
+    console.error(error)
+  }
 }
 </script>
 

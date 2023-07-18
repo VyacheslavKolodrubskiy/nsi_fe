@@ -7,7 +7,6 @@ import { useCatalogStore } from '../catalog.store'
 
 const filter = ref('')
 const filled = ref(20)
-const selected = ref([])
 const catalogStore = useCatalogStore()
 const { fetchCatalog } = catalogStore
 const { catalog, totalCount } = storeToRefs(catalogStore)
@@ -21,18 +20,24 @@ const filters = ref<CatalogFilters>({
   rowsNumber: 20,
 })
 
-async function onUpdatePagination(page: number) {
-  filters.value.page = page
-  await fetchCatalog(filters.value)
-  filters.value.rowsNumber = totalCount.value
-}
-
 watch(
   filter,
   async (value) => {
     if (value) {
       filters.value.search = value
       await fetchCatalog(filters.value)
+    }
+  },
+  { immediate: true }
+)
+
+watch(
+  () => filters.value.page,
+  async (newPage) => {
+    if (newPage) {
+      filters.value.page = newPage
+      await fetchCatalog(filters.value)
+      filters.value.rowsNumber = totalCount.value
     }
   },
   { immediate: true }
@@ -47,7 +52,6 @@ onMounted(async () => {
 <template>
   <div class="card">
     <QTable
-      v-model:selected="selected"
       color="primary"
       :columns="columns"
       :filter="filter"
@@ -134,36 +138,10 @@ onMounted(async () => {
       </template>
 
       <template #bottom>
-        <BasePagination
-          :model-value="filters.page"
-          @update:model-value="onUpdatePagination"
-        />
+        <BasePagination v-model="filters.page" />
       </template>
     </QTable>
   </div>
 </template>
 
-<style scoped lang="scss">
-.q-pagination :deep(.q-btn-item) {
-  min-width: 2em !important;
-}
-.q-pagination :deep(.q-btn--outline)::before {
-  border-color: $color-3;
-}
-.q-pagination :deep(.q-pagination__content) {
-  .q-btn,
-  .q-pagination__middle .q-btn {
-    &:hover {
-      background-color: $color-1 !important;
-
-      &::before {
-        border: none !important;
-      }
-      .q-icon,
-      .block {
-        color: $bg-color !important;
-      }
-    }
-  }
-}
-</style>
+<style scoped lang="scss"></style>

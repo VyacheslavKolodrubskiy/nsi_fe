@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { QTableColumn, QTableProps } from 'quasar'
 import { useQuasar } from 'quasar'
 import AddUserModal from '../components/modal/AddUserModal.vue'
 import EditUserModal from '../components/modal/EditUserModal.vue'
+import { columns, rows } from '../user.constants'
 import user from 'assets/img/user.png'
 
-const filter = ref('')
-
 const $q = useQuasar()
+const page = ref(1)
+const filter = ref('')
 
 function addNewUser() {
   $q.dialog({
@@ -24,62 +24,13 @@ function onEditClick(key: string) {
   })
 }
 
-const columns: QTableColumn[] = [
-  {
-    name: 'name',
-    align: 'left',
-    label: 'ФИО',
-    field: 'name',
+watch(
+  page,
+  (newPage) => {
+    console.log('newPage:', newPage)
   },
-  {
-    name: 'email',
-    align: 'left',
-    label: 'Почта/ Логин',
-    field: 'email',
-  },
-  {
-    name: 'role',
-    align: 'left',
-    label: 'Роль',
-    field: 'role',
-  },
-  {
-    name: 'lastLoginTime',
-    align: 'left',
-    label: 'Время последнего входа',
-    field: 'lastLoginTime',
-  },
-  {
-    name: 'status',
-    align: 'left',
-    label: 'Статус',
-    field: 'status',
-  },
-  {
-    name: 'action',
-    align: 'left',
-    label: '',
-    field: 'action',
-  },
-]
-
-const rows = [
-  {
-    name: 'Марина Кравец',
-    email: 'm.kravets@machta.kz',
-    role: 'Контент-менеджер',
-    lastLoginTime: '12:34  |  04.04.2023',
-    status: 'Активен',
-    action: '',
-  },
-]
-
-const pagination = ref<QTableProps['pagination']>({
-  sortBy: 'desc',
-  descending: false,
-  page: 1,
-  rowsPerPage: 8,
-})
+  { immediate: true }
+)
 </script>
 
 <template>
@@ -93,7 +44,6 @@ const pagination = ref<QTableProps['pagination']>({
 
   <div class="card">
     <QTable
-      v-model:pagination="pagination"
       :columns="columns"
       :filter="filter"
       flat
@@ -118,9 +68,7 @@ const pagination = ref<QTableProps['pagination']>({
             </div>
           </div>
 
-          <TableSearchInput v-model="filter">
-            <template></template>
-          </TableSearchInput>
+          <TableSearchInput v-model="filter" />
         </div>
       </template>
 
@@ -151,26 +99,8 @@ const pagination = ref<QTableProps['pagination']>({
         /></QTd>
       </template>
 
-      <template #bottom="scope">
-        <QPagination
-          active-color="primary"
-          active-text-color="white"
-          :boundary-numbers="false"
-          class="custom-pagination"
-          color="color-1"
-          direction-links
-          gutter="sm"
-          :max="scope.pagesNumber"
-          :max-pages="6"
-          :model-value="pagination?.page ?? 0"
-          outline
-          push
-          :ripple="false"
-          rounded
-          size="15px"
-          unelevated
-          @update:model-value="(page) => (pagination!.page = page)"
-        />
+      <template #bottom>
+        <BasePagination v-model="page" />
       </template>
     </QTable>
   </div>

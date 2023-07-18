@@ -93,28 +93,4 @@ function onEditClick(key: string) {
   </QTable>
 </template>
 
-<style lang="scss">
-.q-table__bottom {
-  padding-left: 0;
-}
-.custom-pagination {
-  margin-top: 15px;
-  .q-btn--outline:before {
-    border-color: $color-3;
-  }
-  .q-pagination__content > .q-btn,
-  .q-pagination__middle > .q-btn {
-    &:hover {
-      background-color: $color-1 !important;
-
-      &::before {
-        border: none !important;
-      }
-      .q-icon,
-      .block {
-        color: $bg-color !important;
-      }
-    }
-  }
-}
-</style>
+<style lang="scss"></style>

@@ -4,17 +4,14 @@ import { Category } from './categories.interfaces'
 
 interface CategoriesState {
   categories: Category[]
-  page: number
   totalCount: number
 }
 
 export const useCategoriesStore = defineStore('categories', {
   state: (): CategoriesState => ({
     categories: [],
-    page: 1,
     totalCount: 0,
   }),
-  getters: {},
   actions: {
     async fetchCategories(page: number) {
       try {
@@ -31,10 +28,27 @@ export const useCategoriesStore = defineStore('categories', {
         console.error(error)
       }
     },
+    async fetchCategory(id: string) {
+      try {
+        const { data } = await this.$api.get<Category>(
+          `/nsi/product_category/${id}`
+        )
+
+        console.log('data:', data)
+      } catch (error) {
+        console.error(error)
+      }
+    },
     async createCategory(category: Category) {
       try {
-        const { data } = await this.$api.post('/nsi/product_category', category)
-        console.log('data:', data)
+        const {
+          data: { id },
+        } = await this.$api.post<{ id: string }>(
+          '/nsi/product_category',
+          category
+        )
+
+        return id
       } catch (error) {
         console.error(error)
       }
