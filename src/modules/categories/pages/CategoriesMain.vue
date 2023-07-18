@@ -8,7 +8,7 @@ const categoryForm = reactive<Category>({
   description: '',
   is_group: false,
   manager_id: null,
-  modified_at: `${new Date().toISOString()}`,
+  modified_at: new Date().toISOString(),
   name: '',
   created_at: '',
 })

@@ -34,11 +34,13 @@ watch(
 watch(
   () => filters.value.page,
   async (newPage) => {
-    if (newPage) {
-      filters.value.page = newPage
-      await fetchCatalog(filters.value)
-      filters.value.rowsNumber = totalCount.value
+    if (!newPage) {
+      return
     }
+
+    filters.value.page = newPage
+    await fetchCatalog(filters.value)
+    filters.value.rowsNumber = totalCount.value
   },
   { immediate: true }
 )
