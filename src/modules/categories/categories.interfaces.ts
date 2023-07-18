@@ -1,3 +1,7 @@
+export interface CategoryResponse {
+  results: Category[]
+}
+
 export interface Category {
   description: string
   is_group: boolean

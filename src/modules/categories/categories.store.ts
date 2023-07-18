@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 
-import { Category } from './categories.interfaces'
+import { Category, CategoryResponse } from './categories.interfaces'
 
 interface CategoriesState {
   categories: Category[]
@@ -30,7 +30,7 @@ export const useCategoriesStore = defineStore('categories', {
     },
     async fetchCategory(id: string) {
       try {
-        const { data } = await this.$api.get<Category>(
+        const { data } = await this.$api.get<CategoryResponse>(
           `/nsi/product_category/${id}`
         )
 
