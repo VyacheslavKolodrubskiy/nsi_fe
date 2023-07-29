@@ -5,49 +5,39 @@ import { columns, options } from '../catalog.constants'
 import { CatalogFilters } from '../catalog.interfaces'
 import { useCatalogStore } from '../catalog.store'
 
-const filter = ref('')
 const filled = ref(20)
+const selection = ref<string[]>([])
 const catalogStore = useCatalogStore()
 const { fetchCatalog } = catalogStore
 const { catalog, totalCount } = storeToRefs(catalogStore)
 const currentOption = ref<QSelectOption>(options.value[0])
 
-const filters = ref<CatalogFilters>({
+const filters = reactive<CatalogFilters>({
   page: 1,
-  search: filter.value,
+  search: '',
   page_size: 8,
   sort_name: 'desc',
-  rowsNumber: 20,
+  rowsNumber: totalCount.value,
 })
 
-watch(
-  filter,
-  async (value) => {
-    if (value) {
-      filters.value.search = value
-      await fetchCatalog(filters.value)
-    }
-  },
-  { immediate: true }
-)
+function onUpdateSelection(key: string) {
+  if (selection.value.includes(key)) {
+    selection.value.splice(selection.value.indexOf(key), 1)
+  } else {
+    selection.value.push(key)
+  }
+}
 
 watch(
-  () => filters.value.page,
-  async (newPage) => {
-    if (!newPage) {
-      return
-    }
-
-    filters.value.page = newPage
-    await fetchCatalog(filters.value)
-    filters.value.rowsNumber = totalCount.value
+  () => filters,
+  (newFilters) => {
+    fetchCatalog(newFilters)
   },
-  { immediate: true }
+  { deep: true, immediate: true }
 )
 
-onMounted(async () => {
-  await fetchCatalog(filters.value)
-  filters.value.rowsNumber = totalCount.value
+onMounted(() => {
+  fetchCatalog(filters)
 })
 </script>
 
@@ -56,10 +46,11 @@ onMounted(async () => {
     <QTable
       color="primary"
       :columns="columns"
-      :filter="filter"
+      :filter="filters.search"
       flat
       :rows="catalog"
       :rows-per-page-options="[8]"
+      :selected="selection"
       selection="single"
       table-header-class="text-color-2"
     >
@@ -89,6 +80,15 @@ onMounted(async () => {
         </div>
       </template>
 
+      <template #body-selection="props">
+        <Qth :props="props">
+          <BaseCheckbox
+            :model-value="selection"
+            @update:model-value="onUpdateSelection(props.key)"
+          />
+        </Qth>
+      </template>
+
       <template #top-right>
         <div class="flex">
           <div
@@ -97,7 +97,7 @@ onMounted(async () => {
             <BaseIcon name="filter" />
           </div>
 
-          <TableSearchInput v-model="filter" />
+          <TableSearchInput v-model="filters.search" />
         </div>
       </template>
 
