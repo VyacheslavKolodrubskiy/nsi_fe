@@ -146,4 +146,9 @@ onMounted(async () => {
   </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.q-table__container :deep(.q-table__top) {
+  align-items: end;
+  gap: 20px;
+}
+</style>

@@ -2,7 +2,7 @@
 import { useRouter } from 'vue-router'
 import { useDialogPluginComponent } from 'quasar'
 import { PageName } from 'shared/enums/common.enum'
-import { formatPhoneNumber } from 'shared/utils/common'
+import { formatPhoneNumber } from 'shared/utils/common.util'
 import { useAuthStore } from '../../auth.store'
 
 const props = defineProps<{
